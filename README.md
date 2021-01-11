@@ -1,4 +1,6 @@
 # dbi
+![Github latest downloads](https://img.shields.io/github/downloads/rashevskyv/dbi/total.svg)
+
 Author is **duckbill**
 
 Atmosphere and SX OS are both supported 

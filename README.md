@@ -3,7 +3,7 @@ Author is **duckbill**
 
 Atmosphere and SX OS are both supported 
 
-For working with external USB, create empty file sdmc:/switch/dbi.libusbhsfs
+Create flag file /switch/dbi.no.libusbhsfs for turning off libusbhsfs external usb support
 
 Ultimate solution for NSP\NSZ\XCI installation. Supports installing via MTP, USB (with DBI backend script or dbi-nsw tool), http (from your own server), installing from external USB and more.
 

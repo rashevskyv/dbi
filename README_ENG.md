@@ -5,7 +5,7 @@ This guide is based on [Brikachu's work](https://4pda.ru/forum/index.php?showtop
 
 [РУССКИЙ / Russian guide](README.md)
 
-The ultimate solution for NSP/NSZ/XCI installation along with many more advanced features to enhance your Nintendo Switch experience! DBI supports installation via MTP, USB (using DBI backend script or dbi-nsw tool), network (using your own http server) and external USB drives.
+The ultimate solution for NSP/NSZ/XCI installation along with many more advanced features to enhance your Nintendo Switch experience! DBI supports installation via MTP, USB (using the dbibackend script or dbi-nsw tool), network (using your own http server) and external USB drives.
 
 ## Content: 
 
@@ -48,23 +48,24 @@ Copy `dbi.nro` and `dbi.config` to your SD card at `/switch/DBI/` DBI can be the
 
 The bottom left corner of DBI displays the total amount of data on your currently on your SD card along with the full capacity. The bottom right corner gives you the same information for your NAND's usable space in HOS.
 
-Bottom center (dbi: XXX) is the dbi version number - you should always use the most recent version.
+Bottom center (dbi: XXX) is the DBI version number - you should always use the most recent version.
 
 ### Browse SD Card / Browse USB0 Drive
 
 Select this option if you want to install games, updates and DLC from files that exist on your SD card or external USB drive.
-Press **A** to open the folder and **B** to go back. After opening the folder containing your installation files the **X** button can select single or multiple files individually. The **Y** button inverts your selections and the color of the name of the selected files will change from white to light blue.
+Press **A** to open the folder and **B** to go back. After opening the folder containing your installation files use the **X** button can select single or multiple files for installation. The **Y** button inverts your selections and the color of the name of the selected files will change from white to light blue.
 
-Prsss the **A** button to confirm. A window with installation options will appear:
+Press the **A** button to confirm. A window with installation options will appear:
 
 ![2021041011441100](https://user-images.githubusercontent.com/18294541/114264183-18138580-99f2-11eb-8c7b-536b4b831195.jpg)
 
-**Total transfer size** — the total amount of data (.NSP / .NSZ / .XCI files) selected for installation.
-**Total install size** — the amount of free space required to install the selected files.
-**Install target** — data installation location: **NAND** - internal memory of the Nintendo Switch console, **SD** - SD card, **AUTO** - by default this will install to your SD card but if you don't have enough space the installation will fall back to NAND (internal memory).
-**Delete after install** — deletes installation files (.NSP / .NSZ / .XCI files) from the source after they have been successfully installed; for this to work, the "Read-only" attribute must be removed from files if present. By default, files are not deleted. The option is visible only when installing from an SD card / external USB drive.
-**Turn off screen** — turns off the screen during installation to conserve battery, after installation successfully completes the screen will automatically turn back on. This option only works in handheld mode.
-Select **Start install** to begin the installation. After a successful installation *Installation Complete. Press B to return* will appear.
+* **Total transfer size** — the total amount of data (.NSP / .NSZ / .XCI files) selected for installation.
+* **Total install size** — the amount of free space required to install the selected files.
+* **Install target** — data installation location: **NAND** - internal memory of the Nintendo Switch console, **SD** - SD card, **AUTO** - by default this will install to your SD card but if you don't have enough space the installation will fall back to NAND (internal memory).
+* **Delete after install** — deletes installation files (.NSP / .NSZ / .XCI files) from the source after they have been successfully installed; for this to work, the "Read-only" attribute must be removed from files if present. By default, files are not deleted. The option is visible only when installing from an SD card / external USB drive.
+* **Turn off screen** — turns off the screen during installation to conserve battery, after installation successfully completes the screen will automatically turn back on. This option only works in handheld mode.
+Select 
+* **Start install** to begin the installation. After a successful installation *Installation Complete. Press B to return* will appear.
 
 *DBI will automatically and immediately remove old updates when installing a new update for a game, so you don't have to worry about the extra space they occupy.*
 
@@ -74,7 +75,7 @@ If you cannot use DBI's MTP responder this is another convenient method for inst
 
 *Main menu hotkey for this option*: **Y** button.
 
-In order to use this option you will first require dbibackend (`dbibackend.exe` for Windows,` dbibackend` from `dbibackend.tar.xz` for all). Launch dbibackend, select the files to install, select Start server, connect a USB-C cable from your PC to your Switch and select Install title from USB in dbi.
+In order to use this option you will first require dbibackend (`dbibackend.exe` for Windows,` dbibackend` from `dbibackend.tar.xz` for all). Launch dbibackend, select the files to install, select Start server, connect a USB-C cable from your PC to your Switch and select **Install title from USB** in DBI.
 
 From here you will select and install your files on the Switch in the same fashion as using Browse SD Card / Browse USB0 Drive
 
@@ -95,7 +96,7 @@ Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
 
 Install any other HTTP server with DirectoryListing enabled on your PC: Apache, Mongoose, Python SimpleHTTP, sheret, rclone, etc.
 
-Example for ngnix on Windows:
+Example for nginx on Windows:
 edit the file `/nginx/conf/nginx.conf`, registering the address of your Switch in `location`, instead of the `127.0.0.1` specified in the example (or your entire subnet like 192.168.1.1/24 or 192.168.0.0/16); it can be found on Switch in **System Preferences** > **Internet**:
 
 ```
@@ -180,7 +181,7 @@ In most case it's better not to touch anything here in order to avoid errors in 
 4: **Installed games**, to view installed games.
 
 В **Installed games** all installed games are displayed from both in NAND (internal memory of the Switch) and SD card. To dump installed games to your PC in .NSP format, just copy the folder with the name of the game from Installed games to your PC. A common ticket with completely cleared personal information is generated based on your personalized ticket. Your dump will be in separated files - the game itself, the update and DLC. If cheats or mods have been installed for the game, they will be located in the `Mods & Cheats` folder. You  can also dump a single combined multicontent file containing the game itself, the update and all DLC. This file is located right at the root of the **Installed games** section.
-The generated dbi `InstalledApplications.csv` is also stored here, with a table of the list of installed games, their TitleID and the current version.
+The generated DBI `InstalledApplications.csv` is also stored here, with a table of the list of installed games, their TitleID and the current version.
 
 5: **MicroSD install**
 Drop or copy your **NSP** or **NSZ** files in this folder. When the transfer is complete the game will be installed on the **SD card** of your console. When installing NSZ files, keep in mind that their actual size may differ greatly from their original size after installation: so if for example you start with 2GB free on your memory card and you do not have enough space to install an NSZ of 1GB in size, that is because NSZ files are compressed and must be decompressed for installation.
@@ -199,7 +200,7 @@ After activating the MTP server on the Switch a window will appear with your acc
 To turn off the MTP server and exit to the main menu, press the **X** button.
 
 ### Exit
-Exit - exit from the program in HOS, either to hbmenu or bypassing hbmenu directly to the homescreen (this is configured in dbi.config). If dbi was launched from a title / forwarder, the program will restart or remain on a black screen.
+Exit - exit from the program in HOS, either to hbmenu or bypassing hbmenu directly to the homescreen (this is configured in dbi.config). If DBI was launched from a title / forwarder, the program will restart or remain on a black screen.
 
 ## Errors and warnings
 
@@ -219,10 +220,10 @@ Exit - exit from the program in HOS, either to hbmenu or bypassing hbmenu direct
 * **«Received less data than expected»** or **Installation aborted** — data transfer error, recheck and if necessary replace the USB cable / USB port between the Switch and the PC. Also make sure you have the most recent version of the DBI installed.
 * **«std::bad_alloc»** — rename the file without special characters and Cyrillic in the name and path to it, plus make sure that you are using the latest version of DBI and that the latest supported version of OFW and CFW is installed on the console.
 * **«Nothing to install»** in the file selection window - rename the file without special characters, hieroglyphs or Cyrillic in the name and path to it.
-* **«INVALID LENGTH»** — check the USB-C cable connection to your USB port, try with another USB-C cable, check the integrity of the game file and the SD card for errors, when installing via MTP - try to run dbi in application mode (title override) holding the R button while launching a title.
+* **«INVALID LENGTH»** — check the USB-C cable connection to your USB port, try with another USB-C cable, check the integrity of the game file and the SD card for errors, when installing via MTP - try to run DBI in application mode (title override) holding the R button while launching a title.
 * **«[FAILED] Unknown error»** when installing .tik (ticket) - add the latest sigpatches for Atmosphére.
 * **«605: Content or placeholder path not exists»** or **«SOME CONTENTS ARE MISSING»** — broken file system on your SD card, or a non-working / low-quality flash drive. Check it in chkdsk and h2testw, if there are no errors reformat to FAT32.
-* **WARNING! Extra buffers exceeded**, when installing via MTP - try to run dbi in application mode (title override) holding the R button while launching a title or alternatively via NSP forwarder and use a faster microSD card with a different USB cable / port.
+* **WARNING! Extra buffers exceeded**, when installing via MTP - try to run DBI in application mode (title override) holding the R button while launching a title or alternatively via NSP forwarder and use a faster microSD card with a different USB cable / port.
 * **No tickets found but they are required** — incorrect (incomplete, no ticket but with titlerights) dump of the game, use another one.
 * **SOME CONTENTS ARE MISSING. APPLICATION WILL BE UNUSABLE** — container is incomplete, check the integrity of the game installation file.
     
@@ -275,7 +276,7 @@ Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
 
 * **DefaultASCII** - **true** includes a standard font, **false** includes an alternative font
 * **UseLibUsbHsFS** - **true** enables [libusbhsfs](https://github.com/DarkMatterCore/libusbhsfs) library for working with external USB drives via USB-OTG on Switch, **false** disables it.
-* **ExitToHomeScreen** — if **false**, the exit from dbi occurs in the hbmenu, if **true**, to the Switch's home menu
+* **ExitToHomeScreen** — if **false**, the exit from DBI occurs in the hbmenu, if **true**, to the Switch's home menu
 * **CheckHash** — if **true**, hashes of .nca files are checked when installing games on the Switch, if **false**, no.
 * **LogAllFiles** — **false** disables logging of all files when working with MTP; if **true**, all files are logged, even those that are less than 4MB.
 * **ShowCombinedNSPInInstalledGames** — **false** disables display of combined (multi-title .NSP-file) titles.

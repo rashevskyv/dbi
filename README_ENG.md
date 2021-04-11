@@ -63,9 +63,8 @@ Press the **A** button to confirm. A window with installation options will appea
 * **Total install size** — the amount of free space required to install the selected files.
 * **Install target** — data installation location: **NAND** - internal memory of the Nintendo Switch console, **SD** - SD card, **AUTO** - by default this will install to your SD card but if you don't have enough space the installation will fall back to NAND (internal memory).
 * **Delete after install** — deletes installation files (.NSP / .NSZ / .XCI files) from the source after they have been successfully installed; for this to work, the "Read-only" attribute must be removed from files if present. By default, files are not deleted. The option is visible only when installing from an SD card / external USB drive.
-* **Turn off screen** — turns off the screen during installation to conserve battery, after installation successfully completes the screen will automatically turn back on. This option only works in handheld mode.
-Select 
-* **Start install** to begin the installation. After a successful installation *Installation Complete. Press B to return* will appear.
+* **Turn off screen** — turns off the screen during installation to conserve battery, after installation successfully completes the screen will automatically turn back on. This option only works in handheld mode. 
+* Select **Start install** to begin the installation. After a successful installation *Installation Complete. Press B to return* will appear.
 
 *DBI will automatically and immediately remove old updates when installing a new update for a game, so you don't have to worry about the extra space they occupy.*
 

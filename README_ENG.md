@@ -53,7 +53,7 @@ Bottom center (dbi: XXX) is the DBI version number - you should always use the m
 ### Browse SD Card / Browse USB0 Drive
 
 Select this option if you want to install games, updates and DLC from files that exist on your SD card or external USB drive.
-Press **A** to open the folder and **B** to go back. After opening the folder containing your installation files use the **X** button can select single or multiple files for installation. The **Y** button inverts your selections and the color of the name of the selected files will change from white to light blue.
+Press **A** to open the folder and **B** to go back. After opening the folder containing your installation files use the **X** button to select single or multiple files for installation. The **Y** button inverts your selections and the color of the name of the selected files will change from white to light blue.
 
 Press the **A** button to confirm. A window with installation options will appear:
 

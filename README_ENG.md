@@ -154,7 +154,7 @@ The total number of installed applications (e.g. games and homebrew nsps) is dis
 By pressing the **R** button you can sort the game list as you prefer - alphabetically (default) or by last usage.
 Press the **A** button to enter the menu of the selected game, the **-** button deletes the game and its (non-personalized) ticket, the D-pad selects games, the left stick scrolls through the list of games and the **ZR** and **ZL** buttons flip through the list of games screen by screen.
 
-You can also check (verify) games for their integrity by selecting the file to check and then selecting ** Check integriy **
+You can also check (verify) games for their integrity by selecting the file to check and then selecting **Check integrity**
 
 ### Cleanup orphaned files
 **Cleanup orphaned files** automatically cleans unnecessary game files, files from interrupted game installations, downloaded (officially) OFW firmware updates and all unused game tickets if found.

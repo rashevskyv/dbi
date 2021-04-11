@@ -27,7 +27,7 @@ The ultimate solution for NSP/NSZ/XCI installation along with many more advanced
 
 ## Installation 
 
-Copy `dbi.nro` and `dbi.config` to your SD card at `/switch/DBI/`. DBI can be then be launched in either applet mode (from Album) or application mode (title override), however it is primarily designed to be used in applet mode. 
+Copy `dbi.nro` and `dbi.config` to your SD card at `/switch/DBI/` DBI can be then be launched in either applet mode (from Album) or application mode (title override), however it is primarily designed to be used in applet mode. 
 
 *If you have successfully launched DBI in applet mode you will see a blue background, launching in application mode will display a black background.*
 

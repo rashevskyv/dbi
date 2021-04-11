@@ -111,9 +111,9 @@ autoindex on;
 ```
 
 Save the config, run `nginx.exe`, allow the program to access the network, then copy the desired game to the local `/nginx/html/Nintendo/Switch/` folder on your PC, and on the Switch select “Home server”.
-You will now see the usual interface for installing files and you can start installing files over the network. You can stop the web server via nginx -s stop.
+You will now be presented with the usual interface for installing files and you can start installing files over the network. You can stop the web server via nginx -s stop.
 
-You can also use a domain name on the Internet, for example your remote VPS - better with HTTP Basic authentication like `http://user:password@host:port/Nintendo/Switch/`
+For the server address in dbi.config, you can also use a domain name, for example, your remote VPS - suggested to use with HTTP Basic authentication e.g.: `http://user:password@host:port/Nintendo/Switch/`
 
 For example:
 ```
@@ -121,7 +121,7 @@ ApacheHTTP|Network repo|http://127.0.0.1/Nintendo/Switch/
 ApacheHTTP|WWW VPS repo|http://www.myveryownswitchvpsdomain.su/Nintendo/Switch/
 ```
 
-Generate the htpasswd file, put it in `/nginx/conf/`, then change in `nginx.conf` in the block (example):
+Generate the htpasswd file, put it in /nginx/conf/, then adjust the nginx.conf file as follows:
 
 ```
         location /Nintendo/Switch/ {

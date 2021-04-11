@@ -91,7 +91,7 @@ Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
 
 Установите на ПК любой другой HTTP-сервер c включённым DirectoryListing: Apache, Mongoose, Python SimpleHTTP, sheret, rclone и т. д.,
 
-Пример для ngnix на Windows: 
+Пример для nginx на Windows: 
 отредактируйте файл `/nginx/conf/nginx.conf`, прописав в `location` адрес вашего Switch, вместо указанного в примере `127.0.0.1` (или всю свою подсеть вида 192.168.1.1/24 или 192.168.0.0/16); его можно узнать на Switch в **Системных настройках** > **Интернет**:
 
 ```

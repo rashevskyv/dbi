@@ -5,9 +5,9 @@ This guide is based on [Brikachu's work](https://4pda.ru/forum/index.php?showtop
 
 [РУССКИЙ / Russian guide](README.md)
 
-The ultimate solution for NSP\NSZ\XCI installation along with many more advanced features to enhance your Nintendo Switch experience! DBI supports installation via MTP, USB (using DBI backend script or dbi-nsw tool), network (using your own http server) and external USB drives.
+The ultimate solution for NSP/NSZ/XCI installation along with many more advanced features to enhance your Nintendo Switch experience! DBI supports installation via MTP, USB (using DBI backend script or dbi-nsw tool), network (using your own http server) and external USB drives.
 
-## Содержание: 
+## Content: 
 
 1. [Installation](#installation)
 1. [Usage](#usage)
@@ -21,7 +21,7 @@ The ultimate solution for NSP\NSZ\XCI installation along with many more advanced
 	1. [Run MTP responder](#run-mtp-responder)
 	1. [Exit](#exit)
 1. [Errors and warnings](#errors-and-warnings)
-	1. [Уведомления](#warnings)
+	1. [Notifications](#warnings)
 	1. [Errors](#errors)
 1. [dbi.config](#dbiconfig)
 
@@ -171,7 +171,6 @@ In most case it's better not to touch anything here in order to avoid errors in 
 
 ![изображение](https://user-images.githubusercontent.com/18294541/114265006-054f7f80-99f7-11eb-86c9-1a20d588e616.png)
 
-Где:
 1: **External SD Card**, for viewing, copying and deleting files and folders from/to a PC and from/to your SD card
 
 2: **NAND User**, viewing, copying files and folders on a PC from the Switch's internal memory to its USER system partition (this partition is read-only).
@@ -207,29 +206,28 @@ Exit - exit from the program in HOS, either to hbmenu or bypassing hbmenu direct
 ### Warnings
 
 * **«HASH MISMATCH»** — usually this is NOT an ERROR and the game was simply converted from an .XCI and everything is in order. Sometimes if there are problems with the integrity of the file, download it, rehash it, transferring data via a USB cable / port / during the installation process between the PC and the Switch.
-    If the game still does not start or starts with an error, try reinstalling it again, check or replace the USB cable / microSD / change the USB port.
-* **DELTA SKIPPED** — this is NOT an ERROR, but a notification that unnecessary fragments in the update file were skipped, if they were in it, as they should.
-* **«No tickets found. Possibly this NSP was converted from XCI.»** — this is NOT an ERROR, the performance of the game will not be affected, but informs you that the files do not include tickets. It may have been dumped from an .XCI cartridge or converted to Standard Crypto.
-* **«WARNING» title marked as Application but has AddonContent** — this is NOT an ERROR, usually it indicates a non-standard .NSP homebrew game, for example, when an AddonContent flag (DLC) was added to the Application title (main game, v0).
-    If such a game starts and works, then everything is in order.
+    If the game still does not start or starts with an error, try reinstalling it again, check or replace the USB cable / SD card / change the USB port.
+* **DELTA SKIPPED** — this is NOT an ERROR but a notification that unnecessary and unused delta fragments in the update file were skipped during installation.
+* **«No tickets found. Possibly this NSP was converted from XCI.»** — this is NOT an ERROR and the performance of the game will not be affected. This informs you that the files do not include tickets, they may have been dumped from an .XCI file or converted to Standard Crypto.
+* **«WARNING» title marked as Application but has AddonContent** — this is NOT an ERROR and usually it indicates a non-standard .NSP homebrew game, for example if an AddonContent flag (DLC) was added to the Application title (main game, v0).
+    If the application starts and works then everything is in order.
 
 ### ERRORs
 
-* **«Can not find file for ncaid»** — The installation file of the game is damaged (it does not contain the required .nca from the .cnmt list).
-* **«Invalid PFS0 magic!»** — download the installation file of the game and check its integrity, this file is damaged.
-* **«Received less data than expected»** or **Installation aborted** — data transfer error, recheck and if necessary replace the USB cable / USB port between the Switch and the PC. Also, make sure you have the most recent version of the program installed, like in this post.
-* **«std::bad_alloc»** — rename the file without special characters and Cyrillic in the name and path to it, plus make sure that you are using the latest version of the program, as in the post, the latest version of OFW and CFW is installed on the console.
+* **«Can not find file for ncaid»** — The installation file of the game is corrupt (it does not contain the required .nca from the .cnmt list).
+* **«Invalid PFS0 magic!»** — download the installation file of the game and check its integrity, this file is corrupt.
+* **«Received less data than expected»** or **Installation aborted** — data transfer error, recheck and if necessary replace the USB cable / USB port between the Switch and the PC. Also make sure you have the most recent version of the DBI installed.
+* **«std::bad_alloc»** — rename the file without special characters and Cyrillic in the name and path to it, plus make sure that you are using the latest version of DBI and that the latest supported version of OFW and CFW is installed on the console.
 * **«Nothing to install»** in the file selection window - rename the file without special characters, hieroglyphs or Cyrillic in the name and path to it.
-* **«INVALID LENGTH»** — check the connection of the USB-C cable and the USB port, check with other USB-C cables, the integrity of the game file and the memory card for errors, when installing via MTP - run dbi through any game (title) while holding the R button, and not in applet mode through albums.
-* **«Error occurred: Invalid argument»** — update your dbi to the latest version.
-* **«[FAILED] Unknown error»** when installing .tik (ticket) - install the latest sigpatch for Atmosphére.
-* **«605: Content or placeholder path not exists»** or **«SOME CONTENTS ARE MISSING»** — broken file system of a memory card, or a non-working / low-quality flash drive. Check it in chkdsk and h2testw, if there are no errors, reformat to FAT32.
-* **WARNING! Extra buffers exceeded**, when installing via MTP - run dbi via title = via any game, holding down the R button while starting it; alternatively via NSP forwarder, and use a faster microSD card with a different USB cable / port.
-* **No tickets found but they are required** — incorrect (incomplete, no ticket but with titlerights) dump of the game, find another one.
+* **«INVALID LENGTH»** — check the USB-C cable connection to your USB port, try with another USB-C cable, check the integrity of the game file and the SD card for errors, when installing via MTP - try to run dbi in application mode (title override) holding the R button while launching a title.
+* **«[FAILED] Unknown error»** when installing .tik (ticket) - add the latest sigpatches for Atmosphére.
+* **«605: Content or placeholder path not exists»** or **«SOME CONTENTS ARE MISSING»** — broken file system on your SD card, or a non-working / low-quality flash drive. Check it in chkdsk and h2testw, if there are no errors reformat to FAT32.
+* **WARNING! Extra buffers exceeded**, when installing via MTP - try to run dbi in application mode (title override) holding the R button while launching a title or alternatively via NSP forwarder and use a faster microSD card with a different USB cable / port.
+* **No tickets found but they are required** — incorrect (incomplete, no ticket but with titlerights) dump of the game, use another one.
 * **SOME CONTENTS ARE MISSING. APPLICATION WILL BE UNUSABLE** — container is incomplete, check the integrity of the game installation file.
     
 ## dbi.config
-The dbi.config file was added starting with version 253. It is located next to DBI.nro, and replaces the old flags files dbi.default.ascii and dbi.network.config, and also adds several new options for easy customization of settings for the user ...
+The `dbi.config` file was added starting with version 253. It is located next to DBI.nro and replaces the old flags files `dbi.default.ascii` and `dbi.network.config` and also adds several new options for easy customization of settings for the user.
 
 Let's take a look at its contents:
 ```
@@ -279,8 +277,8 @@ Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
 * **UseLibUsbHsFS** - **true** enables [libusbhsfs](https://github.com/DarkMatterCore/libusbhsfs) library for working with external USB drives via USB-OTG on Switch, **false** disables it.
 * **ExitToHomeScreen** — if **false**, the exit from dbi occurs in the hbmenu, if **true**, to the Switch's home menu
 * **CheckHash** — if **true**, hashes of .nca files are checked when installing games on the Switch, if **false**, no.
-* **LogAllFiles** — **false** disables logging of all files when working with MTP; if **true**, all files are logged, even those that are less than 4 MB.
+* **LogAllFiles** — **false** disables logging of all files when working with MTP; if **true**, all files are logged, even those that are less than 4MB.
 * **ShowCombinedNSPInInstalledGames** — **false** disables display of combined (multi-title .NSP-file) titles.
 * **ShowMACInInstalledGames** — **false** turns off the display of the virtual directory **"Mods & cheats"** in the Installed games item in the MTP, redirecting along the path `/atmosphere/contents/%titleid_game%` to the memory card.
-* In the **[[MTP Storages]](#run-mtp-responder)** section, enable (**true**) and disable (**false**) the display of the corresponding elements when the MTP Responder is working with a PC / Android, by default all items are enabled for display.
-* In the **[[Network sources]](#home-server)** section, names and addresses for installing games over a network (via a WiFi / LAN adapter) are set, more details.
+* In the **[[MTP Storages]](#run-mtp-responder)** section, enable (**true**) and disable (**false**) the display of the corresponding elements of the MTP Responder on PC / Android, by default all items will be displayed.
+* In the **[[Network sources]](#home-server)** section, names and addresses for installing games over a network (via a WiFi / LAN adapter) are set.

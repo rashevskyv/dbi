@@ -302,7 +302,7 @@ CustomStorages=true
 ### MainMenu
 Показ соответствующих элементов меню.
 
-**true** - отображать в главном менюб **false** - нет 
+**true** - отображать **false** - нет 
 
 * BrowseSD - пункт "**Browse SD card**, для установки игр с Sd карты 
 * USBHost - пункт "**Browse USB0 Drive**, для установки игр с внешнего USB
@@ -321,6 +321,8 @@ CustomStorages=true
 * **LogAllFiles** — **false** выключает логирование файлов меньше 4Мб при работе с MTP, при **true** логируются все файлы.
 * **ShowCombinedNSPInInstalledGames** — **false** выключает показ комбинированных (multi-title .NSP-file) тайтлов.
 * **ShowMACInInstalledGames** — **false** выключает показ виртуальной директории **«Mods & cheats»** в пункте Installed games в MTP, перенаправляющей по пути `/atmosphere/contents/%titleid_игры%` на карту памяти.
+* **CustomStorages** - отображать или спрятать кастомные пункты меню, прописанные в секции **MTP custom storages**
+
 
 ### [MTP Storages](#run-mtp-responder)
 Показ соответствующих элементов при работе MTP Responder с ПК/Android, по умолчанию все пункты включены для отображения.

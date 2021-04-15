@@ -282,3 +282,5 @@ Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
 * **ShowMACInInstalledGames** — **false** turns off the display of the virtual directory **"Mods & cheats"** in the Installed games item in the MTP, redirecting along the path `/atmosphere/contents/%titleid_game%` to the memory card.
 * In the **[[MTP Storages]](#run-mtp-responder)** section, enable (**true**) and disable (**false**) the display of the corresponding elements of the MTP Responder on PC / Android, by default all items will be displayed.
 * In the **[[Network sources]](#home-server)** section, names and addresses for installing games over a network (via a WiFi / LAN adapter) are set.
+
+Thanks to SciresM, for hactool (licensed under ISC) - DBI uses some data struct definitions from there

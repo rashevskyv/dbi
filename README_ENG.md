@@ -316,4 +316,4 @@ CustomStorages=true
 * **MTP custom storages** - define your own custom MTP storage setting the display name and path as follows: `Homebrew=sdmc:/switch` When configured you will see the new virtual drive on your device when you run the MTP responder.
 
 ## Acknowledgements
-Thanks to [SciresM](https://github.com/SciresM) for [hactool](https://github.com/SciresM/hactool) (licensed under [ISC](https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F_ISC)) - DBI uses some data struct definitions from there
+Thanks to [SciresM](https://github.com/SciresM) for [hactool](https://github.com/SciresM/hactool) (licensed under [ISC](https://en.wikipedia.org/wiki/ISC_license)) - DBI uses some data struct definitions from there

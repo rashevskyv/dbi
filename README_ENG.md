@@ -238,7 +238,28 @@ DefaultASCII=true
 ; Use libusbhsfs for access to USB mass storage drives connected to switch or dock
 UseLibUsbHsFS=true
 ; Direct exit to homescreen
-ExitToHomeScreen=false
+ExitToHomeScreen=true
+
+; Visibility of main menu items
+[MainMenu]
+; Browse and install files from MicroSD card
+BrowseSD=true
+; Browse and install files from USB flash drives and HDD
+USBHost=true
+; Browse and install files from PC via dbibackend
+BackendInstall=true
+; Install game from inserted game cartridge
+GameCard=true
+; Browse and install files from configured network sources
+Network=true
+; Browse installed applications
+BrowseApps=true
+; Clean up files left from bad installs/old updates/unused tickets and so on
+Cleanup=true
+; View where you can view or delete installed tickets
+Tickets=true
+; MTP responder
+MTP=true
 
 ; Install options
 [Install]
@@ -253,6 +274,8 @@ LogAllFiles=false
 ShowCombinedNSP=true
 ; Show or not virtual "Mods & cheats" folder that redirects to sdmc:/atmosphere/contents/TITLEID
 ShowMAC=true
+; Show user defined shortcuts to MircoSD folders as separate storages
+CustomStorages=true
 
 ;Enable or disable various MTP storages
 [MTP Storages]
@@ -266,21 +289,57 @@ ShowMAC=true
 8: Album=true
 9: Gamecard=true
 
-
 ; Network install sources
 [Network sources]
 ; <display name>=<type>|<URL>
-Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
-```
+;Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
 
+[MTP custom storages]
+; <display name>=<path>
+;Homebrew=sdmc:/switch
+```
+### General settings
 * **DefaultASCII** - **true** includes a standard font, **false** includes an alternative font
 * **UseLibUsbHsFS** - **true** enables [libusbhsfs](https://github.com/DarkMatterCore/libusbhsfs) library for working with external USB drives via USB-OTG on Switch, **false** disables it.
 * **ExitToHomeScreen** — if **false**, the exit from DBI occurs in the hbmenu, if **true**, to the Switch's home menu
+
+### MainMenu
+Shows the corresponding menu items.
+
+**true** - display in main menu, **false** - hide from main menu
+
+* BrowseSD - item "**Browse SD card**, to install games from Sd card
+* USBHost - item "**Browse USB0 Drive**, to install games from an external USB
+* BackendInstall - item "**Install title from USB**, for installing games from PC via backend
+* GameCard - item "**Install title from Gamecard**, to install the contents of the cartridge in the memory of the console
+* Network - item "**Home server**, to install games from a home web server
+* BrowseApps - item "**Browse installed applications**, to manage installed applications
+* Cleanup - item "**Cleanup orphaned files**, to clean up" orphaned "files from the memory card
+* Tickets - item "**Browse tickets**, to manage tickets
+* MTP - item "**Run MTP responder**, to start MTP
+
+### Install
 * **CheckHash** — if **true**, hashes of .nca files are checked when installing games on the Switch, if **false**, no.
+
+### MTP
 * **LogAllFiles** — **false** disables logging of all files when working with MTP; if **true**, all files are logged, even those that are less than 4MB.
 * **ShowCombinedNSPInInstalledGames** — **false** disables display of combined (multi-title .NSP-file) titles.
 * **ShowMACInInstalledGames** — **false** turns off the display of the virtual directory **"Mods & cheats"** in the Installed games item in the MTP, redirecting along the path `/atmosphere/contents/%titleid_game%` to the memory card.
-* In the **[[MTP Storages]](#run-mtp-responder)** section, enable (**true**) and disable (**false**) the display of the corresponding elements of the MTP Responder on PC / Android, by default all items will be displayed.
-* In the **[[Network sources]](#home-server)** section, names and addresses for installing games over a network (via a WiFi / LAN adapter) are set.
+* **CustomStorages** - show or hide storages, listed on **MTP custom storages** section
 
-Thanks to SciresM, for hactool (licensed under ISC) - DBI uses some data struct definitions from there
+### [MTP Storages](#run-mtp-responder)
+Show relevant items when MTP Responder is running on PC / Android, by default all items are enabled for display.
+
+**true** - display in MTP on PC, **false** - no
+
+The item names correspond to the titles of the sections
+
+### [Network sources](#home-server)
+Names and addresses are set for installing games over the network (via WiFi / LAN adapter)
+
+### MTP custom storages
+Custom items for MTP mode for quick access to folders on your memory card. Format: `<folder display name> = <path>`, for example: `Homebrew = sdmc: / switch`.
+In MTP mode, a `Homebrew` folder will appear, referring to the` switch` folder on your memory card
+
+## Благодарности
+Thanks to [SciresM](https://github.com/SciresM) for [hactool](https://github.com/SciresM/hactool) (licensed under [ISC](https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F_ISC)) - DBI uses some data struct definitions from there

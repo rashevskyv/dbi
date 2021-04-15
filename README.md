@@ -135,7 +135,6 @@ ApacheHTTP|WWW VPS repo|http://www.myveryownswitchvpsdomain.su/Nintendo/Switch/
 ```
 switch:{SHA}N/omUzCtg+qoee+x4ttjgIls9jk=
 ```
-
 ### Browse installed applications
 
 В **Browse installed applications** можно посмотреть список установленных программ, обновлений, DLC к ним, по отдельности их занимаемый объём и версию, порядковую и в HEX-формате, их titleID, посмотреть общее время игры и количество запусков, наличие установленного LayeredFS-мода к игре (для Atmosphére). *Горячая клавиша для вызова этой опции из главного меню*: кнопка **L**:
@@ -153,7 +152,6 @@ switch:{SHA}N/omUzCtg+qoee+x4ttjgIls9jk=
 
 ### Cleanup orphaned files
 **Cleanup orphaned files** автоматически чистит ненужные файлы игр, файлы от прерванных установок игр, скачанное (официально) обновление OFW прошивки и все неиспользуемые тикеты игр, если они были найдены. 
-
 
 ### Browse tickets
 Просмотр и удаление ненужных тикетов игр. **Ticket (или encrypted title key)** — это специальная зашифрованная уникальная информация о правах запуска на контент игры, которая устанавливается в систему при инсталляции каждой игры (000 в конце titleID) / обновления (800 в конце titleID) / каждого DLC. + означает наличие установленной игры, **[c]** — common-тикет (установленного дампа игры либо обновления), **[p]** — personalized-тикет (купленной в eShop игры)
@@ -231,11 +229,32 @@ Exit — выход из программы в HOS, минуя hbmenu, либо 
 ; General settings
 [General]
 ; Use libnx's default font for ASCII symbols
-DefaultASCII=true
+DefaultASCII=false
 ; Use libusbhsfs for access to USB mass storage drives connected to switch or dock
 UseLibUsbHsFS=true
 ; Direct exit to homescreen
-ExitToHomeScreen=false
+ExitToHomeScreen=true
+
+; Visibility of main menu items
+[MainMenu]
+; Browse and install files from MicroSD card
+BrowseSD=true
+; Browse and install files from USB flash drives and HDD
+USBHost=true
+; Browse and install files from PC via dbibackend
+BackendInstall=true
+; Install game from inserted game cartridge
+GameCard=true
+; Browse and install files from configured network sources
+Network=true
+; Browse installed applications
+BrowseApps=true
+; Clean up files left from bad installs/old updates/unused tickets and so on
+Cleanup=true
+; View where you can view or delete installed tickets
+Tickets=true
+; MTP responder
+MTP=true
 
 ; Install options
 [Install]
@@ -250,6 +269,8 @@ LogAllFiles=false
 ShowCombinedNSP=true
 ; Show or not virtual "Mods & cheats" folder that redirects to sdmc:/atmosphere/contents/TITLEID
 ShowMAC=true
+; Show user defined shortcuts to MircoSD folders as separate storages
+CustomStorages=true
 
 ;Enable or disable various MTP storages
 [MTP Storages]
@@ -263,21 +284,57 @@ ShowMAC=true
 8: Album=true
 9: Gamecard=true
 
-
 ; Network install sources
 [Network sources]
 ; <display name>=<type>|<URL>
-Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
+;Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
+
+[MTP custom storages]
+; <display name>=<path>
+;Homebrew=sdmc:/switch
 ```
 
+### General settings
 * **DefaultASCII** - **true** включает стандартный шрифт, **false** включает альтернативный шрифт
 * **UseLibUsbHsFS** - **true** включает библиотеку [libusbhsfs](https://github.com/DarkMatterCore/libusbhsfs) для работы с внешними USB-накопителями через USB-OTG на Switch, **false** отключает её.
 * **ExitToHomeScreen** — при false выход из dbi происходит в hbmenu, при **true** на рабочий стол Switch.
+
+### MainMenu
+Показ соответствующих элементов меню.
+
+**true** - отображать в главном менюб **false** - нет 
+
+* BrowseSD - пункт "**Browse SD card**, для установки игр с Sd карты 
+* USBHost - пункт "**Browse USB0 Drive**, для установки игр с внешнего USB
+* BackendInstall - пункт "**Install title from USB**, для устаноки игр с ПК через backend 
+* GameCard - пункт "**Install title from Gamecard**, для установки содержимого картриджа в память консоли
+* Network - пункт "**Home server**, для установки игр с домашнего веб-сервера
+* BrowseApps - пункт "**Browse installed applications**, для управления установленными приложениями
+* Cleanup - пункт "**Cleanup orphaned files**, для очистки "осиротевших" файлов с карты памяти
+* Tickets - пункт "**Browse tickets**, для управления тикетами
+* MTP - пункт "**Run MTP responder**, для запуска MTP
+
+### Install
 * **CheckHash** — при **true** проверяются хеши .nca-файлов при установке игр на Switch, при false нет.
+
+### MTP
 * **LogAllFiles** — **false** выключает логирование файлов меньше 4Мб при работе с MTP, при **true** логируются все файлы.
 * **ShowCombinedNSPInInstalledGames** — **false** выключает показ комбинированных (multi-title .NSP-file) тайтлов.
 * **ShowMACInInstalledGames** — **false** выключает показ виртуальной директории **«Mods & cheats»** в пункте Installed games в MTP, перенаправляющей по пути `/atmosphere/contents/%titleid_игры%` на карту памяти.
-* В секции [[MTP Storages]](#run-mtp-responder) включается (**true**) и отключается (**false**) показ соответствующих элементов при работе MTP Responder с ПК/Android, по умолчанию все пункты включены для отображения.
-* В секции [[Network sources]](#home-server) задаются имена и адреса для установки игр по сети (через WiFi/LAN-адаптер)
 
-Thanks to SciresM, for hactool (licensed under ISC) - DBI uses some data struct definitions from there
+### [MTP Storages](#run-mtp-responder)
+Показ соответствующих элементов при работе MTP Responder с ПК/Android, по умолчанию все пункты включены для отображения.
+
+**true** - отображать в главном меню, **false** - нет 
+
+Названия пунктов соответствуют названиям разделов
+
+### [Network sources](#home-server)
+Задаются имена и адреса для установки игр по сети (через WiFi/LAN-адаптер)
+
+### MTP custom storages
+Кастомные пункты для MTP-режима для быстрого доступа к папкам на вашей карте памяти. Формат: `<отображаемое_имя папки>=<путь>`, например: `Homebrew=sdmc:/switch`. 
+В режиме MTP появится папка `Homebrew`, ссылающаяся на папку `switch` на вашей карте памяти
+
+## Благодарности
+Спасибо [SciresM](https://github.com/SciresM) за  [hactool](https://github.com/SciresM/hactool) (лицензия [ISC](https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F_ISC)) - DBI использует некоторые структуры данных, взятые оттуда

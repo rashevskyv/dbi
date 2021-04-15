@@ -315,4 +315,5 @@ CustomStorages=true
 * In the **[[Network sources]](#home-server)** section, names and addresses for installing games over a network (via a WiFi / LAN adapter) are set.
 * **MTP custom storages** - define your own custom MTP storage setting the display name and path as follows: `Homebrew=sdmc:/switch` When configured you will see the new virtual drive on your device when you run the MTP responder.
 
-Thanks to SciresM, for hactool (licensed under ISC) - DBI uses some data struct definitions from there
+## Acknowledgements
+Thanks to [SciresM](https://github.com/SciresM) for [hactool](https://github.com/SciresM/hactool) (licensed under [ISC](https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F_ISC)) - DBI uses some data struct definitions from there

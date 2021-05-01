@@ -341,5 +341,10 @@ Names and addresses are set for installing games over the network (via WiFi / LA
 Custom items for MTP mode for quick access to folders on your memory card. Format: `<folder display name> = <path>`, for example: `Homebrew = sdmc: / switch`.
 In MTP mode, a `Homebrew` folder will appear, referring to the` switch` folder on your memory card
 
-## Благодарности
+## Other possibilities
+
+### Mounting the content of installed titles via MTP
+Go to "*Browse installed applications*" -> Choose apps you need to mount with `X` -> Press `A` -> "*Mount contents via MTP*"
+
+## Thanks
 Thanks to [SciresM](https://github.com/SciresM) for [hactool](https://github.com/SciresM/hactool) (licensed under [ISC](https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F_ISC)) - DBI uses some data struct definitions from there

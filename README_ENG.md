@@ -24,6 +24,8 @@ The ultimate solution for NSP/NSZ/XCI installation along with many more advanced
 	1. [Notifications](#warnings)
 	1. [Errors](#errors)
 1. [dbi.config](#dbiconfig)
+1. [Other possibilities](#other-possibilities)
+1. [Thanks](#thanks)
 
 ## Installation 
 

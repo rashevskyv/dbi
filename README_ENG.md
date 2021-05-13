@@ -351,5 +351,12 @@ In MTP mode, a `Homebrew` folder will appear, referring to the` switch` folder o
 ### Mounting the content of installed titles via MTP
 Go to "*Browse installed applications*" -> Choose apps you need to mount with `X` -> Press `A` -> "*Mount contents via MTP*"
 
+### Using DBI to Install Mods:
+1. Connect the set-top box in MTP mode via DBI
+1. Go to **Installed Games**, in the folder with the name of your game
+1. Go to **Mods & Cheats** folder
+1. Place your mod in the **Mods & Cheats** folder
+* **Be careful**, you need to put not the folder with the titleID of the game, but its contents! For example, you have downloaded the translation for the game Cadence of Hyrule, in the form of the archive `Cadence of Hyrule.rar`. Inside this archive you see a folder with the TitleID of the game - `01000B900D8B0000`. You need to unpack the archive, go to the folder `01000B900D8B0000` and copy the entire contents of the folder to **Mods & Cheats**! Not the folder `01000B900D8B0000` itself, but everything that is in it! In this example, the `romfs` folder
+
 ## Acknowledgements
 Thanks to [SciresM](https://github.com/SciresM) for [hactool](https://github.com/SciresM/hactool) (licensed under [ISC](https://en.wikipedia.org/wiki/ISC_license)) - DBI uses some data struct definitions from there

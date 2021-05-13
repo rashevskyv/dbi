@@ -231,11 +231,11 @@ Exit — выход из программы в HOS, минуя hbmenu, либо 
 ; General settings
 [General]
 ; Use libnx's default font for ASCII symbols
-DefaultASCII=false
+DefaultASCII=true
 ; Use libusbhsfs for access to USB mass storage drives connected to switch or dock
 UseLibUsbHsFS=true
 ; Direct exit to homescreen
-ExitToHomeScreen=true
+ExitToHomeScreen=false
 
 ; Visibility of main menu items
 [MainMenu]
@@ -273,6 +273,8 @@ ShowCombinedNSP=true
 ShowMAC=true
 ; Show user defined shortcuts to MircoSD folders as separate storages
 CustomStorages=true
+; Enable NAND install if run in emunand
+EnableNANDInstallOnEmunand=true
 
 ;Enable or disable various MTP storages
 [MTP Storages]
@@ -289,11 +291,11 @@ CustomStorages=true
 ; Network install sources
 [Network sources]
 ; <display name>=<type>|<URL>
-;Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
+; Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
 
 [MTP custom storages]
 ; <display name>=<path>
-;Homebrew=sdmc:/switch
+; Homebrew=sdmc:/switch
 ```
 
 ### General settings
@@ -306,15 +308,15 @@ CustomStorages=true
 
 **true** - отображать **false** - нет 
 
-* BrowseSD - пункт "**Browse SD card**, для установки игр с Sd карты 
-* USBHost - пункт "**Browse USB0 Drive**, для установки игр с внешнего USB
-* BackendInstall - пункт "**Install title from USB**, для устаноки игр с ПК через backend 
-* GameCard - пункт "**Install title from Gamecard**, для установки содержимого картриджа в память консоли
-* Network - пункт "**Home server**, для установки игр с домашнего веб-сервера
-* BrowseApps - пункт "**Browse installed applications**, для управления установленными приложениями
-* Cleanup - пункт "**Cleanup orphaned files**, для очистки "осиротевших" файлов с карты памяти
-* Tickets - пункт "**Browse tickets**, для управления тикетами
-* MTP - пункт "**Run MTP responder**, для запуска MTP
+* **BrowseSD** - пункт "**Browse SD card**, для установки игр с Sd карты 
+* **USBHost** - пункт "**Browse USB0 Drive**, для установки игр с внешнего USB
+* **BackendInstall** - пункт "**Install title from USB**, для устаноки игр с ПК через backend 
+* **GameCard** - пункт "**Install title from Gamecard**, для установки содержимого картриджа в память консоли
+* **Network** - пункт "**Home server**, для установки игр с домашнего веб-сервера
+* **BrowseApps** - пункт "**Browse installed applications**, для управления установленными приложениями
+* **Cleanup** - пункт "**Cleanup orphaned files**, для очистки "осиротевших" файлов с карты памяти
+* **Tickets** - пункт "**Browse tickets**, для управления тикетами
+* **MTP** - пункт "**Run MTP responder**, для запуска MTP
 
 ### Install
 * **CheckHash** — при **true** проверяются хеши .nca-файлов при установке игр на Switch, при false нет.
@@ -324,7 +326,7 @@ CustomStorages=true
 * **ShowCombinedNSPInInstalledGames** — **false** выключает показ комбинированных (multi-title .NSP-file) тайтлов.
 * **ShowMACInInstalledGames** — **false** выключает показ виртуальной директории **«Mods & cheats»** в пункте Installed games в MTP, перенаправляющей по пути `/atmosphere/contents/%titleid_игры%` на карту памяти.
 * **CustomStorages** - отображать или спрятать кастомные пункты меню, прописанные в секции **MTP custom storages**
-
+* **EnableNANDInstallOnEmunand** - разрешает или запрещает установку игр в NAND файлового EmuNAND (не актуально после выхода Atmosphere 0.19.3)
 
 ### [MTP Storages](#run-mtp-responder)
 Показ соответствующих элементов при работе MTP Responder с ПК/Android, по умолчанию все пункты включены для отображения.

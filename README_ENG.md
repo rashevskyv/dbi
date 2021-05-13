@@ -238,11 +238,11 @@ Let's take a look at its contents:
 ; General settings
 [General]
 ; Use libnx's default font for ASCII symbols
-DefaultASCII=false
+DefaultASCII=true
 ; Use libusbhsfs for access to USB mass storage drives connected to switch or dock
 UseLibUsbHsFS=true
 ; Direct exit to homescreen
-ExitToHomeScreen=true
+ExitToHomeScreen=false
 
 ; Visibility of main menu items
 [MainMenu]
@@ -280,6 +280,8 @@ ShowCombinedNSP=true
 ShowMAC=true
 ; Show user defined shortcuts to MircoSD folders as separate storages
 CustomStorages=true
+; Enable NAND install if run in emunand
+EnableNANDInstallOnEmunand=true
 
 ;Enable or disable various MTP storages
 [MTP Storages]
@@ -296,11 +298,11 @@ CustomStorages=true
 ; Network install sources
 [Network sources]
 ; <display name>=<type>|<URL>
-;Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
+; Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
 
 [MTP custom storages]
 ; <display name>=<path>
-;Homebrew=sdmc:/switch
+; Homebrew=sdmc:/switch
 ```
 ### General settings
 * **DefaultASCII** - **true** includes a standard font, **false** includes an alternative font
@@ -331,6 +333,7 @@ Shows the corresponding menu items.
 * **ShowCombinedNSPInInstalledGames** — **false** disables display of combined (multi-title .NSP-file) titles.
 * **ShowMACInInstalledGames** — **false** turns off the display of the virtual directory **"Mods & cheats"** in the Installed games item in the MTP, redirecting along the path `/atmosphere/contents/%titleid_game%` to the memory card.
 * **CustomStorages** - show or hide storages, listed on **MTP custom storages** section
+* **EnableNANDInstallOnEmunand** - allows or denies the installation of games in NAND file EmuNAND (not relevant after the release of Atmosphere 0.19.3) 
 
 ### [MTP Storages](#run-mtp-responder)
 Show relevant items when MTP Responder is running on PC / Android, by default all items are enabled for display.

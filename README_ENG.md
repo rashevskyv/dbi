@@ -5,7 +5,7 @@ This guide is based on [Brikachu's work](https://4pda.ru/forum/index.php?showtop
 
 [РУССКИЙ / Russian guide](README.md)
 
-The ultimate solution for NSP/NSZ/XCI installation along with many more advanced features to enhance your Nintendo Switch experience! DBI supports installation via MTP, USB (using the dbibackend script or dbi-nsw tool), network (using your own http server) and external USB drives.
+The ultimate solution for NSP/NSZ/XCI installation along with many more advanced features to enhance your Nintendo Switch experience! DBI supports installation from SD card, via USB MTP, USB cable (using the dbibackend script or dbi-nsw tool), network (using your own http server) and external USB drives.
 
 ## Content: 
 
@@ -37,16 +37,16 @@ Copy `dbi.nro` and `dbi.config` to your SD card at `/switch/DBI/` DBI can be the
 
 ### Interface
 ![2021041010520200](https://user-images.githubusercontent.com/18294541/114262830-d7643e00-99ea-11eb-8dbb-c8e0996577e5.jpg)
-* **Browse SD Card** — installation of .NSP / .NSZ / .XCI files from your SD card.
-* **Browse USB0 Drive** — installation of .NSP / .NSZ / .XCI files from an external FAT32 or exFAT formatted USB drive (will only appear if a USB drive is connected)
-* **Install title from USB** — installation of .NSP / .NSZ / .XCI from a PC via USB 2.0 or 3.0 cable using the included dbibackend script. *Main menu hotkey for this option*: **Y** button.
-* **Install title from Gamecard** — install a game from gamecard to the console's internal NAND or SD card (will only appear if a gamecard is inserted)
-* **Home server** — install games over your local network (HTTP) using a LAN USB adapter or WiFi network. For full details see **[Home server](#home-server)**
-* **Browse installed applications** — view installed titles including base, update, DLC and whether or not a LayeredFS mod is present. Displays your total play time and how many times you've launched the title. Check file integrity for errors, transfer game data between internal NAND and SD card, delete individual or multiple titles and their LayeredFS mods with one click, individually remove updates and DLC and use the `Reset Required version` function to restore the system update check for the selected game back to base. *Main menu hotkey for this option*: **L** button.
-* **Cleanup orphaned files** — removes all orphaned installed content, tickets and pending firmware updates from the system with one click.
-* **Browse tickets** — view and manually delete system tickets for games.
-* **Run MTP responder** — enables DBI's internal MTP server to connect the Switch to a PC or to an Android device (Some tested phone/tablet devices: Pixel 3, Xiaomi Mi A1, Lenovo Tab 4 7 "TB-7304X). On your device you will be presented with several virtual drives for installation and many advanced features for file management on your SD card and NAND. Please see **[Run MTP Responder](#run-mtp-responder)** for a full overview.
-* **Exit** — exit from the program. *Main menu hotkey for this option*: **+** button
+* **Browse SD Card** - installation of .NSP / .NSZ / .XCI files from your SD card.
+* **Browse USB0 Drive** - installation of .NSP / .NSZ / .XCI files from an external FAT32 or exFAT formatted USB drive (will only appear if a USB drive is connected)
+* **Install title from USB** - installation of .NSP / .NSZ / .XCI from a PC via USB 2.0 or 3.0 cable using the included dbibackend script. *Main menu hotkey for this option*: **Y** button.
+* **Install title from Gamecard** - install a game from gamecard to the console's internal NAND or SD card (will only appear if a gamecard is inserted)
+* **Home server** - install games over your local network (HTTP) using a LAN USB adapter or WiFi network. For full details see **[Home server](#home-server)**
+* **Browse installed applications** - view installed titles including base, update, DLC and whether or not a LayeredFS mod is present. Displays your total play time and how many times you've launched the title. Check file integrity for errors, transfer game data between internal NAND and SD card, delete individual or multiple titles and their LayeredFS mods with one click, individually remove updates and DLC and use the `Reset Required version` function to restore the system update check for the selected game back to base. *Main menu hotkey for this option*: **L** button.
+* **Cleanup orphaned files** - removes all orphaned installed content, tickets and pending firmware updates from the system with one click.
+* **Browse tickets** - view and manually delete system tickets for games.
+* **Run MTP responder** - enables DBI's internal MTP server to connect the Switch to a PC or to an Android device (Some tested phone/tablet devices: Pixel 3, Xiaomi Mi A1, Lenovo Tab 4 7 "TB-7304X). On your device you will be presented with several virtual drives for installation and many advanced features for file management on your SD card and NAND. Please see **[Run MTP Responder](#run-mtp-responder)** for a full overview.
+* **Exit** - exit from the program. *Main menu hotkey for this option*: **+** button
 
 The bottom left corner of DBI displays the total amount of data on your currently on your SD card along with the full capacity. The bottom right corner gives you the same information for your NAND's usable space in HOS.
 
@@ -61,11 +61,11 @@ Press the **A** button to confirm. A window with installation options will appea
 
 ![2021041011441100](https://user-images.githubusercontent.com/18294541/114264183-18138580-99f2-11eb-8c7b-536b4b831195.jpg)
 
-* **Total transfer size** — the total amount of data (.NSP / .NSZ / .XCI files) selected for installation.
-* **Total install size** — the amount of free space required to install the selected files.
-* **Install target** — data installation location: **NAND** - internal memory of the Nintendo Switch console, **SD** - SD card, **AUTO** - by default this will install to your SD card but if you don't have enough space the installation will fall back to NAND (internal memory).
-* **Delete after install** — deletes installation files (.NSP / .NSZ / .XCI files) from the source after they have been successfully installed; for this to work, the "Read-only" attribute must be removed from files if present. By default, files are not deleted. The option is visible only when installing from an SD card / external USB drive.
-* **Turn off screen** — turns off the screen during installation to conserve battery, after installation successfully completes the screen will automatically turn back on. This option only works in handheld mode. 
+* **Total transfer size** - the total amount of data (.NSP / .NSZ / .XCI files) selected for installation.
+* **Total install size** - the amount of free space required to install the selected files.
+* **Install target** - data installation location: **NAND** - internal memory of the Nintendo Switch console, **SD** - SD card, **AUTO** - by default this will install to your SD card but if you don't have enough space the installation will fall back to NAND (internal memory).
+* **Delete after install** - deletes installation files (.NSP / .NSZ / .XCI files) from the source after they have been successfully installed; for this to work, the "Read-only" attribute must be removed from files if present. By default, files are not deleted. The option is visible only when installing from an SD card / external USB drive.
+* **Turn off screen** - turns off the screen during installation to conserve battery, after installation successfully completes the screen will automatically turn back on. This option only works in handheld mode.  
 * Select **Start install** to begin the installation. After a successful installation *Installation Complete. Press B to return* will appear.
 
 *DBI will automatically and immediately remove old updates when installing a new update for a game, so you don't have to worry about the extra space they occupy.*
@@ -76,7 +76,7 @@ If you cannot use DBI's MTP responder this is another convenient method for inst
 
 *Main menu hotkey for this option*: **Y** button.
 
-In order to use this option you will first require dbibackend (`dbibackend.exe` for Windows,` dbibackend` from `dbibackend.tar.xz` for all). Launch dbibackend, select the files to install, select Start server, connect a USB-C cable from your PC to your Switch and select **Install title from USB** in DBI.
+In order to use this option you will first require dbibackend (`dbibackend.exe` for Windows, `dbibackend` from `dbibackend.tar.xz` for all). Launch dbibackend, select the files to install, select Start server, connect a USB-C cable from your PC to your Switch and select **Install title from USB** in DBI.
 
 From here you will select and install your files on the Switch in the same fashion as using Browse SD Card / Browse USB0 Drive
 
@@ -115,7 +115,7 @@ autoindex on;
 Save the config, run `nginx.exe`, allow the program to access the network, then copy the desired game to the local `/nginx/html/Nintendo/Switch/` folder on your PC, and on the Switch select “Home server”.
 You will now be presented with the usual interface for installing files and you can start installing files over the network. You can stop the web server via nginx -s stop.
 
-For the server address in dbi.config, you can also use a domain name, for example, your remote VPS - suggested to use with HTTP Basic authentication e.g.: `http://user:password@host:port/Nintendo/Switch/`
+FFor the server address in `dbi.config`, you can also use a domain name, for example, your remote VPS - suggested to use with HTTP Basic authentication e.g.: `http://user:password@host:port/Nintendo/Switch/`
 
 For example:
 ```
@@ -149,7 +149,9 @@ In **Browse installed applications** you can see a list of installed programs, u
 
 ![2021041012101400](https://user-images.githubusercontent.com/18294541/114264832-e3093200-99f5-11eb-9e7a-acc7b0f7444c.jpg)
 
-The total number of installed applications (e.g. games and homebrew nsps) is displayed at the top of the screen. Any installed data can be transferred between internal NAND and SD card, it is possible to individually select and uninstall multiple games **(b)** / updates **(u)** / DLC **(d)** together with their associated LayeredFS mods **(l)** (detected at `/atmosphere/contents/`) or you can individually select updates and DLC for deletion. The **Reset Required version** function will force restore the system update check for the selected game back to base (this is also done automatically with installation or removal of game updates):
+The total number of installed applications (e.g. games and homebrew nsps) is displayed at the top of the screen. The first character denotes the installation location: **S** for microSD, **N** for NAND and **M** for mixed (e.g. base game installed to NAND, update installed to microSD)
+
+All installed data can be transferred between internal NAND and SD card, it is possible to individually select and uninstall multiple games **(b)** / updates **(u)** / DLC **(d)** together with their associated LayeredFS mods **(l)** (detected at `/atmosphere/contents/`) or you can individually select updates and DLC for deletion. The **Reset Required version** function will force restore the system update check for the selected game back to base (this is also done automatically with installation or removal of game updates):
 
 ![2021041012102700](https://user-images.githubusercontent.com/18294541/114264843-f74d2f00-99f5-11eb-8cf0-a3fc383ac322.jpg)
 
@@ -173,35 +175,35 @@ In most case it's better not to touch anything here in order to avoid errors in 
 
 ![изображение](https://user-images.githubusercontent.com/18294541/114265006-054f7f80-99f7-11eb-86c9-1a20d588e616.png)
 
-1: **External SD Card**, for viewing, copying and deleting files and folders from/to a PC and from/to your SD card. Drop a file larger than 4GB onto the SD card and DBI will automatically split the file into an archived folder, which allows the Switch to see it as a single file, with this you can for example very easily add a >4GB .xci for use in SX OS, or add a >4GB movie for watching in pPlay.
+1: **External SD Card** - for viewing, copying and deleting files and folders from/to a PC and from/to your SD card. Drop a file larger than 4GB onto the SD card and DBI will automatically split the file into an archived folder, which allows the Switch to see it as a single file, with this you can for example very easily add a >4GB .xci for use in SX OS, or add a >4GB movie for watching in pPlay.
 
-2: **NAND User**, viewing, copying files and folders on a PC from the Switch's internal memory to its USER system partition (this partition is read-only).
+2: **NAND User** - viewing, copying files and folders on a PC from the Switch's internal memory to its USER system partition (this partition is read-only).
 
 3: **NAND System**, viewing, copying files and folders on a PC from the internal memory of the Switch to its SYSTEM system partition (the partition is read-only).
 
-4: **Installed games**, to view installed games.
+4: **Installed games** all installed games are displayed from both in NAND (internal memory of the Switch) and SD card. To dump installed games to your PC in .NSP format, just copy the folder with the name of the game from Installed games to your PC. A common ticket with completely cleared personal information is generated based on your personalized ticket. Your dump will be in separated files - the game itself, the update and DLC. If cheats or mods have been installed for the game, they will be located in the `Mods & Cheats` folder. You can also dump a single combined multicontent file containing the game itself, the update and all DLC. This file is located right at the root of the **Installed games** section.
 
-В **Installed games** all installed games are displayed from both in NAND (internal memory of the Switch) and SD card. To dump installed games to your PC in .NSP format, just copy the folder with the name of the game from Installed games to your PC. A common ticket with completely cleared personal information is generated based on your personalized ticket. Your dump will be in separated files - the game itself, the update and DLC. If cheats or mods have been installed for the game, they will be located in the `Mods & Cheats` folder. You  can also dump a single combined multicontent file containing the game itself, the update and all DLC. This file is located right at the root of the **Installed games** section.
-The generated DBI `InstalledApplications.csv` is also stored here, with a table of the list of installed games, their TitleID and the current version.
+5: **MicroSD install** - Drop or copy your **NSP** or **NSZ** files in this folder. When the transfer is complete the game will be installed on the **SD card** of your console. When installing NSZ files, keep in mind that their actual size may differ greatly from their original size after installation: so if for example you start with 2GB free on your memory card and you do not have enough space to install an NSZ of 1GB in size, that is because NSZ files are compressed and must be decompressed for installation.
 
-5: **MicroSD install**
-Drop or copy your **NSP** or **NSZ** files in this folder. When the transfer is complete the game will be installed on the **SD card** of your console. When installing NSZ files, keep in mind that their actual size may differ greatly from their original size after installation: so if for example you start with 2GB free on your memory card and you do not have enough space to install an NSZ of 1GB in size, that is because NSZ files are compressed and must be decompressed for installation.
+6: **NAND install** - Drop or copy your **NSP** or **NSZ** files in this folder. When the transfer is complete the game will be installed on the **internal memory** of your console. When installing NSZ files, keep in mind that their actual size may differ greatly from their original size after installation: so if for example you start with 2GB free on your memory card and you do not have enough space to install an NSZ of 1GB in size, that is because NSZ files are compressed and must be decompressed for installation.
 
-6: **NAND install**: Drop or copy your **NSP** or **NSZ** files in this folder. When the transfer is complete the game will be installed on the **internal memory** of your console. When installing NSZ files, keep in mind that their actual size may differ greatly from their original size after installation: so if for example you start with 2GB free on your memory card and you do not have enough space to install an NSZ of 1GB in size, that is because NSZ files are compressed and must be decompressed for installation.
-
-7: **Saves**: Access to all game saves - in accounts (Account), system programs (System), in Background Content Asymmetric synchronized delivery and Transmission (BCAT, for example: events in ACNH), temporary (Temporary), cache (Cache, for example: addons in DOOM), system BCAT (SystemBCAT), - stored in the internal memory of the Switch; in the Installed games folder - save for the currently installed games, Uninstalled games - save from deleted games that were previously launched. From here, you can make a backup of them by copying them to a PC, and also delete unnecessary ones - for this, open the folder with the name of the game you need, then delete the folder with the nickname of your account / Device-save.
+7: **Saves** - Access to all game saves - in accounts (Account), system programs (System), in Background Content Asymmetric synchronized delivery and Transmission (BCAT, for example: events in ACNH), temporary (Temporary), cache (Cache, for example: addons in DOOM), system BCAT (SystemBCAT), - stored in the internal memory of the Switch; in the Installed games folder - save for the currently installed games, Uninstalled games - save from deleted games that were previously launched. From here, you can make a backup of them by copying them to a PC, and also delete unnecessary ones - for this, open the folder with the name of the game you need, then delete the folder with the nickname of your account / Device-save.
 In order to restore the save, copy them to the appropriate folder from your PC. DBI does not require pre-launching the game to restore a save, however this only applies to regular saves. BCAT or Cache saves require a pre-launch of the game before restoring.
 
-8: **Album**: access to screenshots and videos (Album), similar to Nintendo's feature added OFW 11.0.0.
+8: **Album** - access to screenshots and videos (Album), similar to Nintendo's feature added OFW 11.0.0.
 
-9: **Gamecard**: with a gamecard inserted into the Switch you can dump to .XCI or trimmed .XCI on the PC, along with the update built into it if it exists. The personal RSA certificate automatically removed and is dumped separately.
+9: **Gamecard** - with a gamecard inserted into the Switch you can dump to .XCI or trimmed .XCI on the PC, along with the update built into it if it exists. The personal RSA certificate automatically removed and is dumped separately.
 
-After activating the MTP server on the Switch a window will appear with your account nickname and its UID, as well as the number of game saves: ![2021041013152900](https://user-images.githubusercontent.com/18294541/114266673-27013480-9a00-11eb-81ba-f1ff1c3c5abb.jpg)
+After activating the MTP server on the Switch a window will appear with your account nickname and its UID, as well as the number of game saves: 
+
+![2021041013152900](https://user-images.githubusercontent.com/18294541/114266673-27013480-9a00-11eb-81ba-f1ff1c3c5abb.jpg)
+
+#: **Custom Storage** - If you have defined a custom MTP storage in the **[`dbi.config`](#dbiconfig)** file it will appear here.
 
 To turn off the MTP server and exit to the main menu, press the **X** button.
 
 ### Exit
-Exit - exit from the program in HOS, either to hbmenu or bypassing hbmenu directly to the homescreen (this is configured in dbi.config). If DBI was launched from a title / forwarder, the program will restart or remain on a black screen.
+Exit - closes DBI and returns to either to hbmenu or bypasses hbmenu to go directly to your homescreen (this is configured in dbi.config). If DBI was launched from a title / forwarder, the program will restart or remain on a black screen
 
 ## Errors and warnings
 
@@ -236,7 +238,7 @@ Let's take a look at its contents:
 ; General settings
 [General]
 ; Use libnx's default font for ASCII symbols
-DefaultASCII=true
+DefaultASCII=false
 ; Use libusbhsfs for access to USB mass storage drives connected to switch or dock
 UseLibUsbHsFS=true
 ; Direct exit to homescreen
@@ -304,6 +306,7 @@ CustomStorages=true
 * **DefaultASCII** - **true** includes a standard font, **false** includes an alternative font
 * **UseLibUsbHsFS** - **true** enables [libusbhsfs](https://github.com/DarkMatterCore/libusbhsfs) library for working with external USB drives via USB-OTG on Switch, **false** disables it.
 * **ExitToHomeScreen** — if **false**, the exit from DBI occurs in the hbmenu, if **true**, to the Switch's home menu
+* **Visibility of main menu items** - customize which options will appear in DBI's main menu, you can prevent an option from appearing in the main menu by editing the item to **false**
 
 ### MainMenu
 Shows the corresponding menu items.
@@ -348,5 +351,5 @@ In MTP mode, a `Homebrew` folder will appear, referring to the` switch` folder o
 ### Mounting the content of installed titles via MTP
 Go to "*Browse installed applications*" -> Choose apps you need to mount with `X` -> Press `A` -> "*Mount contents via MTP*"
 
-## Thanks
-Thanks to [SciresM](https://github.com/SciresM) for [hactool](https://github.com/SciresM/hactool) (licensed under [ISC](https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F_ISC)) - DBI uses some data struct definitions from there
+## Acknowledgements
+Thanks to [SciresM](https://github.com/SciresM) for [hactool](https://github.com/SciresM/hactool) (licensed under [ISC](https://en.wikipedia.org/wiki/ISC_license)) - DBI uses some data struct definitions from there

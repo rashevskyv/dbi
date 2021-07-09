@@ -205,7 +205,7 @@ If you press the **(A)** button on the title, the detailed game menu will open
 
 ![2021062719353600](https://user-images.githubusercontent.com/18294541/123554561-400cbc80-d789-11eb-8d81-e3403f33b365.jpg)
 
-Here you will be presented with the Game icon, **TitleID**, display title (**name**), developer/publisher (**Author**), display version (**Version**), supported languages (**Language**) and presence of a LFS-mod or cheat (**LFS-mod**)
+Here you will be presented with the Game icon, **TitleID**, display title (**name**), developer/publisher (**Author**), display version (**Version**), supported languages (**Language**) and presence of a LayeredFS mod or cheat (**LFS-mod**)
 
 Here you can also see the amount of time you've spent playing the title (**Total play time**), how many times the game was launched (**Total launches**), total installation size (**Total occupied space**) as well as how much space it takes in NAND (**Space in NAND**) and on SD (**Space on MicroSD**), the size of the saves (**Total saves size**) and what language is active for the game ( **Forced Language**)
 

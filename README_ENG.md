@@ -5,7 +5,7 @@ This guide is based on [Brikachu's work](https://4pda.ru/forum/index.php?showtop
 
 [РУССКИЙ / Russian guide](README.md)
 
-The ultimate solution for NSP/NSZ/XCI/XCZ installation along with many more advanced features to enhance your Nintendo Switch experience! DBI supports installation from SD card, via USB MTP, USB cable (using the dbibackend script or dbi-nsw tool), network (using your own http server) and external USB drives.
+The ultimate solution for NSP, NSZ, XCI and XCZ installation along with many more advanced features to enhance your Nintendo Switch experience! DBI supports installation from SD card, via USB MTP, USB cable (using the dbibackend script or dbi-nsw tool), network (using your own http server) and external USB drives.
 
 ## Content: 
 

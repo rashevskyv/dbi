@@ -68,7 +68,7 @@ Bottom center (dbi: XXX) is the DBI version number - you should always use the m
 
 * **(X)** - file selection. **On the main screen** - hotkey for mounting MTP (menu item "**Run MTP responder**")
 
-* **(Y)** - invert selection, select everything if nothing is selected. **On the main screen** - installation via USB using dbibackend (menu item "**Install title from USB **")
+* **(Y)** - invert selection, select everything if nothing is selected. **On the main screen** - installation via USB using dbibackend (menu item "**Install title from USB**")
 * **(ZL)**, **(ZR)** - fast movement through the menu
 * **(L)** - **on the main screen** - (menu item "**Browse installed applications**")
 * **(R)** - change the order of displaying files / titles

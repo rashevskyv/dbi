@@ -329,7 +329,7 @@ Exit — выход из программы в HOS, минуя hbmenu, либо 
 Файл dbi.config был добавлен, начиная с версии 253. Он находится рядом с DBI.nro, и заменяет прежние файлы-флаги dbi.default.ascii и dbi.network.config, а также добавляет несколько новых опций для удобной кастомизации настроек под пользователя.
 
 Рассмотрим его содержимое:
-```
+```json
 ; General settings
 [General]
 ; Use libnx's default font for ASCII symbols
@@ -338,6 +338,16 @@ DefaultASCII=false
 UseLibUsbHsFS=true
 ; Direct exit to homescreen
 ExitToHomeScreen=false
+; Folder where saves backups are stored
+SavesFolder=sdmc:/switch/DBI/saves/
+; Log "Install", "Check integrity" and "Cleanup" processes
+LogEvents=false
+; Folder where logs are stored
+LogsFolder=sdmc:/switch/DBI/logs/
+; Sorting options for application list
+AppSorting=Name,LastPlayed,InstallLocation,Size
+; Sorting options for save list
+SaveSorting=AppName,AppLastPlayed,UserUid,Size,SaveId
 
 
 ; Visibility of main menu items
@@ -407,18 +417,30 @@ TurnOffScreen=false
 ; Network install sources
 [Network sources]
 ; <display name>=<type>|<URL>
+; NSP Indexer=URLList|http://192.168.1.47/nspindexer/index.php?DBI
 ; Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
 
 
 [MTP custom storages]
 ; <display name>=<path>
-; Homebrew=sdmc:/switch
+Homebrew=sdmc:/switch
+
+; Override for display name
+; <UPPERCASED TID>=<Desired name>
+[Title name override]
+; 010023901191C000=Naheulbeuk
 ```
 
 ### General settings
 * **DefaultASCII** - **true** включает стандартный шрифт, **false** включает альтернативный шрифт
 * **UseLibUsbHsFS** - **true** включает библиотеку [libusbhsfs](https://github.com/DarkMatterCore/libusbhsfs) для работы с внешними USB-накопителями через USB-OTG на Switch, **false** отключает её.
 * **ExitToHomeScreen** — при false выход из dbi происходит в hbmenu, при **true** на рабочий стол Switch.
+* **SavesFolder** - папка для хранения дампов сохранений
+* **LogEvents** - сохранять или нет логи для событий "*Install*", "*Check integrity*" and "*Cleanup*"
+* **LogsFolder** - папка для хранения логов
+* **AppSorting** - опции для сортировки списка приложений
+* **SaveSorting** - опции для сортировки сохранений
+* **Visibility of main menu items** - настроить, какие пункты меню будут отображаться в главном меню DBI, вы можете запретить отображение параметра в главном меню, изменив значение на **false**
 
 ### MainMenu
 Показ соответствующих элементов меню.
@@ -460,9 +482,16 @@ TurnOffScreen=false
 ### [Network sources](#home-server)
 Задаются имена и адреса для установки игр по сети (через WiFi/LAN-адаптер)
 
+**NSP Indexer** - адрес для индексации NSP ([подробнее](https://github.com/rashevskyv/dbi/issues/44))
+
 ### MTP custom storages
+
+**MTP custom storages**
+
 Кастомные пункты для MTP-режима для быстрого доступа к папкам на вашей карте памяти. Формат: `<отображаемое_имя папки>=<путь>`, например: `Homebrew=sdmc:/switch`. 
 В режиме MTP появится папка `Homebrew`, ссылающаяся на папку `switch` на вашей карте памяти
+
+**Title name override** - позволяет изменить имя отображаемого тайтла. Например, если указать `10023901191C000=Naheulbeuk`, то в приложении вместо `The Dungeon of Naheulbeuk: The Amulet of Chaos` будет отображаться просто `Naheulbeuk`
 
 ## Другие возможности
 

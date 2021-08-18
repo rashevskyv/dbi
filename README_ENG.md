@@ -340,6 +340,17 @@ DefaultASCII=false
 UseLibUsbHsFS=true
 ; Direct exit to homescreen
 ExitToHomeScreen=false
+; Folder where saves backups are stored
+SavesFolder=sdmc:/switch/DBI/saves/
+; Log "Install", "Check integrity" and "Cleanup" processes
+LogEvents=false
+; Folder where logs are stored
+LogsFolder=sdmc:/switch/DBI/logs/
+; Sorting options for application list
+AppSorting=Name,LastPlayed,InstallLocation,Size
+; Sorting options for save list
+SaveSorting=AppName,AppLastPlayed,UserUid,Size,SaveId
+
 
 ; Visibility of main menu items
 [MainMenu]
@@ -375,6 +386,7 @@ CalculateLFSSize=true
 ; Check NCA hash during install
 CheckHash=true
 
+
 ; MTP options
 [MTP]
 ; Log all files, id disabled transfer shows only for files >= 4M
@@ -390,11 +402,12 @@ EnableNANDInstallOnEmunand=false
 ; Turn screen off on start MTP mode
 TurnOffScreen=false
 
+
 ; Enable or disable various MTP storages
 [MTP Storages]
 1: External SD Card=true
-2: Nand USER=true
-3: Nand SYSTEM=true
+2: Nand USER=false
+3: Nand SYSTEM=false
 4: Installed games=true
 5: MicroSD install=true
 6: NAND install=true
@@ -402,19 +415,32 @@ TurnOffScreen=false
 8: Album=true
 9: Gamecard=true
 
+
 ; Network install sources
 [Network sources]
 ; <display name>=<type>|<URL>
+; NSP Indexer=URLList|http://192.168.1.47/nspindexer/index.php?DBI
 ; Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
+
 
 [MTP custom storages]
 ; <display name>=<path>
-; Homebrew=sdmc:/switch
+Homebrew=sdmc:/switch
+
+; Override for display name
+; <UPPERCASED TID>=<Desired name>
+[Title name override]
+; 010023901191C000=Naheulbeuk
 ```
 ### General settings
 * **DefaultASCII** - **true** includes a standard font, **false** includes an alternative font
 * **UseLibUsbHsFS** - **true** enables [libusbhsfs](https://github.com/DarkMatterCore/libusbhsfs) library for working with external USB drives via USB-OTG on Switch, **false** disables it.
 * **ExitToHomeScreen** - if **false**, the exit from DBI occurs in the hbmenu, if **true**, to the Switch's home menu
+* **SavesFolder** - folder for storing save dumps
+* **LogEvents** - whether or not to save logs for "* Install *", "* Check integrity *" and "* Cleanup *" events
+* **LogsFolder** - folder for storing logs
+* **AppSorting** - options for sorting the list of applications
+* **SaveSorting** - options for sorting saves
 * **Visibility of main menu items** - customize which options will appear in DBI's main menu, you can prevent an option from appearing in the main menu by editing the item to **false**
 
 ### MainMenu
@@ -457,9 +483,16 @@ The item names correspond to the titles of the sections
 ### [Network sources](#home-server)
 Names and addresses are set for installing games over the network (via WiFi / LAN adapter)
 
+**NSP Indexer** - address for NSP index page ([more](https://github.com/rashevskyv/dbi/issues/44))
+
 ### MTP custom storages
+
+**MTP custom storages**
+
 Custom items for MTP mode for quick access to folders on your memory card. Format: `<folder display name> = <path>`, for example: `Homebrew = sdmc: / switch`.
 In MTP mode, a `Homebrew` folder will appear, referring to the` switch` folder on your memory card
+
+**Title name override** - allows you to change the name of the displayed title. For example, if you specify `10023901191C000 = Naheulbeuk`, then the application will display just` Naheulbeuk` instead of `The Dungeon of Naheulbeuk: The Amulet of Chaos`
 
 ## Other options
 

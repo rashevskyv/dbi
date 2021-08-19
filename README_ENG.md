@@ -1,7 +1,7 @@
 # DBI by **[duckbill](https://github.com/duckbill007)**
 ![Github latest downloads](https://img.shields.io/github/downloads/rashevskyv/dbi/total.svg)
 
-This guide is based on [Brikachu's work](https://4pda.ru/forum/index.php?showtopic=939714&st=1100#entry86288632).
+This guide is based on [Brikachu's work](https://4pda.to/forum/index.php?showtopic=939714&st=1100#Spoil-86288632-5).
 
 [РУССКИЙ / Russian guide](README.md)
 

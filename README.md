@@ -3,7 +3,7 @@
 
 [ENGLISH GUIDE](README_ENG.md)
 
-Инструкция базируется на [работе Брикачу](https://4pda.ru/forum/index.php?showtopic=939714&st=1100#entry86288632)
+Инструкция базируется на [работе Брикачу](https://4pda.to/forum/index.php?showtopic=939714&st=1100#Spoil-86288632-5)
 
 Ультимативное решение для установки NSP, NSZ, XCI и XCZ и работы с консолью. Поддержка установки по MTP, USB, http (с вашего личного сервера), внешнего USB и многое другое. 
 

@@ -348,6 +348,8 @@ LogsFolder=sdmc:/switch/DBI/logs/
 AppSorting=Name,LastPlayed,InstallLocation,Size
 ; Sorting options for save list
 SaveSorting=AppName,AppLastPlayed,UserUid,Size,SaveId
+; Highlight files with updates to curently instaled titles in file browsers
+HighlightUpdates=true
 
 
 ; Visibility of main menu items
@@ -441,6 +443,7 @@ Homebrew=sdmc:/switch
 * **AppSorting** - опции для сортировки списка приложений
 * **SaveSorting** - опции для сортировки сохранений
 * **Visibility of main menu items** - настроить, какие пункты меню будут отображаться в главном меню DBI, вы можете запретить отображение параметра в главном меню, изменив значение на **false**
+* **HighlightUpdates** - подсвечивать или нет в файловом менеджере обновления для установленных игр
 
 ### MainMenu
 Показ соответствующих элементов меню.

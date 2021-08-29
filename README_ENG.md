@@ -350,6 +350,8 @@ LogsFolder=sdmc:/switch/DBI/logs/
 AppSorting=Name,LastPlayed,InstallLocation,Size
 ; Sorting options for save list
 SaveSorting=AppName,AppLastPlayed,UserUid,Size,SaveId
+; Highlight files with updates to curently instaled titles in file browsers
+HighlightUpdates=true
 
 
 ; Visibility of main menu items
@@ -442,6 +444,7 @@ Homebrew=sdmc:/switch
 * **AppSorting** - options for sorting the list of applications
 * **SaveSorting** - options for sorting saves
 * **Visibility of main menu items** - customize which options will appear in DBI's main menu, you can prevent an option from appearing in the main menu by editing the item to **false**
+* **HighlightUpdates** - h ighlight files with updates to curently instaled titles in file browsers
 
 ### MainMenu
 Shows the corresponding menu items.

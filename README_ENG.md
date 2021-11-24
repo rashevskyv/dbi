@@ -352,6 +352,14 @@ AppSorting=Name,LastPlayed,InstallLocation,Size
 SaveSorting=AppName,AppLastPlayed,UserUid,Size,SaveId
 ; Highlight files with updates to curently instaled titles in file browsers
 HighlightUpdates=true
+; Rotate screen upside down
+RotateScreen=false
+; Rotate joycons
+RotateJoycon=false
+; Underclock CPU in menues to reduce battery usage
+OptimizeClockSpeed=false
+; Underclock CPU in menues to reduce battery usage
+OptimizeClockSpeed=false
 
 
 ; Visibility of main menu items
@@ -445,6 +453,9 @@ Homebrew=sdmc:/switch
 * **SaveSorting** - options for sorting saves
 * **Visibility of main menu items** - customize which options will appear in DBI's main menu, you can prevent an option from appearing in the main menu by editing the item to **false**
 * **HighlightUpdates** - h ighlight files with updates to curently instaled titles in file browsers
+* **RotateScreen** - rotate screen to 180 degrees
+* **RotateJoycon** - rotate controls for rotated screen
+* **OptimizeClockSpeed** - disables SoC frequency optimization when idle. Disabled by default, it can lead to lags on the startup device if the DBI is exited incorrectly!
 
 ### MainMenu
 Shows the corresponding menu items.

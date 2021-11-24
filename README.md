@@ -350,6 +350,12 @@ AppSorting=Name,LastPlayed,InstallLocation,Size
 SaveSorting=AppName,AppLastPlayed,UserUid,Size,SaveId
 ; Highlight files with updates to curently instaled titles in file browsers
 HighlightUpdates=true
+; Rotate screen upside down
+RotateScreen=false
+; Rotate joycons
+RotateJoycon=false
+; Underclock CPU in menues to reduce battery usage
+OptimizeClockSpeed=false
 
 
 ; Visibility of main menu items
@@ -444,6 +450,9 @@ Homebrew=sdmc:/switch
 * **SaveSorting** - опции для сортировки сохранений
 * **Visibility of main menu items** - настроить, какие пункты меню будут отображаться в главном меню DBI, вы можете запретить отображение параметра в главном меню, изменив значение на **false**
 * **HighlightUpdates** - подсвечивать или нет в файловом менеджере обновления для установленных игр
+* **RotateScreen** - переворачивает экран на 180 градусов
+* **RotateJoycon** - переворачивает управление, чтобы соответствовать перевёрнутому экрану 
+* **OptimizeClockSpeed** - отключает оптимизацию частоты SoC в простое. Отключено по-умолчанию, поскольку **может привести к лагам на стартовом экране при некорректном выходе из DBI**!
 
 ### MainMenu
 Показ соответствующих элементов меню.

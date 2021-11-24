@@ -153,6 +153,8 @@ def connect_to_switch():
             continue
 
         dev.reset()
+        print('Waiting for switch reset...')
+        time.sleep(1)
         dev.set_configuration()
         cfg = dev.get_active_configuration()
 

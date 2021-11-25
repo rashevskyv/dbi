@@ -329,14 +329,14 @@ Exit — выход из программы в HOS, минуя hbmenu, либо 
 Файл dbi.config был добавлен, начиная с версии 253. Он находится рядом с DBI.nro, и заменяет прежние файлы-флаги dbi.default.ascii и dbi.network.config, а также добавляет несколько новых опций для удобной кастомизации настроек под пользователя.
 
 Рассмотрим его содержимое:
-```json
+```
 ; General settings
 [General]
-; Use libnx's default font for ASCII symbols
-DefaultASCII=false
-; Use libusbhsfs for access to USB mass storage drives connected to switch or dock
+; Use libnx default font for ASCII characters
+DefaultASCII=true
+; Use libusbhsfs to access external USB drives
 UseLibUsbHsFS=true
-; Direct exit to homescreen
+; Direct exit to homescreen when exiting DBI
 ExitToHomeScreen=false
 ; Folder where saves backups are stored
 SavesFolder=sdmc:/switch/DBI/saves/
@@ -348,68 +348,63 @@ LogsFolder=sdmc:/switch/DBI/logs/
 AppSorting=Name,LastPlayed,InstallLocation,Size
 ; Sorting options for save list
 SaveSorting=AppName,AppLastPlayed,UserUid,Size,SaveId
-; Highlight files with updates to curently instaled titles in file browsers
+; Highlight available updates for currently installed titles in DBI's file browser
 HighlightUpdates=true
 ; Rotate screen upside down
 RotateScreen=false
 ; Rotate joycons
 RotateJoycon=false
-; Underclock CPU in menues to reduce battery usage
+; Underclock CPU and GPU in menus to reduce battery usage
 OptimizeClockSpeed=false
 
-
-; Visibility of main menu items
+; Visibility of main menu options
 [MainMenu]
 ; Browse and install files from MicroSD card
 BrowseSD=true
-; Browse and install files from USB flash drives and HDD
+; Browse and install files from external USB drives
 USBHost=true
 ; Browse and install files from PC via dbibackend
 BackendInstall=true
 ; Install game from inserted game cartridge
 GameCard=true
-; Browse and install files from configured network sources
+; Browse and install files from configured network installation sources
 Network=true
 ; Browse installed applications
 BrowseApps=true
-; Clean up files left from bad installs/old updates/unused tickets and so on
+; Clean up files left from bad installations/old updates/unused tickets etc
 Cleanup=true
-; View where you can view or delete installed tickets
+; View or delete installed tickets
 Tickets=false
-; View where you can view or delete game saves
+; Dedicated save game management menu
 Saves=true
 ; MTP responder
 MTP=true
 
-
 [Applications]
-; Whether check or not LFS mod size
-CalculateLFSSize=true
+; Check LayeredFS mod size (large mods may take a long time)
+CalculateLFSSize=false
 
-
-; Install options
+; Installation options
 [Install]
-; Check NCA hash during install
+; Check NCA hash during installation
 CheckHash=true
-
 
 ; MTP options
 [MTP]
-; Log all files, id disabled transfer shows only for files >= 4M
+; Log all transfers on the console, if disabled only transfer of files >= 2M will be displayed
 LogAllFiles=false
-; Show or not NSP that includes base game, latest update and all DLC in single multi-title file
+; Display combined NSPs which contain base game, latest update and all DLC in a single file
 ShowCombinedNSP=true
-; Show or not virtual "Mods & cheats" folder that redirects to sdmc:/atmosphere/contents/TITLEID
+; Display per game "Mods & cheats" folder that redirects to sdmc:/atmosphere/contents/TITLEID/
 ShowMAC=true
-; Show user defined shortcuts to MircoSD folders as separate storages
+; Display user defined custom virtual MTP drives
 CustomStorages=true
-; Enable NAND install if run in emunand
-EnableNANDInstallOnEmunand=false
-; Turn screen off on start MTP mode
+; Enable 'NAND install' when running emuMMC
+EnableNANDInstallOnEmunand=true
+; Turn screen off when MTP mode is activated
 TurnOffScreen=false
 
-
-; Enable or disable various MTP storages
+; Enable or disable virtual MTP drives
 [MTP Storages]
 1: External SD Card=true
 2: Nand USER=false
@@ -421,20 +416,19 @@ TurnOffScreen=false
 8: Album=true
 9: Gamecard=true
 
-
-; Network install sources
+; Network installation sources
 [Network sources]
 ; <display name>=<type>|<URL>
 ; NSP Indexer=URLList|http://192.168.1.47/nspindexer/index.php?DBI
 ; Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
 
-
+; Custom virtual MTP drives
 [MTP custom storages]
 ; <display name>=<path>
 Homebrew=sdmc:/switch
 
-; Override for display name
-; <UPPERCASED TID>=<Desired name>
+; Override for display name in DBI and MTP mode
+; <UPPERCASE TID>=<Desired name>
 [Title name override]
 ; 010023901191C000=Naheulbeuk
 ```

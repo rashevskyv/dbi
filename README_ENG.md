@@ -292,7 +292,7 @@ The number of selected saves is displayed at the top of the context window
 7: **Saves** - Access to all save types stored in the internal memory of the Switch: accounts **(Account)**, system programs **(System)**, Background Content Asymmetric synchronized delivery and Transmission (**BCAT**, for example: events in ACNH), temporary **(Temporary)**, cache (**Cache**, for example: addons in DOOM), system BCAT **(SystemBCAT)** and Device Saves **(Device)** 
 
 Backup, restore and manage save data for both installed and uninstalled games. You can make a backup of them by copying them to a PC and also delete saves that you no longer want or need - to do this open the folder with the name of the game you need, then delete the required save folder.
-In order to restore saves, copy them to the appropriate folder from your PC. DBI does not require pre-launching the game before restoring a save, however this only applies to regular saves. BCAT or Cache saves require a pre-launch of the game before restoring.
+In order to restore saves, copy them to the appropriate folder from your PC. DBI does not require pre-launching the game before restoring a save.
 
 8: **Album** - direct access to official Album screenshots and videos per game/title, similar to the official feature added in OFW 11.0.0.
 

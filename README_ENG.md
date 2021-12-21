@@ -493,6 +493,12 @@ Enter your network installation sources for installing games over the network (v
 
 **NSP Indexer** - address for NSP index page ([more info here](https://github.com/rashevskyv/dbi/issues/44))
 
+### Local sources
+
+Create menu items with quick access to the folders selected in the config on the memory card, for example:
+
+`Homebrew Shortcut=sdmc:/switch` will create an item "**Homebrew Shortcut**" which will open the folder`sdmc:/switch`
+
 ### MTP custom storages
 Define your own custom virtual MTP drives for quick access to folders on your SD card. 
 

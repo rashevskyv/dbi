@@ -422,6 +422,15 @@ TurnOffScreen=false
 ; NSP Indexer=URLList|http://192.168.1.47/nspindexer/index.php?DBI
 ; Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
 
+; Main menu shortcuts to SD card locations
+[Local sources]
+; <display name>=<path>
+; Homebrew Shortcut=sdmc:/switch
+; Album Screenshots Shortcut=sdmc:/Nintendo/Album/2021/
+; DBILogs=sdmc:/switch/DBI/logs
+; AMS Fatal Reports Shortcut=sdmc:/atmosphere/fatal_reports/
+; AMS Crash Reports Shortcut=sdmc:/atmosphere/crash_reports/
+
 ; Custom virtual MTP drives
 [MTP custom storages]
 ; <display name>=<path>
@@ -490,14 +499,20 @@ Homebrew=sdmc:/switch
 
 **NSP Indexer** - адрес для индексации NSP ([подробнее](https://github.com/rashevskyv/dbi/issues/44))
 
-### MTP custom storages
+### Local sources
 
-**MTP custom storages**
+Создание пунктов меню с быстрым доступом к выбранным в конфиге папкам на карте памяти («ярлыки»), например: 
+
+`Homebrew Shortcut=sdmc:/switch` создаст в главном меню пункт "**Homebrew Shortcut**", который откроет папку `sdmc:/switch`
+
+### MTP custom storages
 
 Кастомные пункты для MTP-режима для быстрого доступа к папкам на вашей карте памяти. Формат: `<отображаемое_имя папки>=<путь>`, например: `Homebrew=sdmc:/switch`. 
 В режиме MTP появится папка `Homebrew`, ссылающаяся на папку `switch` на вашей карте памяти
 
-**Title name override** - позволяет изменить имя отображаемого тайтла. Например, если указать `10023901191C000=Naheulbeuk`, то в приложении вместо `The Dungeon of Naheulbeuk: The Amulet of Chaos` будет отображаться просто `Naheulbeuk`
+### Title name override
+
+Позволяет изменить имя отображаемого тайтла. Например, если указать `10023901191C000=Naheulbeuk`, то в приложении вместо `The Dungeon of Naheulbeuk: The Amulet of Chaos` будет отображаться просто `Naheulbeuk`
 
 ## Другие возможности
 

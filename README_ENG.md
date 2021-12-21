@@ -27,7 +27,7 @@ The ultimate solution for NSP, NSZ, XCI and XCZ installation along with many mor
      * [Saves Context menu](#saves-context-menu)
   1. [Run MTP responder](#run-mtp-responder)
   1. [Exit](#exit)
-1. [Errors and warnings](#errors-and-warnings)
+1. [Warnings and Errors](#warnings-and-errors)
 	1. [Warnings](#warnings)
 	1. [Errors](#errors)
 1. [dbi.config](#dbiconfig)
@@ -292,7 +292,7 @@ The number of selected saves is displayed at the top of the context window
 7: **Saves** - Access to all save types stored in the internal memory of the Switch: accounts **(Account)**, system programs **(System)**, Background Content Asymmetric synchronized delivery and Transmission (**BCAT**, for example: events in ACNH), temporary **(Temporary)**, cache (**Cache**, for example: addons in DOOM), system BCAT **(SystemBCAT)** and Device Saves **(Device)** 
 
 Backup, restore and manage save data for both installed and uninstalled games. You can make a backup of them by copying them to a PC and also delete saves that you no longer want or need - to do this open the folder with the name of the game you need, then delete the required save folder.
-In order to restore saves, copy them to the appropriate folder from your PC. DBI does not require pre-launching the game before restoring a save, however this only applies to regular saves. BCAT or Cache saves require a pre-launch of the game before restoring.
+In order to restore saves, copy them to the appropriate folder from your PC. DBI does not require pre-launching the game before restoring a save.
 
 8: **Album** - direct access to official Album screenshots and videos per game/title, similar to the official feature added in OFW 11.0.0.
 
@@ -309,29 +309,37 @@ To turn off the MTP server and exit to the main menu, press either the **(X)** o
 ### Exit
 Exit - closes DBI and returns to either to hbmenu or bypasses hbmenu to go directly to your homescreen (this is configured in dbi.config). If DBI was launched from a title/forwarder, the program will restart or remain on a black screen
 
-## Errors and warnings
+## Warnings and errors
 
 ### Warnings
 
-* **«HASH MISMATCH»** - usually this is NOT an ERROR and the game was simply converted from an .XCI and everything is in order. If there are problems with a file redownload it and verify it with verification tools such as NSCB before installing. If the game still does not start or starts with an error try reinstalling it, or check or replace the USB cable/SD card, or use a different USB port
-* **DELTA SKIPPED** - this is NOT an ERROR but a notification that unnecessary and unused delta fragments in the update file were skipped during installation
-* **«No tickets found. Possibly this NSP was converted from XCI.»** - this is NOT an ERROR and the performance of the game will not be affected. This informs you that the files do not include tickets, they may have been dumped from an .XCI file or converted to Standard Crypto
-* **«WARNING» title marked as Application but has AddonContent** - this is NOT an ERROR and usually it indicates a non-standard .NSP homebrew game, for example if an AddonContent flag (DLC) was added to the Application title (main game, v0). If the application starts and works then everything is in order
+* **"SIGNATURE: Invalid" / "SIGNATURE: GC-> eShop" / "HASH NOT MATCHED TO META"** are NOT ERRORS but notifications about a signature mismatch in headers, for example: conversions, custom NSPs, forwarders
+* **"HASH MISMATCH"** - usually this is NOT an ERROR and the game was simply converted from an .XCI and everything is in order. If there are problems with a file redownload it and verify it with verification tools such as NSCB before installing. If the game still does not start or starts with an error try reinstalling it, or check or replace the USB cable/SD card, or use a different USB port
+* **"DELTA SKIPPED"** - this is NOT an ERROR but a notification that unnecessary and unused delta fragments in the update file were skipped during installation
+* **"No tickets found. Possibly this NSP was converted from XCI."** - this is NOT an ERROR and the performance of the game will not be affected. This informs you that the files do not include tickets, they may have been dumped from an .XCI file or converted to Standard Crypto
+* **"WARNING title marked as Application but has AddonContent"** - this is NOT an ERROR and usually it indicates a non-standard .NSP homebrew game, for example if an AddonContent flag (DLC) was added to the Application title (main game, v0). If the application starts and works then everything is in order
+* **"This application base is not stand alone. Make sure you installed update"** when installing Sparse Storage games is NOT an ERROR but a reminder that an update is required to launch these types of games. Install the latest update immediately after installing the base game
 
 ### ERRORs
 
-* **«Cannot parse content meta. Corrupted file or old firmware»** - Either the file is corrupt or your firmware is too outdated to parse the meta file. Verify the file and update to the latest cfw and latest supported firmware version
-* **«Can not find file for ncaid»** - The installation file of the game is corrupt (it does not contain the required .nca from the .cnmt list)
-* **«Invalid PFS0 magic!»** - the file is corrupt, redownload the installation file and check its integrity
-* **«Received less data than expected»** or **Installation aborted** - data transfer error, check and if necessary replace the USB cable or use a different USB port between the Switch and the PC. Also make sure you have the most recent version of DBI installed
-* **«std::bad_alloc»** - rename the file without special characters and Cyrillic in the filename and path to the file, plus make sure that you are using the latest version of DBI and update to the latest cfw and latest supported firmware version
-* **«Nothing to install»** in the file selection window - rename the file without special characters, hieroglyphs or Cyrillic in the filename and path to the file
-* **«INVALID LENGTH»** - check the USB-C cable connection to your USB port, try with another USB-C cable, verify the integrity of the game file and check the SD card for errors, when installing via MTP - try to run DBI in application mode (title override) holding the R button while launching a title
-* **«[FAILED] Unknown error»** when installing .tik (ticket) - add the latest sigpatches for Atmosphére
-* **«605: Content or placeholder path not exists»** or **«SOME CONTENTS ARE MISSING»** - broken file system on your SD card, or a non-working/low-quality flash drive. Check it in chkdsk and h2testw, if there are no errors reformat to FAT32
-* **WARNING! Extra buffers exceeded** - when installing via MTP - try to run DBI in application mode (title override) holding the R button while launching a title or alternatively via NSP forwarder and use a faster microSD card with a different USB cable/port
-* **No tickets found but they are required** - incorrect (incomplete, no ticket but with titlerights) dump of the game, use another one
-* **SOME CONTENTS ARE MISSING. APPLICATION WILL BE UNUSABLE** - container is incomplete, check the integrity of the game installation file
+* **“Read: USB communication failed”** - check/replace USB cable or try a different USB port on PC
+* **"Cannot parse content meta. Corrupted file or old firmware"** - Either the file is corrupt or your firmware is too outdated to parse the meta file. Verify the file and update to the latest cfw and latest supported firmware version
+* **"Can not find file for ncaid"** - The installation file of the game is corrupt (it does not contain the required .nca from the .cnmt list)
+* **"Invalid PFS0 magic!"** - the file is corrupt, redownload the installation file and check its integrity
+* **"Invalid NCA magic!"** - verify the file and update to the latest cfw and latest supported firmware version
+* **"Received less data than expected"** or **"Installation aborted"** - data transfer error, check and if necessary replace the USB cable or use a different USB port between the Switch and the PC. Also make sure you have the most recent version of DBI installed
+* **"std::bad_alloc"** - rename the file without special characters and Cyrillic in the filename and path to the file, plus make sure that you are using the latest version of DBI and update to the latest cfw and latest supported firmware version
+* **"Nothing to install"** in the file selection window - rename the file without special characters, hieroglyphs or Cyrillic in the filename and path to the file
+* **"INVALID LENGTH"** - check the USB-C cable connection to your USB port, try with another USB-C cable, verify the integrity of the game file and check the SD card for errors, when installing via MTP - try to run DBI in application mode (title override) holding the R button while launching a title
+* **"INVALID DECOMPRESSED LENGTH"** together with **"TRANSFER ERROR"** when installing from SD card/external drives/dbibackend - free up more space on the SD card and delete unnecessary files from the card (you may experience this with more than 20,000 files on the SD card)
+* **"[FAILED] Unknown error"** when installing .tik (ticket) - add the latest sigpatches for Atmosphére
+* **"605: Content or placeholder path not exists"** or **"SOME CONTENTS ARE MISSING"** - broken file system on your SD card, or a non-working/low-quality flash drive. Check it in chkdsk and h2testw, if there are no errors reformat to FAT32
+* **"Can not create placeholder"** - there is not enough space on the SD card/NAND, free up space and try again
+* **"WARNING! Extra buffers exceeded"** - when installing via MTP - try to run DBI in application mode (title override) holding the R button while launching a title or alternatively via NSP forwarder and use a faster microSD card with a different USB cable/port
+* **"No tickets found but they are required"** - incorrect (incomplete, no ticket but with titlerights) dump of the game, use another one
+* **"SOME CONTENTS ARE MISSING. APPLICATION WILL BE UNUSABLE"** - container is incomplete, check the integrity of the game installation file
+* **"Invalid personalized ticket"** - a dump of the game where instead of a common-ticket a personalized ticket from the console on which the game was purchased was included, obtain a proper dump
+* **"No ES or other sigpatches"** - missing, outdated or bad sigpatches, obtain and install the latest versions to the correct locations 
 
 ## dbi.config
 The `dbi.config` file was added starting with version 253. It is located next to DBI.nro and replaces the old flags files `dbi.default.ascii` and `dbi.network.config` and also adds several new options for easy customization of settings for the user.
@@ -436,8 +444,8 @@ TurnOffScreen=false
 Homebrew=sdmc:/switch
 
 ; Override for display name in DBI and MTP mode
-; <UPPERCASE TID>=<Desired name>
 [Title name override]
+; <UPPERCASE TID>=<Desired name>
 ; 010023901191C000=Naheulbeuk
 ```
 
@@ -534,7 +542,7 @@ DBI supports USB 3.0. If you are using kefir, then USB 3.0 is active by default.
 usb30_force_enabled = u8!0x1
 ```
 
-**Important** - activiating USB 3.0 can interfere with bluetooth and 2.4GHz wifi connections. If you experience any connection issues with your wireless controllers or 2.4GHz wifi networks then you should not activate USB 3.0. 5GHz wifi connections should be generally unaffacted.
+**Important** - activating USB 3.0 can interfere with bluetooth and 2.4GHz wifi connections. If you experience any connection issues with your wireless controllers or 2.4GHz wifi networks then you should not activate USB 3.0. 5GHz wifi connections should be generally unaffacted.
 
 ## Acknowledgements
 Thanks to [SciresM](https://github.com/SciresM) for [hactool](https://github.com/SciresM/hactool) (licensed under [ISC](https://en.wikipedia.org/wiki/ISC_license)) - DBI uses some data struct definitions from there

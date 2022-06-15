@@ -372,6 +372,9 @@ RotateScreen=false
 RotateJoycon=false
 ; Underclock CPU and GPU in menus to reduce battery usage
 OptimizeClockSpeed=false
+; URL with title versions in format <id>|<rightsId>|[version]
+VersionsURL=https://raw.githubusercontent.com/blawar/titledb/master/versions.txt
+; VersionsURL=sdmc:/versions.txt
 
 ; Visibility of main menu options
 [MainMenu]
@@ -385,10 +388,14 @@ BackendInstall=true
 GameCard=true
 ; Browse and install files from configured network installation sources
 Network=true
+; Browse and install files from configured sd card folders
+Local=false
 ; Browse installed applications
 BrowseApps=true
 ; Clean up files left from bad installations/old updates/unused tickets etc
 Cleanup=true
+; Check for app updates
+UpdateCheck=true
 ; View or delete installed tickets
 Tickets=false
 ; Dedicated save game management menu
@@ -471,20 +478,23 @@ Homebrew=sdmc:/switch
 * **RotateScreen** - rotate the screen 180 degrees
 * **RotateJoycon** - rotate controls for rotated screen
 * **OptimizeClockSpeed** - enable or disable SoC frequency optimization when idle,  disabled by default. **DO NOT** exit DBI improperly if enabled (e.g. by pressing the home button from applet mode) as default clock speeds will not be properly restored and your Switch will be laggy due to being in a low performance mode
+* **VersionsURL** - accept a direct link to a file on a remote server, or to a file on a memory card. Examples: `https://raw.githubusercontent.com/blawar/titledb/master/versions.txt` или `sdmc:/versions.txt`
 
 ### MainMenu
 **Visibility of main menu options** - customize which options will appear in DBI's main menu: **true** - display in main menu, **false** - hide from main menu.
 
-* BrowseSD - display **Browse SD card**, to install games from SD card
-* USBHost - display **Browse USB0 Drive**, to install games from a external USB drive if connected
-* BackendInstall - display **Install title from USB**, for installing games from PC via dbibackend
-* GameCard - display **Install title from Gamecard**, to install a game from an inserted gamecard to your console
-* Network - display **Home server**, to install games from a configured home web server
-* BrowseApps - display **Browse installed applications**, to browse and manage installed applications
-* Cleanup - display **Cleanup orphaned files**, to clean up 'orphaned' files from the SD card
-* Tickets - display **Browse tickets**, to manage tickets
-* Saves - display **Browse saves**, to manage save games
-* MTP - display **Run MTP responder**, to start MTP mode
+* **BrowseSD** - display **Browse SD card**, to install games from SD card
+* **USBHost** - display **Browse USB0 Drive**, to install games from a external USB drive if connected
+* **BackendInstall** - display **Install title from USB**, for installing games from PC via dbibackend
+* **GameCard** - display **Install title from Gamecard**, to install a game from an inserted gamecard to your console
+* **Network** - display **Home server**, to install games from a configured home web server
+* **Local** - show or not links to folders from the section [Local sources](#local-sources)
+* **BrowseApps** - display **Browse installed applications**, to browse and manage installed applications
+* **Cleanup** - display **Cleanup orphaned files**, to clean up 'orphaned' files from the SD card
+* **UpdateCheck** - display "**Check for title updates**", to check for updates and DLC for installed games
+* **Tickets** - display **Browse tickets**, to manage tickets
+* **Saves** - display **Browse saves**, to manage save games
+* **MTP** - display **Run MTP responder**, to start MTP mode
 
 ### Applications
 * **CalculateLFSSize** - enables or disables the size check for LayeredFS mods, if enabled depending on the size of the mod a delay may occur when opening a game's information screen in **Installed applications** 

@@ -365,6 +365,9 @@ RotateScreen=false
 RotateJoycon=false
 ; Underclock CPU and GPU in menus to reduce battery usage
 OptimizeClockSpeed=false
+; URL with title versions in format <id>|<rightsId>|[version]
+VersionsURL=https://raw.githubusercontent.com/blawar/titledb/master/versions.txt
+; VersionsURL=sdmc:/versions.txt
 
 ; Visibility of main menu options
 [MainMenu]
@@ -378,10 +381,14 @@ BackendInstall=true
 GameCard=true
 ; Browse and install files from configured network installation sources
 Network=true
+; Browse and install files from configured sd card folders
+Local=false
 ; Browse installed applications
 BrowseApps=true
 ; Clean up files left from bad installations/old updates/unused tickets etc
 Cleanup=true
+; Check for app updates
+UpdateCheck=true
 ; View or delete installed tickets
 Tickets=false
 ; Dedicated save game management menu
@@ -465,6 +472,7 @@ Homebrew=sdmc:/switch
 * **RotateScreen** - переворачивает экран на 180 градусов
 * **RotateJoycon** - переворачивает управление, чтобы соответствовать перевёрнутому экрану 
 * **OptimizeClockSpeed** - отключает оптимизацию частоты SoC в простое. Отключено по-умолчанию, поскольку **может привести к лагам на стартовом экране при некорректном выходе из DBI**! Корректный выход - через пункт меню **Exit**.
+* **VersionsURL** - может принимать прямую ссылку на файл на уудалённом сервере, либо на файл на карте памяти. Примеры: `https://raw.githubusercontent.com/blawar/titledb/master/versions.txt` или `sdmc:/versions.txt`
 
 ### MainMenu
 Показ соответствующих элементов меню.
@@ -476,8 +484,10 @@ Homebrew=sdmc:/switch
 * **BackendInstall** - пункт "**Install title from USB**, для устаноки игр с ПК через backend 
 * **GameCard** - пункт "**Install title from Gamecard**, для установки содержимого картриджа в память консоли
 * **Network** - пункт "**Home server**, для установки игр с домашнего веб-сервера
+* **Local** - показывать или нет ссылки на папки из раздела [Local sources](#local-sources)
 * **BrowseApps** - пункт "**Browse installed applications**, для управления установленными приложениями
 * **Cleanup** - пункт "**Cleanup orphaned files**, для очистки "осиротевших" файлов с карты памяти
+* **UpdateCheck** - пункт "**Check for title updates**", для проверки обновлений и DLC для установленных игр
 * **Tickets** - пункт "**Browse tickets**, для управления тикетами
 * **MTP** - пункт "**Run MTP responder**, для запуска MTP
 

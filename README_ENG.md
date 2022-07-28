@@ -54,6 +54,7 @@ Copy `dbi.nro` and `dbi.config` to your SD card at `sdmc:/switch/DBI/` DBI can b
 * **Browse tickets** - view and manually delete system tickets for games
 * **Browse saves** - view, backup and delete game save data for all games
 * **Run MTP responder** - enables DBI's internal MTP server to connect the Switch to a PC or to an Android device (Some tested phone/tablet devices: Pixel 3, Xiaomi Mi A1, Lenovo Tab 4 7 "TB-7304X). On your device you will be presented with several virtual MTP drives for installation and many advanced features for file management on your SD card and NAND. Please see **[Run MTP Responder](#run-mtp-responder)** for a full overview
+* **Run FTP server** - enables DBI's FTP server for microSD file access on port 5000 or file installation on port 6000
 * **Exit** - exit from the program. *Main menu hotkey for this option*: **(+)** button
 
 The bottom left corner of DBI displays the total amount of data currently on your SD card along with the full capacity. The bottom right corner gives you the same information for your NAND's usable space in HOS.
@@ -373,8 +374,10 @@ RotateJoycon=false
 ; Underclock CPU and GPU in menus to reduce battery usage
 OptimizeClockSpeed=false
 ; URL with title versions in format <id>|<rightsId>|[version]
-VersionsURL=https://raw.githubusercontent.com/blawar/titledb/master/versions.txt
 ; VersionsURL=sdmc:/versions.txt
+VersionsURL=https://raw.githubusercontent.com/blawar/titledb/master/versions.txt
+; Browse saves FS in Read-only mode
+ROSaveFS=true
 
 ; Visibility of main menu options
 [MainMenu]
@@ -402,6 +405,8 @@ Tickets=false
 Saves=true
 ; MTP responder
 MTP=true
+; FTP server
+FTP=true
 
 [Applications]
 ; Check LayeredFS mod size (large mods may take a long time)
@@ -495,6 +500,7 @@ Homebrew=sdmc:/switch
 * **Tickets** - display **Browse tickets**, to manage tickets
 * **Saves** - display **Browse saves**, to manage save games
 * **MTP** - display **Run MTP responder**, to start MTP mode
+* **FTP** - display **Run FTP server**, to start FTP mode
 
 ### Applications
 * **CalculateLFSSize** - enables or disables the size check for LayeredFS mods, if enabled depending on the size of the mod a delay may occur when opening a game's information screen in **Installed applications** 

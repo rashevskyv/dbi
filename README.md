@@ -54,6 +54,7 @@
 * **Browse tickets** — просмотр и ручное удаление системных тикетов игр.
 * **Browse saves** - просмотр и удаление сохранений 
 * **Run MTP responder** — включение внутреннего MTP-сервера для присоединения Switch к ПК или к Android-устройству (телефон/планшет/пр., протестированы Pixel 3, Xiaomi Mi A1, Lenovo Tab 4 7" TB-7304X), можно: просматривать и работать с картой памяти (1: External SD Card) и внутренней память консоли, просматривать установленные игры (4: Installed games), сделать бекап игровых сохранений на ПК (7: Saves), при вставленном игровом картридже дампить его (full/trimmed/сертификат) на ПК/Android (9: Gamecard). *Горячая клавиша для этой опции*: кнопка X (ей же выходить из MTP).
+* **Run FTP server** - включает FTP-сервер DBI для доступа к файлам microSD через порт 5000 или установку файлов через порт 6000
 * **Exit** — выход из программы. *Горячая клавиша для этой опции*: кнопка **(+)**
 
 В самом левом нижнем углу (SD) написано про занятый размер данных на карте/общий размер карты. В правом нижнем углу (NAND) написан занятый размер данных во встроенной памяти Switch/общий встроенной памяти Switch.
@@ -366,8 +367,10 @@ RotateJoycon=false
 ; Underclock CPU and GPU in menus to reduce battery usage
 OptimizeClockSpeed=false
 ; URL with title versions in format <id>|<rightsId>|[version]
-VersionsURL=https://raw.githubusercontent.com/blawar/titledb/master/versions.txt
 ; VersionsURL=sdmc:/versions.txt
+VersionsURL=https://raw.githubusercontent.com/blawar/titledb/master/versions.txt
+; Browse saves FS in Read-only mode
+ROSaveFS=true
 
 ; Visibility of main menu options
 [MainMenu]
@@ -395,6 +398,8 @@ Tickets=false
 Saves=true
 ; MTP responder
 MTP=true
+; FTP server
+FTP=true
 
 [Applications]
 ; Check LayeredFS mod size (large mods may take a long time)
@@ -490,6 +495,7 @@ Homebrew=sdmc:/switch
 * **UpdateCheck** - пункт "**Check for title updates**", для проверки обновлений и DLC для установленных игр
 * **Tickets** - пункт "**Browse tickets**, для управления тикетами
 * **MTP** - пункт "**Run MTP responder**, для запуска MTP
+* **FTP** - пункт "**Run FTP server**, для запуска FTP
 
 ### Install
 

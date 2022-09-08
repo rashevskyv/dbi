@@ -342,11 +342,11 @@ Unin**stalled games** — сохранения от удалённых игр, �
 ```
 ; General settings
 [General]
-; Use libnx default font for ASCII characters
+; Use libnx's default font for ASCII symbols
 DefaultASCII=true
-; Use libusbhsfs to access external USB drives
+; Use libusbhsfs for access to USB mass storage drives connected to switch or dock
 UseLibUsbHsFS=true
-; Direct exit to homescreen when exiting DBI
+; Direct exit to homescreen
 ExitToHomeScreen=false
 ; Folder where saves backups are stored
 SavesFolder=sdmc:/switch/DBI/saves/
@@ -354,78 +354,93 @@ SavesFolder=sdmc:/switch/DBI/saves/
 LogEvents=false
 ; Folder where logs are stored
 LogsFolder=sdmc:/switch/DBI/logs/
+; Folder where game dumps are stored
+DumpsFolder=sdmc:/switch/DBI/dumps/
 ; Sorting options for application list
-AppSorting=Name,LastPlayed,InstallLocation,Size
+AppSorting=LastPlayed,InstallLocation,Size,Name
 ; Sorting options for save list
-SaveSorting=AppName,AppLastPlayed,UserUid,Size,SaveId
-; Highlight available updates for currently installed titles in DBI's file browser
+SaveSorting=AppLastPlayed,AppName,UserUid,Size,SaveId
+; Highlight files with updates to curently instaled titles in file browsers
 HighlightUpdates=true
 ; Rotate screen upside down
 RotateScreen=false
 ; Rotate joycons
 RotateJoycon=false
-; Underclock CPU and GPU in menus to reduce battery usage
+; Underclock CPU in menues to reduce battery usage
 OptimizeClockSpeed=false
 ; URL with title versions in format <id>|<rightsId>|[version]
-; VersionsURL=sdmc:/versions.txt
 VersionsURL=https://raw.githubusercontent.com/blawar/titledb/master/versions.txt
-; Browse saves FS in Read-only mode
+;VersionsURL=sdmc:/versions.txt
+;Browse saves FS in Read-only mode
 ROSaveFS=true
+; Show "Update all items from here..." in context menu of file browsers
+ShowUpdateFromHere=false
 
-; Visibility of main menu options
+; Visibility of main menu items
 [MainMenu]
 ; Browse and install files from MicroSD card
 BrowseSD=true
-; Browse and install files from external USB drives
+; Browse and copy files from SYSTEM partition
+BrowseSystem=false
+; Browse and copy files from USER partition
+BrowseUser=false
+; Browse and install files from USB flash drives and HDD
 USBHost=true
 ; Browse and install files from PC via dbibackend
 BackendInstall=true
 ; Install game from inserted game cartridge
 GameCard=true
-; Browse and install files from configured network installation sources
+; Browse and install files from configured network sources
 Network=true
 ; Browse and install files from configured sd card folders
-Local=false
+Local=true
 ; Browse installed applications
 BrowseApps=true
-; Clean up files left from bad installations/old updates/unused tickets etc
+; Clean up files left from bad installs/old updates/unused tickets and so on
 Cleanup=true
 ; Check for app updates
 UpdateCheck=true
-; View or delete installed tickets
+; View where you can view or delete installed tickets
 Tickets=false
-; Dedicated save game management menu
+; View where you can view or delete game saves
 Saves=true
 ; MTP responder
 MTP=true
-; FTP server
+; FTP Server
 FTP=true
 
 [Applications]
-; Check LayeredFS mod size (large mods may take a long time)
+; Whether check or not LFS mod size
 CalculateLFSSize=false
 
-; Installation options
+; Install options
 [Install]
-; Check NCA hash during installation
+; Check NCA hash during install
 CheckHash=true
+; Use chunked HTTP transfer (good in bad environments)
+ChunkedHTTP=true
 
 ; MTP options
 [MTP]
-; Log all transfers on the console, if disabled only transfer of files >= 2M will be displayed
+; Log all files, if disabled transfer shows only for files >= 2M
 LogAllFiles=false
-; Display combined NSPs which contain base game, latest update and all DLC in a single file
+; Show or not NSP that includes base game, latest update and all DLC in single multi-title file
 ShowCombinedNSP=true
-; Display per game "Mods & cheats" folder that redirects to sdmc:/atmosphere/contents/TITLEID/
+; Show or not virtual "Mods & cheats" folder that redirects to sdmc:/atmosphere/contents/TITLEID
 ShowMAC=true
-; Display user defined custom virtual MTP drives
+; Show user defined shortcuts to MircoSD folders as separate storages
 CustomStorages=true
-; Enable 'NAND install' when running emuMMC
+; Enable NAND install if run in emunand
 EnableNANDInstallOnEmunand=true
-; Turn screen off when MTP mode is activated
+; Turn screen off on start MTP mode
 TurnOffScreen=false
 
-; Enable or disable virtual MTP drives
+; FTP options
+[FTP]
+; Turn screen off on start FTP mode
+TurnOffScreen=false
+
+;Enable or disable various MTP storages
 [MTP Storages]
 1: External SD Card=true
 2: Nand USER=false
@@ -437,29 +452,28 @@ TurnOffScreen=false
 8: Album=true
 9: Gamecard=true
 
-; Network installation sources
+; Network install sources
 [Network sources]
 ; <display name>=<type>|<URL>
 ; NSP Indexer=URLList|http://192.168.1.47/nspindexer/index.php?DBI
 ; Home server=ApacheHTTP|http://192.168.1.47/Nintendo/Switch/
+; Test FTP=FTP|ftp://anonymous:password@192.168.1.24:2121/
 
 ; Main menu shortcuts to SD card locations
 [Local sources]
 ; <display name>=<path>
-; Homebrew Shortcut=sdmc:/switch
-; Album Screenshots Shortcut=sdmc:/Nintendo/Album/2021/
+Homebrew=sdmc:/switch
+; Contents=sdmc:/atmosphere/contents
 ; DBILogs=sdmc:/switch/DBI/logs
-; AMS Fatal Reports Shortcut=sdmc:/atmosphere/fatal_reports/
-; AMS Crash Reports Shortcut=sdmc:/atmosphere/crash_reports/
 
-; Custom virtual MTP drives
 [MTP custom storages]
 ; <display name>=<path>
-Homebrew=sdmc:/switch
+Homebrew=sdmc:/switch/
+Screenshots=sdmc:/Nintendo/Album/
 
-; Override for display name in DBI and MTP mode
+; Override for display name
+; <UPPERCASED TID>=<Desired name>
 [Title name override]
-; <UPPERCASE TID>=<Desired name>
 ; 010023901191C000=Naheulbeuk
 ```
 
@@ -470,6 +484,7 @@ Homebrew=sdmc:/switch
 * **SavesFolder** - папка для хранения дампов сохранений
 * **LogEvents** - сохранять или нет логи для событий "*Install*", "*Check integrity*" and "*Cleanup*"
 * **LogsFolder** - папка для хранения логов
+* **DumpsFolder** - папка на карте памяти в которую будут дампиться игры
 * **AppSorting** - опции для сортировки списка приложений
 * **SaveSorting** - опции для сортировки сохранений
 * **Visibility of main menu items** - настроить, какие пункты меню будут отображаться в главном меню DBI, вы можете запретить отображение параметра в главном меню, изменив значение на **false**
@@ -478,13 +493,17 @@ Homebrew=sdmc:/switch
 * **RotateJoycon** - переворачивает управление, чтобы соответствовать перевёрнутому экрану 
 * **OptimizeClockSpeed** - отключает оптимизацию частоты SoC в простое. Отключено по-умолчанию, поскольку **может привести к лагам на стартовом экране при некорректном выходе из DBI**! Корректный выход - через пункт меню **Exit**.
 * **VersionsURL** - может принимать прямую ссылку на файл на уудалённом сервере, либо на файл на карте памяти. Примеры: `https://raw.githubusercontent.com/blawar/titledb/master/versions.txt` или `sdmc:/versions.txt`
+* **ROSaveFS** - просматривать сохранения в режиме только для чтения
+* **ShowUpdateFromHere** - показывать кнопку "Update all titles" в контекстном меню для автообновления установленных игр из всех (microSD/USB/HTTP/FTP) доступных источников
 
 ### MainMenu
 Показ соответствующих элементов меню.
 
 **true** - отображать **false** - нет 
 
-* **BrowseSD** - пункт "**Browse SD card**, для установки игр с Sd карты 
+* **BrowseSD** - пункт "**Browse SD card**, для установки игр с Sd карты
+* **BrowseSystem** - возможнеость просматривать и копировать файлы из раздела SYSTEM
+* **BrowseUser** - возможнеость просматривать и копировать файлы из раздела USER
 * **USBHost** - пункт "**Browse USB0 Drive**, для установки игр с внешнего USB
 * **BackendInstall** - пункт "**Install title from USB**, для устаноки игр с ПК через backend 
 * **GameCard** - пункт "**Install title from Gamecard**, для установки содержимого картриджа в память консоли
@@ -499,7 +518,8 @@ Homebrew=sdmc:/switch
 
 ### Install
 
-* **CheckHash** — при **true** проверяются хеши .nca-файлов при установке игр на Switch, при false нет.
+* **CheckHash** — при **true** проверяются хеши .nca-файлов при установке игр на Switch, при false нет
+* **ChunkedHTTP** - использование чанковую передачу данных по HTTP 
 
 ### Applications
 * **CalculateLFSSize** — включает или отключает подсчёт размера установленных LFS-модов. Если включено, может повлиять на скорость открытия меню "*Browse installed applications*"
@@ -518,6 +538,9 @@ Homebrew=sdmc:/switch
 **true** - отображать в главном меню, **false** - нет 
 
 Названия пунктов соответствуют названиям разделов
+
+### FTP
+* **TurnOffScreen** - выключать экран при входе в режим FTP 
 
 ### [Network sources](#home-server)
 Задаются имена и адреса для установки игр по сети (через WiFi/LAN-адаптер)

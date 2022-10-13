@@ -5,7 +5,7 @@ This guide is based on [Brikachu's work](https://4pda.to/forum/index.php?showtop
 
 [РУССКИЙ / Russian guide](README.md)
 
-The ultimate solution for NSP, NSZ, XCI and XCZ installation along with many more advanced features to enhance your Nintendo Switch experience! DBI supports installation from SD card, via USB MTP, USB cable (using the dbibackend script or dbi-nsw tool), network (using your own http server) and external USB drives.
+The ultimate solution to install `NSP`, `NSZ`, `XCI` and `XCZ` and work with Nintendo Switch. Supports installation over MTP, USB, http (from your personal server), external USB and more. Support for viewing images in `jpg`, `png` and `psd` formats. Support for working with `zip` and `rar` archives, as well as with `cbr`/`cbz` containers. Support for text files, plain text view and hex view. Can be used as a file manager (copy, move, delete files and folders, create folders). Work with saves (including backup and restore) and much more.
 
 ## Content: 
 
@@ -382,6 +382,8 @@ VersionsURL=https://raw.githubusercontent.com/blawar/titledb/master/versions.txt
 ROSaveFS=true
 ; Show "Update all items from here..." in context menu of file browsers
 ShowUpdateFromHere=false
+; Show cache warming spinner
+ShowCacheWarmingIndicator=true
 
 ; Visibility of main menu items
 [MainMenu]
@@ -425,7 +427,7 @@ CalculateLFSSize=false
 ; Check NCA hash during install
 CheckHash=true
 ; Use chunked HTTP transfer (good in bad environments)
-ChunkedHTTP=true
+ChunkedTransfer=true
 
 ; MTP options
 [MTP]
@@ -437,8 +439,6 @@ ShowCombinedNSP=true
 ShowMAC=true
 ; Show user defined shortcuts to MircoSD folders as separate storages
 CustomStorages=true
-; Enable NAND install if run in emunand
-EnableNANDInstallOnEmunand=true
 ; Turn screen off on start MTP mode
 TurnOffScreen=false
 
@@ -501,6 +501,7 @@ Screenshots=sdmc:/Nintendo/Album/
 * **VersionsURL** - accept a direct link to a file on a remote server, or to a file on a memory card. Examples: `https://raw.githubusercontent.com/blawar/titledb/master/versions.txt` или `sdmc:/versions.txt`
 * **ROSaveFS** - browse saves FS in Read-only mode
 * **ShowUpdateFromHere** - show "Update all items from here..." in context menu of file browsers
+* **ShowCacheWarmingIndicator** - show a notification about caching information about installed programs
 
 ### MainMenu
 **Visibility of main menu options** - customize which options will appear in DBI's main menu: **true** - display in main menu, **false** - hide from main menu.

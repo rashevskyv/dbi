@@ -5,7 +5,7 @@
 
 Инструкция базируется на [работе Брикачу](https://4pda.to/forum/index.php?showtopic=939714&st=1100#Spoil-86288632-5)
 
-Ультимативное решение для установки NSP, NSZ, XCI и XCZ и работы с консолью. Поддержка установки по MTP, USB, http (с вашего личного сервера), внешнего USB и многое другое. 
+Ультимативное решение для установки `NSP`, `NSZ`, `XCI` и `XCZ` и работы с Nintendo Switch. Поддержка установки по MTP, USB, http (с вашего личного сервера), внешнего USB и многое другое. Поддержка просмотра картинок в формате `jpg`, `png` и `psd`. Поддержка работы с архивами `zip` и `rar`, а так же с контейнерами `cbr`/`cbz`. Поддержка текстовых файлов, просмотр в режиме обычного текста и в режиме hex-просмотра. Может быть использован в качестве файлового менеджера (копирование, перемещение, удаление файлов и папок, создание папок). Работа с сохранениями (в том числе резервное копирование и восстановление) и многое другое. 
 
 ## Содержание: 
 
@@ -375,6 +375,8 @@ VersionsURL=https://raw.githubusercontent.com/blawar/titledb/master/versions.txt
 ROSaveFS=true
 ; Show "Update all items from here..." in context menu of file browsers
 ShowUpdateFromHere=false
+; Show cache warming spinner
+ShowCacheWarmingIndicator=true
 
 ; Visibility of main menu items
 [MainMenu]
@@ -418,7 +420,7 @@ CalculateLFSSize=false
 ; Check NCA hash during install
 CheckHash=true
 ; Use chunked HTTP transfer (good in bad environments)
-ChunkedHTTP=true
+ChunkedTransfer=false
 
 ; MTP options
 [MTP]
@@ -430,8 +432,6 @@ ShowCombinedNSP=true
 ShowMAC=true
 ; Show user defined shortcuts to MircoSD folders as separate storages
 CustomStorages=true
-; Enable NAND install if run in emunand
-EnableNANDInstallOnEmunand=true
 ; Turn screen off on start MTP mode
 TurnOffScreen=false
 
@@ -495,6 +495,7 @@ Screenshots=sdmc:/Nintendo/Album/
 * **VersionsURL** - может принимать прямую ссылку на файл на уудалённом сервере, либо на файл на карте памяти. Примеры: `https://raw.githubusercontent.com/blawar/titledb/master/versions.txt` или `sdmc:/versions.txt`
 * **ROSaveFS** - просматривать сохранения в режиме только для чтения
 * **ShowUpdateFromHere** - показывать кнопку "Update all titles" в контекстном меню для автообновления установленных игр из всех (microSD/USB/HTTP/FTP) доступных источников
+* **ShowCacheWarmingIndicator** - показывать уведомление о кешировании информации об установленных программах
 
 ### MainMenu
 Показ соответствующих элементов меню.
@@ -519,7 +520,7 @@ Screenshots=sdmc:/Nintendo/Album/
 ### Install
 
 * **CheckHash** — при **true** проверяются хеши .nca-файлов при установке игр на Switch, при false нет
-* **ChunkedHTTP** - использование чанковую передачу данных по HTTP 
+* **ChunkedTransfer** - использование чанковую передачу данных по HTTP 
 
 ### Applications
 * **CalculateLFSSize** — включает или отключает подсчёт размера установленных LFS-модов. Если включено, может повлиять на скорость открытия меню "*Browse installed applications*"
@@ -529,7 +530,6 @@ Screenshots=sdmc:/Nintendo/Album/
 * **ShowCombinedNSPInInstalledGames** — **false** выключает показ комбинированных (multi-title .NSP-file) тайтлов.
 * **ShowMACInInstalledGames** — **false** выключает показ виртуальной директории **«Mods & cheats»** в пункте Installed games в MTP, перенаправляющей по пути `sdmc:/atmosphere/contents/TITLEID/` на карту памяти.
 * **CustomStorages** - отображать или спрятать кастомные пункты меню, прописанные в секции **MTP custom storages**
-* **EnableNANDInstallOnEmunand** - разрешает или запрещает установку игр в NAND файлового EmuNAND (не актуально после выхода Atmosphere 0.19.3)
 * **TurnOffScreen** - отключать или нет экран консоли при подключении её в режиме MTP
 
 ### [MTP Storages](#run-mtp-responder)

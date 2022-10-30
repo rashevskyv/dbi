@@ -104,7 +104,12 @@ In order to use this option you will first require dbibackend (`dbibackend.exe` 
 
 From here you can select and install your files on the Switch in the same fashion as using Browse SD Card/Browse USB0 Drive.
 
-To quickly send files or folders with games for installation, right-click on them, select Send from dbibackend and the installation files will be immediately placed in dbibackend's queue. To configure this in Windows, press `Win + R`, enter `shell: sendto` and create a shortcut for `dbibackend.exe` in the folder.
+To quickly send files or folders with games for installation, right-click on them, select `Send from dbibackend` and the installation files will be immediately placed in dbibackend's queue. To configure this in Windows, press `Win + R`, enter `shell: sendto` and create a shortcut for `dbibackend.exe` in the folder.
+
+#### Dependencies that may be required to run on MacOS or Linux
+
+| brew install python-tk
+| pip3 install pyusb
 
 ### Home server
 

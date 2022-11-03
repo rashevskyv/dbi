@@ -108,8 +108,10 @@ To quickly send files or folders with games for installation, right-click on the
 
 #### Dependencies that may be required to run on MacOS or Linux
 
-| brew install python-tk
-| pip3 install pyusb
+```bash
+brew install python-tk
+pip3 install pyusb
+```
 
 ### Home server
 

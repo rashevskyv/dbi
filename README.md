@@ -106,8 +106,10 @@
 
 #### Зависимости, которые могут потребоваться для работы в MacOS или Linux 
 
-| brew install python-tk
-| pip3 install pyusb
+```bash
+brew install python-tk
+pip3 install pyusb
+```
 
 ### Home server
 

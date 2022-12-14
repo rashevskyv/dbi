@@ -391,6 +391,8 @@ ROSaveFS=true
 ShowUpdateFromHere=false
 ; Show cache warming spinner
 ShowCacheWarmingIndicator=true
+; Screen idle timeout in seconds
+ScreenIdleTimeout=0
 
 ; Visibility of main menu items
 [MainMenu]
@@ -509,6 +511,7 @@ Screenshots=sdmc:/Nintendo/Album/
 * **ROSaveFS** - browse saves FS in Read-only mode
 * **ShowUpdateFromHere** - show "Update all items from here..." in context menu of file browsers
 * **ShowCacheWarmingIndicator** - show a notification about caching information about installed programs
+* **ScreenIdleTimeout** - display timeout
 
 ### MainMenu
 **Visibility of main menu options** - customize which options will appear in DBI's main menu: **true** - display in main menu, **false** - hide from main menu.

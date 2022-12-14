@@ -385,6 +385,8 @@ ROSaveFS=true
 ShowUpdateFromHere=false
 ; Show cache warming spinner
 ShowCacheWarmingIndicator=true
+; Screen idle timeout in seconds
+ScreenIdleTimeout=0
 
 ; Visibility of main menu items
 [MainMenu]
@@ -504,6 +506,7 @@ Screenshots=sdmc:/Nintendo/Album/
 * **ROSaveFS** - просматривать сохранения в режиме только для чтения
 * **ShowUpdateFromHere** - показывать кнопку "Update all titles" в контекстном меню для автообновления установленных игр из всех (microSD/USB/HTTP/FTP) доступных источников
 * **ShowCacheWarmingIndicator** - показывать уведомление о кешировании информации об установленных программах
+* **ScreenIdleTimeout** - таймаут гашения дисплея
 
 ### MainMenu
 Показ соответствующих элементов меню.

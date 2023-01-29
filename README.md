@@ -385,6 +385,8 @@ ROSaveFS=true
 ShowUpdateFromHere=false
 ; Show cache warming spinner
 ShowCacheWarmingIndicator=true
+; Move cursor down after selection
+MoveDownAfterX=true
 ; Screen idle timeout in seconds
 ScreenIdleTimeout=0
 
@@ -440,6 +442,8 @@ LogAllFiles=false
 ShowCombinedNSP=true
 ; Show or not virtual "Mods & cheats" folder that redirects to sdmc:/atmosphere/contents/TITLEID
 ShowMAC=true
+; Use TitleID for "Mods & cheats" folder
+MACasTID=true
 ; Show user defined shortcuts to MircoSD folders as separate storages
 CustomStorages=true
 ; Turn screen off on start MTP mode
@@ -506,6 +510,7 @@ Screenshots=sdmc:/Nintendo/Album/
 * **ROSaveFS** - просматривать сохранения в режиме только для чтения
 * **ShowUpdateFromHere** - показывать кнопку "Update all titles" в контекстном меню для автообновления установленных игр из всех (microSD/USB/HTTP/FTP) доступных источников
 * **ShowCacheWarmingIndicator** - показывать уведомление о кешировании информации об установленных программах
+* **MoveDownAfterX** - сдвигать или нет курсор после отмечания игры кнопкой (X)
 * **ScreenIdleTimeout** - таймаут гашения дисплея
 
 ### MainMenu
@@ -541,6 +546,7 @@ Screenshots=sdmc:/Nintendo/Album/
 * **ShowCombinedNSPInInstalledGames** — **false** выключает показ комбинированных (multi-title .NSP-file) тайтлов.
 * **ShowMACInInstalledGames** — **false** выключает показ виртуальной директории **«Mods & cheats»** в пункте Installed games в MTP, перенаправляющей по пути `sdmc:/atmosphere/contents/TITLEID/` на карту памяти.
 * **CustomStorages** - отображать или спрятать кастомные пункты меню, прописанные в секции **MTP custom storages**
+* **MACasTID** - отображать папку "Mods & Cheats" в режиме MTP в виде TitleID
 * **TurnOffScreen** - отключать или нет экран консоли при подключении её в режиме MTP
 
 ### [MTP Storages](#run-mtp-responder)

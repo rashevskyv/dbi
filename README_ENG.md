@@ -391,6 +391,8 @@ ROSaveFS=true
 ShowUpdateFromHere=false
 ; Show cache warming spinner
 ShowCacheWarmingIndicator=true
+; Move cursor down after selection
+MoveDownAfterX=true
 ; Screen idle timeout in seconds
 ScreenIdleTimeout=0
 
@@ -446,6 +448,8 @@ LogAllFiles=false
 ShowCombinedNSP=true
 ; Show or not virtual "Mods & cheats" folder that redirects to sdmc:/atmosphere/contents/TITLEID
 ShowMAC=true
+; Use TitleID for "Mods & cheats" folder
+MACasTID=true
 ; Show user defined shortcuts to MircoSD folders as separate storages
 CustomStorages=true
 ; Turn screen off on start MTP mode
@@ -511,6 +515,7 @@ Screenshots=sdmc:/Nintendo/Album/
 * **ROSaveFS** - browse saves FS in Read-only mode
 * **ShowUpdateFromHere** - show "Update all items from here..." in context menu of file browsers
 * **ShowCacheWarmingIndicator** - show a notification about caching information about installed programs
+* **MoveDownAfterX** - move or not cursor after chacking game with (X)
 * **ScreenIdleTimeout** - display timeout
 
 ### MainMenu
@@ -544,7 +549,7 @@ Screenshots=sdmc:/Nintendo/Album/
 * **ShowCombinedNSPInInstalledGames** - **false** disables display of combined (multi-title .NSP-file) titles
 * **ShowMACInInstalledGames** - **false** turns off the display of the **"Mods & cheats"** directory under `Installed games` in MTP mode, which redirects to the path `sdmc:/atmosphere/contents/TITLEID/`
 * **CustomStorages** - display custom virtual MTP drives defined by the user under [MTP custom storages]
-* **EnableNANDInstallOnEmunand** - enable or disable the installation of games to emuMMC's 'NAND' (not relevant after the release of Atmosphere 0.19.3) 
+* **MACasTID** - display "Mods & Cheats" folder on MTP with TitleID
 * **TurnOffScreen** - automatically turns off the screen when MTP mode is activated
 
 ### [MTP Storages](#run-mtp-responder)

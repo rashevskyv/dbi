@@ -459,6 +459,15 @@ TurnOffScreen=false
 [FTP]
 ; Turn screen off on start FTP mode
 TurnOffScreen=false
+; Start local access point for FTP server
+UseAP=false
+
+; Access point options
+[Access point]
+SSID=
+Password=
+Use5GHz=true
+Hidden=false
 
 ;Enable or disable various MTP storages
 [MTP Storages]
@@ -559,6 +568,15 @@ Define which virtual MTP drives will be displayed when MTP Responder is running 
 
 ### FTP
 * **TurnOffScreen** - turn screen off on start FTP mode
+* **UseAP** - Switch works in access point mode, to which FTP clients connect directly. Below is the settings of this hotspot
+
+#### Access point
+Point of view settings
+
+* **SSID** - access point name
+* **Password** - password
+* **Use5GHz** - whether to use 5 GHz. If disabled, it will work in 2.4 GHz mode
+* **Hidden** - hide the SSID for searching. You can only enter the specified SSID
 
 ### [Network sources](#home-server)
 Enter your network installation sources for installing games over the network (via WiFi/LAN adapter).

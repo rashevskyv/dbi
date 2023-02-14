@@ -453,6 +453,15 @@ TurnOffScreen=false
 [FTP]
 ; Turn screen off on start FTP mode
 TurnOffScreen=false
+; Start local access point for FTP server
+UseAP=false
+
+; Access point options
+[Access point]
+SSID=
+Password=
+Use5GHz=true
+Hidden=false
 
 ;Enable or disable various MTP storages
 [MTP Storages]
@@ -558,6 +567,15 @@ Screenshots=sdmc:/Nintendo/Album/
 
 ### FTP
 * **TurnOffScreen** - выключать экран при входе в режим FTP 
+* **UseAP** - работа Switch в режиме точки доступа, к которой FTP-клиенты могут подключаться напрямую. Ниже настройки этой точки доступа
+
+#### Access point
+Настройки точки доступа
+
+* **SSID** - название точки доступа
+* **Password** - пароль
+* **Use5GHz** - использовать ли 5 гигагерц. Если выключено, то будет работать в режиме 2.4 Ггц
+* **Hidden** - скрывать SSID для поиска. То есть подключиться можно будет только введя указанный SSID
 
 ### [Network sources](#home-server)
 Задаются имена и адреса для установки игр по сети (через WiFi/LAN-адаптер)

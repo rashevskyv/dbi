@@ -14,7 +14,7 @@ The ultimate solution to install `NSP`, `NSZ`, `XCI` and `XCZ` and work with Nin
   1. [Interface](#interface)
   1. [Buttons](#buttons)
   1. [Browse SD Card / Browse USB0 Drive](#browse-sd-card--browse-usb0-drive)
-  1. [Install title from USB](#install-title-from-usb)
+  1. [Install title from DBIbackend](#install-title-from-dbibackend)
   1. [Home server](#home-server)
   1. [Browse installed applications](#browse-installed-applications)
      * [Titles Context menu](#title-context-menu)
@@ -30,6 +30,7 @@ The ultimate solution to install `NSP`, `NSZ`, `XCI` and `XCZ` and work with Nin
 1. [Warnings and Errors](#warnings-and-errors)
 	1. [Warnings](#warnings)
 	1. [Errors](#errors)
+   1. [Color codes](#color-codes)
 1. [dbi.config](#dbiconfig)
 1. [Other options](#other-options)
 1. [Acknowledgements](#acknowledgements)
@@ -46,7 +47,7 @@ Copy `dbi.nro` and `dbi.config` to your SD card at `sdmc:/switch/DBI/` DBI can b
 ![2021041010520200](https://user-images.githubusercontent.com/18294541/114262830-d7643e00-99ea-11eb-8dbb-c8e0996577e5.jpg)
 * **Browse SD Card** - installation of NSP/NSZ/XCI/XCZ files from your SD card
 * **Browse USB0 Drive** - installation of NSP/NSZ/XCI/XCZ files from an external FAT32 or exFAT formatted USB drive (will only appear if a USB drive is connected)
-* **Install title from USB** - installation of NSP/NSZ/XCI/XCZ from a PC via USB 2.0 or 3.0 cable using the included dbibackend script. *Main menu hotkey for this option*: **(Y)** button
+* **Install title from DBIbackend** - installation of NSP/NSZ/XCI/XCZ from a PC via USB 2.0 or 3.0 cable using the included dbibackend script. *Main menu hotkey for this option*: **(Y)** button
 * **Install title from Gamecard** - install a game from gamecard to the console's internal NAND or SD card (will only appear if a gamecard is inserted)
 * **Home server** - install games over your local network (HTTP) using a LAN USB adapter or WiFi network. For full details see **[Home server](#home-server)**
 * **Browse installed applications** - view installed titles including base, update, DLC and whether or not a LayeredFS mod is present. Launch titles directly. Displays your total play time and how many times you've launched the title. Check file integrity for errors, transfer game data between internal NAND and SD card, delete individual or multiple titles and their LayeredFS mods with one click, individually remove updates and DLC and use the `Reset Required version` function to restore the system update check for the selected game back to base. *Main menu hotkey for this option*: **(L)** button
@@ -66,7 +67,7 @@ Bottom center (dbi: XXX) is the DBI version number - you should always use the m
 * **(А)** - select or confirm
 * **(B)** - cancel, exits the program **from the main menu**
 * **(X)** - file selection, hotkey for mounting MTP **on the main menu** (menu option "**Run MTP responder**")
-* **(Y)** - invert selection (selects everything if nothing is selected), hotkey for launching USB installation via dbibackend **on the main menu** (menu option "**Install title from USB**")
+* **(Y)** - invert selection (selects everything if nothing is selected), hotkey for launching USB installation via dbibackend **on the main menu** (menu option "**Install title from DBIbackend**")
 * **(ZL)** and **(ZR)** - scroll pages in menus, scroll through individual games when in detailed game menu
 * **(L)** - **on the main menu** the hotkey for the menu option "**Browse installed applications**"
 * **(R)** - change the displayed sort order of files/titles
@@ -94,17 +95,31 @@ Press the **(A)** button to confirm. A window with installation options will app
 
 You can also navigate to your homebrew files and launch .nro files directly by highlighting them and pressing **(A)**.
 
-### Install title from USB
+### Install title from DBIbackend
 
 If you cannot use DBI's MTP responder this is another convenient method for installing titles over USB. Installing over USB allows you to transfer files directly from your PC for example, which avoids the inconvenience and of having to first move the file to your SD card and then install it.
 
 *Main menu hotkey for this option*: **(Y)** button
 
-In order to use this option you will first require dbibackend (`dbibackend.exe` for Windows, or the `dbibackend` script for all operating systems). Launch dbibackend, select the files to install, select Start server, connect a USB-C cable from your PC to your Switch and select **Install title from USB** in DBI.
+In order to use this option you will first require dbibackend (`dbibackend.exe` for Windows, or the `dbibackend` script for all operating systems). Launch dbibackend, select the files to install, select Start server, connect a USB-C cable from your PC to your Switch and select **Install title from DBIbackend** in DBI.
+
+For proper operation of dbibackend on Windows, you need to install the "**libusbK (v3.1.0.0)**" drivers. They can be installed through the [Zadig program](https://zadig.akeo.ie/) by entering DBI into the "**Install title from DBIbackend**" mode and selecting the device that appears in the program.
 
 From here you can select and install your files on the Switch in the same fashion as using Browse SD Card/Browse USB0 Drive.
 
 To quickly send files or folders with games for installation, right-click on them, select `Send from dbibackend` and the installation files will be immediately placed in dbibackend's queue. To configure this in Windows, press `Win + R`, enter `shell: sendto` and create a shortcut for `dbibackend.exe` in the folder.
+
+There are alternative clients for working with DBIbackend, for example [headless implementation](https://github.com/cyb3rwarden/dbibackend/blob/0885ef67edf28cbca30fb2c193ad7ab9a62786f7/dbibackend/dbibackend.py), [NSW-DBI 2.0.0 on nodegui](https://4pda.to/forum/index.php?showtopic=939714&st=6080#entry100701109) (requires installation of libusb driver for Linux or WinUSB (libusb) for Windows via Zadig).
+
+You can pass commands to the script by running it from the command line and then specifying the path to the game or games you need to install. For example:
+
+```
+python ~/dbi/dbibackend ~/Switch/File1.nsp ~/Switch/File2.nsp ~/Switch/File3.nsp
+```
+
+```
+dbibackend.exe "e:\Switch\Games\File1.nsp" "e:\Switch\Games\File2.nsp" "e:\Switch\Games\File3.nsp"
+```
 
 #### Dependencies that may be required to run on MacOS or Linux
 
@@ -349,6 +364,24 @@ Exit - closes DBI and returns to either to hbmenu or bypasses hbmenu to go direc
 * **"Invalid personalized ticket"** - a dump of the game where instead of a common-ticket a personalized ticket from the console on which the game was purchased was included, obtain a proper dump
 * **"No ES or other sigpatches"** - missing, outdated or bad sigpatches, obtain and install the latest versions to the correct locations 
 
+### Color codes:
+
+* In all menus 
+  * WHITE on BLACK BG - focused
+  * BLUE - selected (with (X) button)
+* In "**Browse SD Card**"
+  * WHITE - folder 
+  * LIGHT GREY - file
+  * DARK GREY - installed game
+  * GREEN - update or DLC for installed game
+* In "**Browse installed applications**"
+  * WHITE - installed game
+  * RED - installed update or DLC without game 
+* **In logs** on installation: 
+  * GREEN - no errors
+  * YELLOW - no errors, but warnings (for example, installed NSP is XCI convert, or hash was fixed on meta)
+  * RED - [errors](#errors). File was not installed
+
 ## dbi.config
 The `dbi.config` file was added starting with version 253. It is located next to DBI.nro and replaces the old flags files `dbi.default.ascii` and `dbi.network.config` and also adds several new options for easy customization of settings for the user.
 
@@ -534,7 +567,7 @@ Screenshots=sdmc:/Nintendo/Album/
 * **BrowseSystem** - browse and copy files from SYSTEM partition
 * **BrowseUser** - browse and copy files from USER partition
 * **USBHost** - display **Browse USB0 Drive**, to install games from a external USB drive if connected
-* **BackendInstall** - display **Install title from USB**, for installing games from PC via dbibackend
+* **BackendInstall** - display **Install title from DBIbackend**, for installing games from PC via dbibackend
 * **GameCard** - display **Install title from Gamecard**, to install a game from an inserted gamecard to your console
 * **Network** - display **Home server**, to install games from a configured home web server
 * **Local** - show or not links to folders from the section [Local sources](#local-sources)

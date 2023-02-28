@@ -45,18 +45,18 @@ Copy `dbi.nro` and `dbi.config` to your SD card at `sdmc:/switch/DBI/` DBI can b
 
 ### Interface
 ![2021041010520200](https://user-images.githubusercontent.com/18294541/114262830-d7643e00-99ea-11eb-8dbb-c8e0996577e5.jpg)
-* **Browse SD Card** - installation of NSP/NSZ/XCI/XCZ files from your SD card
-* **Browse USB0 Drive** - installation of NSP/NSZ/XCI/XCZ files from an external FAT32 or exFAT formatted USB drive (will only appear if a USB drive is connected)
-* **Install title from DBIbackend** - installation of NSP/NSZ/XCI/XCZ from a PC via USB 2.0 or 3.0 cable using the included dbibackend script. *Main menu hotkey for this option*: **(Y)** button
-* **Install title from Gamecard** - install a game from gamecard to the console's internal NAND or SD card (will only appear if a gamecard is inserted)
-* **Home server** - install games over your local network (HTTP) using a LAN USB adapter or WiFi network. For full details see **[Home server](#home-server)**
-* **Browse installed applications** - view installed titles including base, update, DLC and whether or not a LayeredFS mod is present. Launch titles directly. Displays your total play time and how many times you've launched the title. Check file integrity for errors, transfer game data between internal NAND and SD card, delete individual or multiple titles and their LayeredFS mods with one click, individually remove updates and DLC and use the `Reset Required version` function to restore the system update check for the selected game back to base. *Main menu hotkey for this option*: **(L)** button
-* **Cleanup orphaned files** - removes all orphaned installed content, tickets and pending firmware updates from the system with one click
-* **Browse tickets** - view and manually delete system tickets for games
-* **Browse saves** - view, backup and delete game save data for all games
-* **Run MTP responder** - enables DBI's internal MTP server to connect the Switch to a PC or to an Android device (Some tested phone/tablet devices: Pixel 3, Xiaomi Mi A1, Lenovo Tab 4 7 "TB-7304X). On your device you will be presented with several virtual MTP drives for installation and many advanced features for file management on your SD card and NAND. Please see **[Run MTP Responder](#run-mtp-responder)** for a full overview
-* **Run FTP server** - enables DBI's FTP server for microSD file access on port 5000 or file installation on port 6000
-* **Exit** - exit from the program. *Main menu hotkey for this option*: **(+)** button
+* **Browse SD Card** —  installation of `NSP`/`NSZ`/`XCI`/`XCZ` files from the memory card.
+* **Browse USB0 Drive** — installation of `NSP`/`NSZ`/`XCI`/`XCZ` files from an external exFAT/FAT32 USB drive, such as a flash drive, hard drive, etc.
+* **Install title from DBIbackend** installation of NSP/NSZ/XCI/XCZ files from a PC via USB 2.0 or 3.0 cable using the included program dbibackend. *Hotkey* for this option: **(Y)** button.
+* **Install title from Gamecard** — this option appears when a game card is inserted into the Switch and allows for the installation of a game from the game card to the console's microSD card or internal NAND memory.
+* **Home server** — starting with version v150, it is possible to install games over the network (HTTP) via WiFi without wires or a LAN-USB adapter. More details about this below.
+* **Browse installed applications** — view installed games, the total number of games installed, view time spent on a game and the number of times it has been launched, check for errors, transfer game data between internal memory, memory card, and back, selectively or continuously delete games and accompanying LayeredFS mods, view the presence of updates and DLC, manually remove DLC/updates/LayeredFS (LFS) mod, and the Reset Required version function to reset the system update check for a selected game. *Hotkey* for this option: **(L)** button.
+* **Cleanup orphaned files** — automatic cleaning of unnecessary deleted game files, if any.
+* **Browse tickets** — view and manually delete game system tickets.
+* **Browse saves** - view and delete game saves.
+* **Run MTP responder** — enables the internal MTP server to connect the Switch to a PC or Android device (phone/tablet/etc., tested with Pixel 3, Xiaomi Mi A1, Lenovo Tab 4 7" TB-7304X), where you can view and work with the memory card (1: External SD Card) and internal console memory, view installed games (4: Installed games), backup game saves to a PC (7: Saves), and dump a game card (full/trimmed/certificate) to a PC/Android with an inserted game card (9: Gamecard). *Hotkey* for this option: **(X)** button
+* **Run FTP server** - enables the DBI FTP server for accessing microSD files through port 5000 or installing files through port 6000.
+* **Exit** — exits the program. *Hotkey* for this option: **(+)** button.
 
 The bottom left corner of DBI displays the total amount of data currently on your SD card along with the full capacity. The bottom right corner gives you the same information for your NAND's usable space in HOS.
 
@@ -66,8 +66,8 @@ Bottom center (dbi: XXX) is the DBI version number - you should always use the m
 
 * **(А)** - select or confirm
 * **(B)** - cancel, exits the program **from the main menu**
-* **(X)** - file selection, hotkey for mounting MTP **on the main menu** (menu option "**Run MTP responder**")
-* **(Y)** - invert selection (selects everything if nothing is selected), hotkey for launching USB installation via dbibackend **on the main menu** (menu option "**Install title from DBIbackend**")
+* **(X)** - select file. On the main screen - hotkey for mounting MTP (menu item "[Run MTP responder](#run-mtp-responder)")
+* **(Y)** - invert selection, select all if nothing is selected. On the main screen - installation via USB using dbibackend (menu item "[Install title from DBIbackend](#install-title-from-dbibackend)")
 * **(ZL)** and **(ZR)** - scroll pages in menus, scroll through individual games when in detailed game menu
 * **(L)** - **on the main menu** the hotkey for the menu option "**Browse installed applications**"
 * **(R)** - change the displayed sort order of files/titles
@@ -201,11 +201,11 @@ At the top center, the total number of installed games and the sorting type is d
 
 On the left hand side in square brackets, information on the game installation location, installed file type and the presence of LayeredFS mods or cheats is denoted:
 
-* **N/S/M** - NAND/SD/Mixed - Location of installed files, Mixed denotes that installed files were detected on both NAND and SD card
+* **N/S/M/G** - NAND/SD/Mixed/Gamecart - Location of installed files, Mixed denotes that installed files were detected on both NAND and SD card
 * **b** - BASE - the base game
 * **u** - Update - update installed
 * **d** - DLC - DLC installed
-* **l** - LayeredFS mod - LayeredFS mods or cheats for the game were detected at `sdmc:/atmosphere/contents/titleID/`
+* **l** - LayeredFS mod - LayeredFS mods or cheats for the game were detected at `sdmc:/atmosphere/contents/%titleID%/`
 
 You can quick launch a game directly from the list by highlighting it and pressing **(L3)**.
 
@@ -222,51 +222,96 @@ Displayed by clicking on **(+)** on the selected title(s).
 * **Reset required version** - resets the system version check required to run the title (debug must be enabled in Atmosphere)
 * **Check integrity** - checks the data integrity of the selected titles
 * **Expose contents via MTP** - mount the content of the selected titles via MTP 
+* **Dump to MicroSD** - dump all available content (game, DLC, update) to a MicroSD card using the path specified in the config (default is `switch/DBI/dumps`)
+* **Content info** - display additional information about the content (SDK version, required key generation, ID, patch information, and more)
 
-If you press the **(A)** button on the title, the detailed game menu will open.
+If you press the **(A)** button on the title, the **detailed game menu** will open.
 
 ### Detailed game menu
 
+The **detailed game menu** opens when you press the **(A)** button on a title while in the menu for browsing installed games (**Browse installed applications**)
+
 ![2021062719353600](https://user-images.githubusercontent.com/18294541/123554561-400cbc80-d789-11eb-8d81-e3403f33b365.jpg)
 
-Here you will be presented with the Game icon, **TitleID**, display title (**name**), developer/publisher (**Author**), display version (**Version**), supported languages (**Language**) and presence of a LayeredFS mod or cheat (**LFS mod**).
+The game's icon, TitleID, name, author, version, supported languages, and the presence of an LFS mod are displayed in the detailed game menu, which can be accessed by pressing the **(A)** button on the game's tile while in the browse installed applications menu.
 
-Here you can also see the amount of time you've spent playing the title (**Total play time**), how many times the game was launched (**Total launches**), total installation size (**Total occupied space**) as well as how much space it occupies on NAND (**Space in NAND**) and/or on SD card (**Space on MicroSD**), the size of the saves (**Total saves size**) and what language is active for the game ( **Forced Language**).
+Additionally, the menu displays the total playtime, total launches, total occupied space, space in NAND and on MicroSD, total saves size, and the game's forced language.
 
-You can quick launch a game directly from here by pressing **(L3)**.
+Below that, there are three tabs that can be switched between using the **(L)** and **(R)** buttons:
 
-You can quickly scroll through games individually without returning to the installed applications list by using **(ZL)** and **(ZR)**.
+* **Content records**
+* **Tickets**
+* **Saves**
 
-#### Records context menu
+#### Content records
 
-![2021062719354800](https://user-images.githubusercontent.com/18294541/123554565-41d68000-d789-11eb-9c59-621275895075.jpg)
+The information is displayed in the following format:
 
-Displayed by clicking on **(+)** on selected records.
+[Location] Type | version [version number] | Size
 
-The top of the context window displays the number of selected records and their size.
+**Location** - **NAND** or **SD**, depending on where the content is installed
+**Type** - **Application** for the base game, **Update** for updates, **Addon** for DLC, and the number of the DLC will be indicated next to it
+**version [version number]** - the content version in dec and [hex] (for example, 786432 is 0.12.0.0)
+**Size** - occupied space
 
-* **Delete record** - delete selected entry
-* **Move records to MicroSD/NAND** - move the selected titles to SD card or NAND, depending on where the title is currently located. If content is installed to both locations then both options will be displayed
-* **Reset required version** - reset the system version check required to run the title (debug must be enabled in Atmosphere)
-* **Force language** - allows you to force the game to start in the selected language. By default the game will run based on the system language, if that language is not present in the game then it will run as per the region of the console. The selected language will be displayed next to the game icon in the **Forced Language** field
-* **Check integrity** - checks data integrity of selected titles
-* **Expose contents via MTP** - mount the content of the selected titles by MTP
+By pressing the **(A)** button on the content, you can view its contents. The content can be copied by selecting the corresponding item in the context menu (which opens by pressing the **(+)** button). The content opens in "read-only" mode.
+
+When you press the (+) button on the selected content, you can access the context menu, which includes:
+
+* **Delete record** - delete the selected record
+* **Move records to MicroSD/NAND** - move the selected record to NAND or the memory card, depending on where it is currently located. If parts of the title are located in both places, both options will be displayed.
+* **Reset required version** - reset the required system version check for launching the title (debug must be enabled in Atmosphere). This will not help if the game was built on a new SDK version.
+* **Force language** - allows you to forcibly launch the game with a selected language. By default, the game runs with the same language selected in the system, if it is not available in the game, depending on the console region. The selected language will be displayed next to the game icon in the **Forced Language** field.
+* **Check integrity** - checks the integrity of the selected title data.
+* **Expose contents via MTP** - mounts the content of the selected titles via MTP.
+* **Dump to MicroSD** - dumps all available content (game, DLC, update) to the MicroSD card according to the path specified in the config (default: switch/DBI/dumps).
+* **Content info** - displays additional information about the content, including the SDK version, required key generation, ID, patch information, and much more.
+
+#### Tickets
+
+A **ticket (or encrypted title key)** is a unique encrypted information about the rights to launch game content that is installed in the system during the installation of each game (ending in **000** in the titleID)/update (ending in **800** in the titleID)/DLC.
+
+Installed tickets for content are displayed, including:
+
+* **Personalized ticket** - a ticket given when installing a game from the eShop, which is personalized and unique for each account.
+* **Common ticket** - a general ticket that exists for updates and is also used as a workaround in pirated games.
+
+The game databases on Nintendo servers are encrypted with the same key, but this key is encrypted with its own unique key for each game purchaser (generated on the console). Therefore, the key for decrypting the game can only be obtained from the personalized ticket on the console for which it was created. Thus, while personalized tickets differ for each purchaser, they all contain the same decryption key. Common tickets do not have encryption, only a signature.
+
+By clicking the **(+)** button on the selected content, you can access a context menu where you can delete selected tickets. 
+
+In some cases, if a specific error occurs and you are sure of what you are doing, you can delete it for a specific game and its updates/DLC. However, it is generally better to leave the tickets alone to avoid errors when launching games.
+
+#### Saves
+
+Viewing and deleting saves. If there is no save, it can be created through the context menu (button (+)) for the selected account. If there is a save:
+
+* **Backup** - make a backup of the save. By default, it will be located in the `switch/DBI/saves` folder.
+* **Restore** - restore the backup of the save.
+* **Save info...** - detailed information about the save, such as type, size, account name, etc.
+* **Increase save size** - increases the space allocated for the save by a specified value.
+* **Delete** - delete the save.
 
 ### Cleanup orphaned files
+
+Cleaning up lost files.
 
 **Cleanup orphaned files** automatically cleans up unnecessary game files, files from interrupted/failed game installations, officially downloaded firmware updates and all unused game tickets if found.
 
 ### Browse tickets
-View and delete unnecessary game tickets. **Ticket (or encrypted title key)** is a special encrypted unique information about the rights to launch the content of the game, which is installed in the system during the installation of each game (**000** at the end of the titleID) / update (**800** at the end of titleID) / of each DLC.
+View and delete game tickets. **Ticket (or encrypted title key)** is a special encrypted unique information about the rights to launch the content of the game, which is installed in the system during the installation of each game (**000** at the end of the titleID) / update (**800** at the end of titleID) / of each DLC.
 
 * **+** means there is an installed game
-* **[c]** — common-ticket (installed game dump or update)
-* **[p]** — personalized ticket (purchased from the game eShop)
+* **[c]** (**Personalized ticket**) - a ticket that is given when installing a game from the eShop, it is personalized, meaning it is encrypted with a unique key from your console.
+* **[p]** (**Common ticket**) - a common type of ticket that is used for updates and also used as a workaround for pirated games.
+
+Game databases on Nintendo servers are encrypted with the same key, but this key is encrypted with a unique key for each purchased game (this key is generated on the console itself), so it is only possible to obtain the decryption key for a game from a Personalized ticket on the console it was created for.
+This means that all Personalized tickets purchased are different, but they contain the same decryption key for the game.
+Common tickets, on the other hand, do not have encryption, only a signature.
 
 Sometimes if a specific error occurs and you know exactly what you are doing, it can be removed from a specific game and its update/DLC.
 
 In most cases it is better not to touch anything here, in order to avoid errors when starting games.
-
 
 #### Tickets context menu
 
@@ -282,23 +327,50 @@ The number of selected tickets is displayed at the top of the context window.
 
 View, backup and delete saves.
 
-Saves for deleted games are highlighted in yellow.
+In general, saves are displayed in the following format:
 
-#### Saves context menu
+`[Account] Game-Name Backup-date Size`
+
+* **Account** - shows the name of the account for which the save was created, if the save type is Account, if the save type is other, it shows its type
+* **Game-Name** - shows the name of the game for which the save was created
+* **Backup-date** - shows the date when the backup was created, only displayed in the Backup tab
+* **Size** - the size of the save or backup
+
+Below, there are three tabs that can be switched using the **(L)** and **(R)** buttons:
+
+* **Installed** - shows saves for all installed games
+* **Uninstalled** - shows saves for all uninstalled games
+* **Backups** - shows created backups
+
+#### Context menu Installed and Uninstalled
+
+Displayed when **(+)** is pressed on selected saves
+
+* **Backup** - creates backups of the selected saves
+* **Open** - opens the save
+* **Save info...** - shows information about the save (Id, type, size, creation time, etc.)
+* **Delete** - deletes the selected saves
+* **Select same app** - selects all saves related to the selected game
+* **Browse app(s)** - goes to the [content record card](#content-records) of the selected games. You can switch between cards using the **(ZL)**/**(ZR)** buttons. Only available in the **Installed** tab.
+
+#### Backups context menu
 
 Displayed by clicking on **(+)** on selected saves
 
-The number of selected saves is displayed at the top of the context window
+* **Validate saves** - check the integrity of saves
+* **Restore** - restore selected backup saves
+* **Open** - open the selected save
+* **Delete** - deletes the selected saves
+* **Browse app(s)** - goes to the [content record card](#content-records) of the selected games. You can switch between cards using the **(ZL)**/**(ZR)** buttons. Only available in the **Installed** tab.
+* **Select same user** - select all saves belonging to a specific user.
 
-* **Backup saves** - backup selected saves
-* **Delete saves** - delete selected tickets
-* **Select same game** - highlight all saves related to the selected game
-* **Select all uninstalled** - select all saves for uninstalled games
+If multiple backups are selected for one game and user in the list, only the most recent backup will be restored.
 
 ### Run MTP responder 
-**Run MTP responder** run the built-in DBI MTP server to connect to your PC or Android device via USB-C OTG (phone/tablet/other devices). *Main menu hotkey for this option*: **(X)**  button (same button to exit MTP mode). After successfully connecting the USB cable to the PC and starting the MTP server in DBI, you'll see the following on your computer:
 
-![изображение](https://user-images.githubusercontent.com/18294541/114265006-054f7f80-99f7-11eb-86c9-1a20d588e616.png)
+**Run MTP responder** activates the built-in MTP server in DBI for exchanging data with a PC or an Android device via USB-C OTG (phone/tablet/other devices). *Hotkey to call this option from the main menu*: the **(X)** button (also used to exit MTP). After connecting the USB cable to the PC and starting the MTP server in DBI, the following window will appear on the PC:
+
+![image](https://user-images.githubusercontent.com/18294541/114265006-054f7f80-99f7-11eb-86c9-1a20d588e616.png)
 
 1: **External SD Card** - for viewing, copying and deleting files and folders from/to a PC and from/to your SD card. Drop a file larger than 4GB onto the SD card and DBI will automatically split the file into an archived folder which allows the Switch to see it as a single file, with this you can for example very easily add a >4GB .XCI for use in SX OS or add a >4GB movie for watching in NXMP or pPlay.
 
@@ -329,61 +401,193 @@ After activating the MTP server on the Switch a window will appear with your acc
 
 To turn off the MTP server and exit to the main menu, press either the **(X)** or **(B)** button.
 
+### Configuration and dbi.config parameters
+
+The program configuration manager allows easy configuration of the program without editing `dbi.config`.
+
+Below are the configuration items through GUI / The corresponding items in `dbi.config` will be indicated in parentheses.
+
+**true** in the configuration corresponds to **Yes** in the settings, **false** - **No**
+
+#### General (`[General]`)
+
+* **Use default font** (`DefaultASCII`) - **true** uses the standard font, **false** uses an alternative font.
+* **Use external USB drives** (`UseLibUsbHsFS`) - true enables the [libusbhsfs](https://github.com/DarkMatterCore/libusbhsfs) library for working with external USB drives through USB-OTG on the Switch, false disables it.
+* **Direct exit to homescreen** (`ExitToHomeScreen`) - if **false**, exiting DBI will go to hbmenu, if **true**, to the Switch home screen.
+* **Log events & operations** (`LogEvents`) - whether or not to save logs for "*Install*", "*Check integrity*", and "*Cleanup*" events.
+* **Highlight update files** (`HighlightUpdates`) - whether or not to highlight updates for installed games in the file manager.
+* **Rotate screen upside down** (`RotateScreen`) - rotates the screen by 180 degrees.
+* **Rotate joycon upside down** (`RotateJoycon`) - flips the controls to match the flipped screen.
+* **Use under/over clock** (`OptimizeClockSpeed`) - disables optimization of the SoC frequency during idle time. Disabled by default because it **may cause lag on the startup screen when exiting DBI incorrectly**! The correct exit method is through the **Exit** menu item.
+* **Browse saves in RO mode** (`ROSaveFS`) - view saves in read-only mode.
+* **Show 'Update From Here'** (`ShowUpdateFromHere`) - show the "Update all titles" button in the context menu for automatically updating installed games from all available sources (microSD/USB/HTTP/FTP).
+* **Save backup folder** (`SavesFolder`) - folder for storing save backups.
+* **Logs folder** (`LogsFolder`) - folder for storing logs.
+* **Title dumps folder** (`DumpsFolder`) - folder on the memory card to which games will be dumped.
+* **Version info URL** (`VersionsURL`) - can accept a direct link to a file on a remote server or a file on the memory card. Examples:` https://raw.githubusercontent.com/blawar/titledb/master/versions.txt` or `sdmc:/versions.txt`.
+* **Show cache warming indicator** (`ShowCacheWarmingIndicator`) - show a notification when caching information about installed programs.
+* **Put cursor down after selection** (`MoveDownAfterX`) - whether or not to move the cursor down after marking a game with the **(X)** button.
+* **Screen idle time in seconds** (`ScreenIdleTimeout`) - screen shutdown timeout.
+
+**Exists in the config, but not in the menu:**
+
+* **AppSorting** - options for sorting the list of applications
+* **SaveSorting** - options for sorting saves
+
+#### Main menu (`[MainMenu]`)
+
+Settings for the menu items that will be displayed in the main DBI menu. **Yes** in the settings corresponds to **true** in the config, **No** corresponds to **false**.
+
+* **Browse SD Card** (`BrowseSD`) - menu item "[Browse SD Card and Browse USB0 Drive](#browse-sd-card--browse-usb0-drive)", for installing games from an SD card
+* **Browse System** (`BrowseSystem`) - allows browsing and copying files from the SYSTEM partition
+* **Browse User** (`BrowseUser`) - allows browsing and copying files from the USER partition
+* **Browse USB** (`USBHost`) - menu item "**Browse USB0 Drive**", for installing games from an external USB drive
+* **Install from USB** (`BackendInstall`) - menu item "[Install title from DBIbackend](#install-title-from-dbibackend)", for installing titles from the DBI backend
+* **Install from Gamecard** (`GameCard`) - menu item "**Install title from Gamecard**", for installing content from game cartridges to the console memory
+* **Browse Network** (`Network`) - menu item "**Home server**", for installing games from a home web server
+* **Browse SD shortcuts** (`Local`) - whether to show links to folders in the [Local sources](#local-sources) section or not
+* **Browse applications** (`BrowseApps`) - menu item "[Browse installed applications](#browse-installed-applications)", for managing installed applications
+* **Cleanup orphaned files** (`Cleanup`) - menu item "[Cleanup orphaned files](#cleanup-orphaned-files)", for cleaning up orphaned files from the memory card
+* **Check title updates** (`UpdateCheck`) - menu item "**Check for title updates**", for checking for updates and DLC for installed games
+* **Browse tickets** (`Tickets`) - menu item "[Browse tickets](#browse-tickets)", for managing tickets
+* **Browse saves** (`Saves`) - [Browse saves](#browse-saves)
+* **Run MTP responder** (`MTP`) - menu item "[Run MTP responder](#run-mtp-responder)", for starting MTP
+* **Run FTP server** (`FTP`) - menu item "**Run FTP server**", for starting FTP
+
+#### Applications / Installed games (`[Applications]`)
+
+* **Show LFS folder size (slow)** (`CalculateLFSSize`) - Enables or disables the calculation of the size of installed LFS mods. If enabled, it may affect the speed of opening the "*Browse installed applications*" menu.
+
+##### Install options (`[Install]`)
+
+* **Check hash during install** (`CheckHash`) - When set to **true**, the hash of `.nca` files is checked during game installation on the Switch. When set to **false**, it is not checked.
+* **Chunked HTTP/FTP transfer** (`ChunkedTransfer`) - Enables or disables chunked transfer of data over HTTP.
+
+#### MTP options (`[MTP]`)
+
+* **Show combined NSP** (`ShowCombinedNSPInInstalledGames`) - When set to **false**, multi-title .NSP files are not shown in the Installed games menu in MTP mode.
+* **Show 'Mods & Cheats' folder** (`ShowMACInInstalledGames`) - When set to false, the virtual directory **Mods & cheats** in the Installed games menu in MTP mode is not shown, which redirects to `sdmc:/atmosphere/contents/TITLEID/` on the memory card.
+* **Use TitleID for 'Mods & Cheats'** (`MACasTID`) - Displays the "Mods & Cheats" folder in MTP mode as a TitleID.
+* **Turn off screen** (`TurnOffScreen`) - Enables or disables turning off the console screen when connected in MTP mode.
+
+**In the config but not in the menu:**
+
+* **LogAllFiles** - When set to **false**, files smaller than 4 MB are not logged when working with MTP. When set to **true**, all files are logged.
+
+#### MTP Storages (`[MTP Storages]`)
+
+Displays the corresponding items when using [MTP Responder](#run-mtp-responder) with a PC/Android. By default, all items are enabled for display.
+
+**true** - display in the main menu, **false** - do not display.
+
+The names of the items correspond to the section names.
+
+* **External SD Card** (`1: External SD Card`)
+* **Nand USER** (`2: Nand USER`)
+* **Nand SYSTEM** (`3: Nand SYSTEM`)
+* **Installed games** (`4: Installed games`)
+* **MicroSD install** (`5: MicroSD install`)
+* **NAND install** (`6: NAND install`)
+* **Saves** (`7: Saves`)
+* **Album** (`8: Album`)
+* **Gamecard** (`9: Gamecard`)
+* **Show custom storages** (`CustomStorages`) - show or hide custom menu items specified in the MTP custom storages section.
+
+#### FTP Options (`[FTP]`)
+
+* **Turn off screen** (`TurnOffScreen`) - turn off the screen when entering FTP mode.
+* **Start local Access point** (`UseAP`) - enable Switch to work as an access point that FTP clients can connect to directly. Below are settings for this access point.
+
+#### Access Point (`[Access point]`)
+
+* **SSID** (`SSID`) - the name of the access point.
+* **Password** (`Password`) - the password.
+* **Use 5 GHz** (`Use5GHz`) - whether to use 5 GHz. If turned off, it will work in 2.4 GHz mode.
+* **Use hidden SSID** (`Hidden`) - hide the SSID for search. This means that it can only be connected to by entering the specified SSID.
+
+#### Exists in Config, but not in menu
+
+##### [Network sources](#network-sources)
+Names and addresses for setting up network installs (via WiFi/LAN adapter)
+
+**NSP Indexer** - address for indexing NSP ([details](https://github.com/rashevskyv/dbi/issues/44))
+
+##### **Local sources**
+
+Create menu items with quick access to selected folders on the memory card configured in the config (like "shortcuts"), for example:
+
+`Homebrew Shortcut=sdmc:/switch` will create a "**Homebrew Shortcut**" menu item that opens the `sdmc:/switch` folder.
+
+##### **MTP custom storages**
+
+Custom items for MTP mode for quick access to folders on your memory card. Format: `<displayed_folder_name>=<path>`, for example: `Homebrew=sdmc:/switch`.
+In MTP mode, a `Homebrew` folder will appear that links to the `switch` folder on your memory card.
+
+##### **Title name override**
+
+Allows you to change the displayed title name. For example, if you specify `10023901191C000=Naheulbeuk`, then in the application, instead of `The Dungeon of Naheulbeuk: The Amulet of Chaos`, it will display simply `Naheulbeuk`.
+
 ### Exit
-Exit - closes DBI and returns to either to hbmenu or bypasses hbmenu to go directly to your homescreen (this is configured in dbi.config). If DBI was launched from a title/forwarder, the program will restart or remain on a black screen
+
+**Exit** - exits the program to HOS, bypassing hbmenu, or to hbmenu (configurable in dbi.config); if dbi was launched from a title/forwarder, the program will reboot or remain on a black screen.
 
 ## Warnings and errors
-
 ### Warnings
 
-* **"SIGNATURE: Invalid" / "SIGNATURE: GC-> eShop" / "HASH NOT MATCHED TO META"** are NOT ERRORS but notifications about a signature mismatch in headers, for example: conversions, custom NSPs, forwarders
-* **"HASH MISMATCH"** - usually this is NOT an ERROR and the game was simply converted from an .XCI and everything is in order. If there are problems with a file redownload it and verify it with verification tools such as NSCB before installing. If the game still does not start or starts with an error try reinstalling it, or check or replace the USB cable/SD card, or use a different USB port
-* **"DELTA SKIPPED"** - this is NOT an ERROR but a notification that unnecessary and unused delta fragments in the update file were skipped during installation
-* **"No tickets found. Possibly this NSP was converted from XCI."** - this is NOT an ERROR and the performance of the game will not be affected. This informs you that the files do not include tickets, they may have been dumped from an .XCI file or converted to Standard Crypto
-* **"WARNING title marked as Application but has AddonContent"** - this is NOT an ERROR and usually it indicates a non-standard .NSP homebrew game, for example if an AddonContent flag (DLC) was added to the Application title (main game, v0). If the application starts and works then everything is in order
-* **"This application base is not stand alone. Make sure you installed update"** when installing Sparse Storage games is NOT an ERROR but a reminder that an update is required to launch these types of games. Install the latest update immediately after installing the base game
+Displayed in orange. These are NOT errors!
+
+* **[SIGNATURE: Invalid]**, **[SIGNATURE: XCI->NSP]**, **[HASH NOT MATCHED TO META]**, **[HASH FIXED IN META]** — these are NOT errors, but notifications of signature mismatch in headers, for example, when using conversion or editing, custom NSP, forwarder.
+* **HASH MISMATCH** — most often, this is NOT an error, the game was converted from a cartridge (then everything is fine), sometimes there are problems with file integrity, re-download/re-hash it, data transfer via USB cable/port/during installation between PC and Switch.
+If the game does not launch or launches with an error, try to reinstall it again, check or replace the USB cable/microSD/change USB port.
+* **[DELTA SKIPPED]** — this is NOT an error, but a notification that unnecessary fragments in the update file were skipped if they were in it, as it should have been.
+* No tickets found» / «Тикеты не найдены — this is NOT an error, it does not affect the game's functionality, but informs that the game is without tickets. It may be a dump from a .XCI cartridge or converted to Standard Crypto.
+*** Application uses AddonContent titleId**, **Application uses Update titleId** — this is NOT an error, usually indicating a homebrew game in .NSP, created not to standard, for example, when AddonContent flag (DLC) was added to the Application title (main game, v0).
+If such a game launches and works, then everything is fine.
+* **This application base is not stand alone. Make sure you installed update** - when installing new Sparse Storage games — this is NOT an error, do not forget, in addition to the game's base file, to also install an update to it before launching.
 
 ### ERRORs
 
-* **“Read: USB communication failed”** - check/replace USB cable or try a different USB port on PC
-* **"Cannot parse content meta. Corrupted file or old firmware"** - Either the file is corrupt or your firmware is too outdated to parse the meta file. Verify the file and update to the latest cfw and latest supported firmware version
-* **"Can not find file for ncaid"** - The installation file of the game is corrupt (it does not contain the required .nca from the .cnmt list)
-* **"Invalid PFS0 magic!"** - the file is corrupt, redownload the installation file and check its integrity
-* **"Invalid NCA magic!"** - verify the file and update to the latest cfw and latest supported firmware version
-* **"Received less data than expected"** or **"Installation aborted"** - data transfer error, check and if necessary replace the USB cable or use a different USB port between the Switch and the PC. Also make sure you have the most recent version of DBI installed
-* **"std::bad_alloc"** - rename the file without special characters and Cyrillic in the filename and path to the file, plus make sure that you are using the latest version of DBI and update to the latest cfw and latest supported firmware version
-* **"Nothing to install"** in the file selection window - rename the file without special characters, hieroglyphs or Cyrillic in the filename and path to the file
-* **"INVALID LENGTH"** - check the USB-C cable connection to your USB port, try with another USB-C cable, verify the integrity of the game file and check the SD card for errors, when installing via MTP - try to run DBI in application mode (title override) holding the R button while launching a title
-* **"INVALID DECOMPRESSED LENGTH"** together with **"TRANSFER ERROR"** when installing from SD card/external drives/dbibackend - free up more space on the SD card and delete unnecessary files from the card (you may experience this with more than 20,000 files on the SD card)
-* **"[FAILED] Unknown error"** when installing .tik (ticket) - add the latest sigpatches for Atmosphére
-* **"605: Content or placeholder path not exists"** or **"SOME CONTENTS ARE MISSING"** - broken file system on your SD card, or a non-working/low-quality flash drive. Check it in chkdsk and h2testw, if there are no errors reformat to FAT32
-* **"Can not create placeholder"** - there is not enough space on the SD card/NAND, free up space and try again
-* **"WARNING! Extra buffers exceeded"** - when installing via MTP - try to run DBI in application mode (title override) holding the R button while launching a title or alternatively via NSP forwarder and use a faster microSD card with a different USB cable/port
-* **"No tickets found but they are required"** - incorrect (incomplete, no ticket but with titlerights) dump of the game, use another one
-* **"SOME CONTENTS ARE MISSING. APPLICATION WILL BE UNUSABLE"** - container is incomplete, check the integrity of the game installation file
-* **"Invalid personalized ticket"** - a dump of the game where instead of a common-ticket a personalized ticket from the console on which the game was purchased was included, obtain a proper dump
-* **"No ES or other sigpatches"** - missing, outdated or bad sigpatches, obtain and install the latest versions to the correct locations 
+* **USB communication failed** - check/replace USB cable and USB port on PC.
+* **Cannot parse content meta**:
+  * **Old firmware** - your firmware is too outdated to analyze the metafile. Update CFW and system software to the latest versions
+  * **Unexpected error** - the file is corrupted. Check and re-download the file.
+* **Invalid PFS0 magic!** - redownload the game installer file and check its integrity, as this file is corrupted.
+* **[INVALID NCA MAGIC]** - update to the latest version of OFW and CFW, and if the error persists, double-check the integrity of the game installer file.
+* **Installation aborted** - data transmission error, double-check and if necessary, replace the USB cable/USB port between the Switch and PC. Also, make sure that you have installed the latest version of the software, as in this post.
+* **Nothing to install** - in the file selection window, rename the file without special characters, hieroglyphs, or Cyrillic in the name and path to it.
+* **Transfer error**, **[TRANSFER CRC ERROR]**, **[TRANSFER ABORTED]** - check the USB-C cable connection and USB port, check with other USB-C cables, check the integrity of the game file and memory card for errors. When installing via MTP, launch dbi through any game (title) while holding down the (R) button, rather than in applet mode through albums.
+* **Error occurred: Invalid argument** - update your dbi to the latest version.
+*** SOME CONTENTS ARE MISSING. APPLICATION WILL BE UNUSABLE** - a corrupt file system on the memory card or a non-working/poor quality flash drive. Check it with chkdsk and h2testw; if there are no errors, reformat to FAT32.
+* **[NOT ENOUGH SPACE]**, **[CAN NOT CREATE PLACEHOLDER]** - there is not enough space on the memory card/NAND, free up more space or check the memory card. Check it with chkdsk and h2testw; if there are no errors, reformat to FAT32.
+* **Extra buffers exceeded. Media write speed is too low** - when installing via MTP, launch dbi through any game (title) while holding down the **(R)** button. Alternatively, use an NSP-forwarder and a faster microSD card with a different USB cable/port.
+* **No tickets found but they are required** - an incorrect (incomplete, without a ticket but with titlerights) game dump, find another.
+* **Invalid personalized ticket** - This error occurs at the end of game installation when installing a .tik ticket, indicating that an incorrect game dump was used where a personalized ticket from the console on which the game was purchased was left instead of a common ticket. Please download another correct dump.
+* **No ES sigpatches!** - This error message means that the ES sigpatches are either outdated, incorrect, or not installed on the console. Please install the latest version of the ES sigpatches.
 
 ### Color codes:
 
-* In all menus 
-  * WHITE on BLACK BG - focused
-  * BLUE - selected (with (X) button)
+* In all menus
+  * <span style="color:#ffffff; background-color: black;">WHITE on BLACK BG</span> - focused
+  * <span style="color:#008578; background-color: #000084;">BLUE</span> - selected (with **(X)** button)
 * In "**Browse SD Card**"
-  * WHITE - folder 
-  * LIGHT GREY - file
-  * DARK GREY - installed game
-  * GREEN - update or DLC for installed game
+  * <span style="color:#c7c6d6; background-color: #000084;">WHITE</span> - folder 
+  * <span style="color:#80878f; background-color: #000084;">LIGHT GREY</span> - file
+  * <span style="color:#414e54; background-color: #000084;">DARK GREY</span> - installed game
+  * <span style="color:#3bce28; background-color: #000084;">GREEN</span> - update or DLC for installed game
 * In "**Browse installed applications**"
-  * WHITE - installed game
-  * RED - installed update or DLC without game 
+  * <span style="color:#cebfde; background-color: #000084;">WHITE</span> - installed game
+  * <span style="color:#8e0000; background-color: #000084;">RED</span> - installed update or DLC without game
 * **In logs** on installation: 
-  * GREEN - no errors
-  * YELLOW - no errors, but warnings (for example, installed NSP is XCI convert, or hash was fixed on meta)
-  * RED - [errors](#errors). File was not installed
+  * <span style="color:#00ff02; background-color: #000084;">GREEN</span> - no errors
+  * <span style="color:#fa7f08; background-color: #000084;">ORANGE</span> - no errors, but warnings (for example, installed NSP is XCI convert, or hash was fixed on meta)
+  * <span style="color:#f80100; background-color: #000084;">RED</span> - [errors](#errors). File was not installed
+* **In logs** after installation: 
+  * <span style="color:#00ff02; background-color: #000084;">GREEN</span> - ended with no errors
+  * <span style="color:#f6ff05; background-color: #000084;">YELLOW</span> - ended with no errors but with warnings
+  * <span style="color:#f80100; background-color: #000084;">RED</span> - ended with errors
 
 ## dbi.config
-The `dbi.config` file was added starting with version 253. It is located next to DBI.nro and replaces the old flags files `dbi.default.ascii` and `dbi.network.config` and also adds several new options for easy customization of settings for the user.
+The `dbi.config` file is responsible for storing program settings. It is located next to `DBI.nro`
 
 Let's take a look at its contents:
 ```
@@ -539,109 +743,22 @@ Screenshots=sdmc:/Nintendo/Album/
 ; 010023901191C000=Naheulbeuk
 ```
 
-### General settings
-* **DefaultASCII** - **true** uses the standard font, **false** activates an alternative font
-* **UseLibUsbHsFS** - **true** enables [libusbhsfs](https://github.com/DarkMatterCore/libusbhsfs) library to activate support for any connected external USB drives, **false** disables it
-* **ExitToHomeScreen** - when **false** DBI will exit to hbmenu, when **true** DBI will exit directly to the Switch's homescreen
-* **SavesFolder** - folder for storing save dumps
-* **LogEvents** - enable logging for "*Install*", "*Check integrity*" and "*Cleanup*" events
-* **LogsFolder** - folder for storing logs
-* **DumpsFolder** - folder where game dumps are stored
-* **AppSorting** - options for sorting the list of applications
-* **SaveSorting** - options for sorting saves
-* **HighlightUpdates** - highlights available updates for currently installed titles in DBI's file browser
-* **RotateScreen** - rotate the screen 180 degrees
-* **RotateJoycon** - rotate controls for rotated screen
-* **OptimizeClockSpeed** - enable or disable SoC frequency optimization when idle,  disabled by default. **DO NOT** exit DBI improperly if enabled (e.g. by pressing the home button from applet mode) as default clock speeds will not be properly restored and your Switch will be laggy due to being in a low performance mode
-* **VersionsURL** - accept a direct link to a file on a remote server, or to a file on a memory card. Examples: `https://raw.githubusercontent.com/blawar/titledb/master/versions.txt` или `sdmc:/versions.txt`
-* **ROSaveFS** - browse saves FS in Read-only mode
-* **ShowUpdateFromHere** - show "Update all items from here..." in context menu of file browsers
-* **ShowCacheWarmingIndicator** - show a notification about caching information about installed programs
-* **MoveDownAfterX** - move or not cursor after chacking game with (X)
-* **ScreenIdleTimeout** - display timeout
-
-### MainMenu
-**Visibility of main menu options** - customize which options will appear in DBI's main menu: **true** - display in main menu, **false** - hide from main menu.
-
-* **BrowseSD** - display **Browse SD card**, to install games from SD card
-* **BrowseSystem** - browse and copy files from SYSTEM partition
-* **BrowseUser** - browse and copy files from USER partition
-* **USBHost** - display **Browse USB0 Drive**, to install games from a external USB drive if connected
-* **BackendInstall** - display **Install title from DBIbackend**, for installing games from PC via dbibackend
-* **GameCard** - display **Install title from Gamecard**, to install a game from an inserted gamecard to your console
-* **Network** - display **Home server**, to install games from a configured home web server
-* **Local** - show or not links to folders from the section [Local sources](#local-sources)
-* **BrowseApps** - display **Browse installed applications**, to browse and manage installed applications
-* **Cleanup** - display **Cleanup orphaned files**, to clean up 'orphaned' files from the SD card
-* **UpdateCheck** - display "**Check for title updates**", to check for updates and DLC for installed games
-* **Tickets** - display **Browse tickets**, to manage tickets
-* **Saves** - display **Browse saves**, to manage save games
-* **MTP** - display **Run MTP responder**, to start MTP mode
-* **FTP** - display **Run FTP server**, to start FTP mode
-
-### Applications
-* **CalculateLFSSize** - enables or disables the size check for LayeredFS mods, if enabled depending on the size of the mod a delay may occur when opening a game's information screen in **Installed applications** 
-
-### Install
-* **CheckHash** - when **true**, hashes of .nca files are checked when installing games
-* **ChunkedHTTP** - Use chunked HTTP transfer (good in bad environments)
-
-### MTP
-* **LogAllFiles** - **false** disables logging of all files in MTP mode, if **true** all files are logged, even those that are less than 2MB
-* **ShowCombinedNSPInInstalledGames** - **false** disables display of combined (multi-title .NSP-file) titles
-* **ShowMACInInstalledGames** - **false** turns off the display of the **"Mods & cheats"** directory under `Installed games` in MTP mode, which redirects to the path `sdmc:/atmosphere/contents/TITLEID/`
-* **CustomStorages** - display custom virtual MTP drives defined by the user under [MTP custom storages]
-* **MACasTID** - display "Mods & Cheats" folder on MTP with TitleID
-* **TurnOffScreen** - automatically turns off the screen when MTP mode is activated
-
-### [MTP Storages](#run-mtp-responder)
-Define which virtual MTP drives will be displayed when MTP Responder is running on PC/Android.
-
-**true** - display the virtual drive in MTP mode, **false** - disable the display of the virtual drive in MTP mode
-
-### FTP
-* **TurnOffScreen** - turn screen off on start FTP mode
-* **UseAP** - Switch works in access point mode, to which FTP clients connect directly. Below is the settings of this hotspot
-
-#### Access point
-Point of view settings
-
-* **SSID** - access point name
-* **Password** - password
-* **Use5GHz** - whether to use 5 GHz. If disabled, it will work in 2.4 GHz mode
-* **Hidden** - hide the SSID for searching. You can only enter the specified SSID
-
-### [Network sources](#home-server)
-Enter your network installation sources for installing games over the network (via WiFi/LAN adapter).
-
-**NSP Indexer** - address for NSP index page ([more info here](https://github.com/rashevskyv/dbi/issues/44))
-
-### Local sources
-
-Create menu items with quick access to the folders selected in the config on the memory card, for example:
-
-`Homebrew Shortcut=sdmc:/switch` will create an item "**Homebrew Shortcut**" which will open the folder`sdmc:/switch`
-
-### MTP custom storages
-Define your own custom virtual MTP drives for quick access to folders on your SD card. 
-
-Format: `<folder display name>=<path>`
-
-For example: `Homebrew=sdmc:/switch`
-In MTP mode, a `Homebrew` virtual MTP drive will now be available, which will directly open the `sdmc:/switch` folder on your SD card.
-
-### Title name override
-
-Allows you to change the name of the displayed title in DBI itself and in MTP mode (this can be particularly useful for e.g. Japanese games). 
-
-For example, if you specify `10023901191C000 = Naheulbeuk`, then the application will display just` Naheulbeuk` instead of `The Dungeon of Naheulbeuk: The Amulet of Chaos`
+The description of each item separately can be found in the [DBI settings](#configuration-and-dbiconfig-parameters) section.
 
 ## Other options
 
 ### Mounting the content of installed titles via MTP
-Go to "*Browse installed applications*" -> Choose apps you need to mount with `X` -> Press `+` -> "*Expose contents via MTP*"
+
+Go to "**Browse installed applications**" -> Choose apps you need to mount with **(X)** -> Press **(+)** -> "**Expose contents via MTP**"
+
+### Backup and Restore Saves via MTP
+
+1. Connect your console in MTP mode via DBI.
+1. Navigate to the **Saves** folder on your PC.
+1. You can either copy your saves to your PC or restore them by simply dragging them into this folder.
 
 ### Using DBI to Install Mods
+
 1. Connect to your computer via MTP mode in DBI
 1. Go to **Installed Games**, in the folder with the name of your game
 1. Go to **Mods & Cheats** folder

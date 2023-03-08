@@ -558,8 +558,8 @@ Displayed in orange. These are NOT errors!
 * **HASH MISMATCH** — most often, this is NOT an error, the game was converted from a cartridge (then everything is fine), sometimes there are problems with file integrity, re-download/re-hash it, data transfer via USB cable/port/during installation between PC and Switch.
 If the game does not launch or launches with an error, try to reinstall it again, check or replace the USB cable/microSD/change USB port.
 * **[DELTA SKIPPED]** — this is NOT an error, but a notification that unnecessary fragments in the update file were skipped if they were in it, as it should have been.
-* No tickets found» / «Тикеты не найдены — this is NOT an error, it does not affect the game's functionality, but informs that the game is without tickets. It may be a dump from a .XCI cartridge or converted to Standard Crypto.
-*** Application uses AddonContent titleId**, **Application uses Update titleId** — this is NOT an error, usually indicating a homebrew game in .NSP, created not to standard, for example, when AddonContent flag (DLC) was added to the Application title (main game, v0).
+* **No tickets found** — this is NOT an error, it does not affect the game's functionality, but informs that the game is without tickets. It may be a dump from a .XCI cartridge or converted to Standard Crypto.
+* **Application uses AddonContent titleId**, **Application uses Update titleId** — this is NOT an error, usually indicating a homebrew game in .NSP, created not to standard, for example, when AddonContent flag (DLC) was added to the Application title (main game, v0).
 If such a game launches and works, then everything is fine.
 * **This application base is not stand alone. Make sure you installed update** - when installing new Sparse Storage games — this is NOT an error, do not forget, in addition to the game's base file, to also install an update to it before launching.
 
@@ -575,7 +575,7 @@ If such a game launches and works, then everything is fine.
 * **Nothing to install** - in the file selection window, rename the file without special characters, hieroglyphs, or Cyrillic in the name and path to it.
 * **Transfer error**, **[TRANSFER CRC ERROR]**, **[TRANSFER ABORTED]** - check the USB-C cable connection and USB port, check with other USB-C cables, check the integrity of the game file and memory card for errors. When installing via MTP, launch dbi through any game (title) while holding down the (R) button, rather than in applet mode through albums.
 * **Error occurred: Invalid argument** - update your dbi to the latest version.
-*** SOME CONTENTS ARE MISSING. APPLICATION WILL BE UNUSABLE** - a corrupt file system on the memory card or a non-working/poor quality flash drive. Check it with chkdsk and h2testw; if there are no errors, reformat to FAT32.
+* **SOME CONTENTS ARE MISSING. APPLICATION WILL BE UNUSABLE** - a corrupt file system on the memory card or a non-working/poor quality flash drive. Check it with chkdsk and h2testw; if there are no errors, reformat to FAT32.
 * **[NOT ENOUGH SPACE]**, **[CAN NOT CREATE PLACEHOLDER]** - there is not enough space on the memory card/NAND, free up more space or check the memory card. Check it with chkdsk and h2testw; if there are no errors, reformat to FAT32.
 * **Extra buffers exceeded. Media write speed is too low** - when installing via MTP, launch dbi through any game (title) while holding down the **(R)** button. Alternatively, use an NSP-forwarder and a faster microSD card with a different USB cable/port.
 * **No tickets found but they are required** - an incorrect (incomplete, without a ticket but with titlerights) game dump, find another.

@@ -429,7 +429,6 @@ Below are the configuration items through GUI / The corresponding items in `dbi.
 
 #### General (`[General]`)
 
-* **Use default font** (`DefaultASCII`) - **true** uses the standard font, **false** uses an alternative font.
 * **Use external USB drives** (`UseLibUsbHsFS`) - true enables the [libusbhsfs](https://github.com/DarkMatterCore/libusbhsfs) library for working with external USB drives through USB-OTG on the Switch, false disables it.
 * **Direct exit to homescreen** (`ExitToHomeScreen`) - if **false**, exiting DBI will go to hbmenu, if **true**, to the Switch home screen.
 * **Log events & operations** (`LogEvents`) - whether or not to save logs for "*Install*", "*Check integrity*", and "*Cleanup*" events.
@@ -611,8 +610,6 @@ Let's take a look at its contents:
 ```
 ; General settings
 [General]
-; Use libnx's default font for ASCII symbols
-DefaultASCII=true
 ; Use libusbhsfs for access to USB mass storage drives connected to switch or dock
 UseLibUsbHsFS=true
 ; Direct exit to homescreen
@@ -793,6 +790,12 @@ usb30_force_enabled = u8!0x1
 ```
 
 **Important** - activating USB 3.0 can interfere with bluetooth and 2.4GHz wifi connections. If you experience any connection issues with your wireless controllers or 2.4GHz wifi networks then you should not activate USB 3.0. 5GHz wifi connections should be generally unaffacted.
+
+### Restoring clean user saves
+
+These are decrypted saves that are located in the `USER:/saves` folder. In case the emunand is damaged, these saves can be retrieved through a PC or Tegra Explorer and restored through DBI.
+
+You can place these saves in the backup saves folder of DBI (`/switch/dbi/saves` by default) and restore them through the standard save restoration menu (the user's name will be enclosed in curly brackets `{}` in this case), or through the context menu invoked on the file of such a save.
 
 ## Acknowledgements
 Thanks to [SciresM](https://github.com/SciresM) for [hactool](https://github.com/SciresM/hactool) (licensed under [ISC](https://en.wikipedia.org/wiki/ISC_license)) - DBI uses some data struct definitions from there

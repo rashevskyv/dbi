@@ -435,7 +435,6 @@ switch:{SHA}N/omUzCtg+qoee+x4ttjgIls9jk=
 
 #### General / Общие (`[General]`)
 
-* **Use default font** / **Использовать дефолтный шрифт** (`DefaultASCII`) - **true** используется стандартный шрифт, **false** используется альтернативный шрифт
 * **Use external USB drives** / **Использовать внешние USB** (`UseLibUsbHsFS`) - **true** включает библиотеку [libusbhsfs](https://github.com/DarkMatterCore/libusbhsfs) для работы с внешними USB-накопителями через USB-OTG на Switch, **false** отключает её.
 * **Direct exit to homescreen** / **Выход на рабочий стол** (`ExitToHomeScreen`) - при **false** выход из dbi происходит в hbmenu, при **true** на рабочий стол Switch.
 * **Log events & operations** / **Журналирование действий** (`LogEvents`) - сохранять или нет логи для событий "*Install*", "*Check integrity*" and "*Cleanup*"
@@ -612,8 +611,6 @@ switch:{SHA}N/omUzCtg+qoee+x4ttjgIls9jk=
 ```
 ; General settings
 [General]
-; Use libnx's default font for ASCII symbols
-DefaultASCII=true
 ; Use libusbhsfs for access to USB mass storage drives connected to switch or dock
 UseLibUsbHsFS=true
 ; Direct exit to homescreen
@@ -792,6 +789,14 @@ DBI поддерживает работу по USB 3.0. Если вы испол
 [usb]
 usb30_force_enabled = u8!0x1
 ```
+
+**Важно** - активация USB 3.0 может повлиять на работу беспроводных соединений Bluetooth и Wi-Fi на частоте 2.4 ГГц. Если у вас возникают проблемы с подключением беспроводных контроллеров или сетей Wi-Fi на частоте 2.4 ГГц, то не следует активировать USB 3.0. Связь через Wi-Fi на частоте 5 ГГц не пострадает.
+
+### Восстановление чистых пользовательских сохранений
+
+Это нерасшифрованные сохранения, которые лежат в папке `USER:/saves`. В случае, если эмунанд поврежден, то эти сохранения можно достать через ПК или Tegra Explorer и восстановить через DBI. 
+
+Вы можете положить эти сохранения в папку с бекапами сохранений DBI (`/switch/dbi/saves` по умолчанию) и восстановить через стандартное меню восстановления сейвов (имя пользователя в таком случае будет взято в фигурные скобки `{}`), либо через контекстное меню, вызванное на файле такого сохранения. 
 
 ## Благодарности
 Спасибо [SciresM](https://github.com/SciresM) за  [hactool](https://github.com/SciresM/hactool) (лицензия [ISC](https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F_ISC)) - DBI использует некоторые структуры данных, взятые оттуда.

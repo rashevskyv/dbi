@@ -30,6 +30,7 @@ The ultimate solution to install `NSP`, `NSZ`, `XCI` and `XCZ` and work with Nin
       * [Context menu Installed and Uninstalled](#context-menu-installed-and-uninstalled)
       * [Backups context menu](#backups-context-menu)
   1. [Run MTP responder](#run-mtp-responder)
+  1. [Activity Log / Настройки активности](#activity-log)
   1. [Configuration and dbi.config parameters](#configuration-and-dbiconfig-parameters)
      * [General (`[General]`)](#general-general)
      * [Main menu (`[MainMenu]`)](#main-menu-mainmenu)
@@ -419,6 +420,10 @@ After activating the MTP server on the Switch a window will appear with your acc
 
 To turn off the MTP server and exit to the main menu, press either the **(X)** or **(B)** button.
 
+### Activity Log
+
+Displays activity charts in games by dates for all available users for each specific game.
+
 ### Configuration and dbi.config parameters
 
 The program configuration manager allows easy configuration of the program without editing `dbi.config`.
@@ -445,6 +450,8 @@ Below are the configuration items through GUI / The corresponding items in `dbi.
 * **Show cache warming indicator** (`ShowCacheWarmingIndicator`) - show a notification when caching information about installed programs.
 * **Put cursor down after selection** (`MoveDownAfterX`) - whether or not to move the cursor down after marking a game with the **(X)** button.
 * **Screen idle time in seconds** (`ScreenIdleTimeout`) - screen shutdown timeout.
+* **Autorepeat buttons when holding** / **Автоповтор кнопки при удержании** (`Autorepeat`) - navigate through the menu by holding the button
+* **Cursor on both panels** / **Курсор на обеих панелях** (`Secondcursor`) - whether to display the cursor on the inactive panel or not
 
 **Exists in the config, but not in the menu:**
 
@@ -486,6 +493,7 @@ Settings for the menu items that will be displayed in the main DBI menu. **Yes**
 * **Show 'Mods & Cheats' folder** (`ShowMACInInstalledGames`) - When set to false, the virtual directory **Mods & cheats** in the Installed games menu in MTP mode is not shown, which redirects to `sdmc:/atmosphere/contents/TITLEID/` on the memory card.
 * **Use TitleID for 'Mods & Cheats'** (`MACasTID`) - Displays the "Mods & Cheats" folder in MTP mode as a TitleID.
 * **Turn off screen** (`TurnOffScreen`) - Enables or disables turning off the console screen when connected in MTP mode.
+* **Android extensions** (`ReportAndroidExtension`) - whether to use the corresponding command set when working with MTP. Sometimes PC clients based on libmtp (Mac or Linux) do not correctly recognize the device, which may result in a decrease in data transfer speed. In such cases, it is recommended to try changing this setting.
 
 **In the config but not in the menu:**
 
@@ -514,6 +522,7 @@ The names of the items correspond to the section names.
 
 * **Turn off screen** (`TurnOffScreen`) - turn off the screen when entering FTP mode.
 * **Start local Access point** (`UseAP`) - enable Switch to work as an access point that FTP clients can connect to directly. Below are settings for this access point.
+* **Read file date** / **Читать дату файлов** (`ReadMT`) - whether to read the file modification date or not
 
 #### Access Point (`[Access point]`)
 
@@ -647,6 +656,10 @@ ShowCacheWarmingIndicator=true
 MoveDownAfterX=true
 ; Screen idle timeout in seconds
 ScreenIdleTimeout=0
+; Auto repeat nav. buttons when holding
+Autorepeat=true
+; Show cursors on both panels in two-panel browsinig mode
+Secondcursor=false
 
 ; Visibility of main menu items
 [MainMenu]
@@ -706,6 +719,8 @@ MACasTID=true
 CustomStorages=true
 ; Turn screen off on start MTP mode
 TurnOffScreen=false
+; Report android extension (some initiators thinks that android has bugs)
+ReportAndroidExtension=true
 
 ; FTP options
 [FTP]
@@ -713,6 +728,8 @@ TurnOffScreen=false
 TurnOffScreen=false
 ; Start local access point for FTP server
 UseAP=false
+; Read file modification time (can slow down on large dirs)
+ReadMT=false
 
 ; Access point options
 [Access point]

@@ -30,6 +30,7 @@
       * [Контекстное меню Installed / Установленные и Uninstalled / Удалённые](#контекстное-меню-installed--установленные-и-uninstalled--удалённые)
       * [Контекстное меню Backups / Бекапы](#контекстное-меню-backups--бекапы)
   1. [Run MTP responder / Запустить MTP соединение](#run-mtp-responder--запустить-mtp-соединение)
+  1. [Activity Log / Настройки активности](#activity-log--настройки-активности)
   1. [Configuration / Настройки DBI и параметры файла dbi.config](#configuration--настройки-dbi-и-параметры-файла-dbiconfig)
      * [General / Общие (`[General]`)](#general--общие-general)
      * [Main menu / Главное меню (`[MainMenu]`)](#main-menu--главное-меню-mainmenu)
@@ -425,6 +426,10 @@ switch:{SHA}N/omUzCtg+qoee+x4ttjgIls9jk=
 
 Чтобы выключить MTP-сервер и выйти в главное меню, нажмите кнопку **(X)** или **(B)**.
 
+### Activity Log / Настройки активности
+
+Показывает графики активности в играх по датам для всех имеющихся пользователей для каждой конкретной игры. 
+
 ### Configuration / Настройки DBI и параметры файла dbi.config
 
 Менеджер конфигурации программы, позволяет легко настроить программу без редактирования `dbi.config`.
@@ -451,6 +456,8 @@ switch:{SHA}N/omUzCtg+qoee+x4ttjgIls9jk=
 * **Show cache warming indicator** / **Показывать прогрев кеша** (`ShowCacheWarmingIndicator`) - показывать уведомление о кешировании информации об установленных программах
 * **Put cursor down after selection** / **Смещать курсор после выделения** (`MoveDownAfterX`) - сдвигать или нет курсор после отмечания игры кнопкой **(X)**
 * **Screen idle time in seconds** / **Время гашения экрана в секундах** (`ScreenIdleTimeout`) - таймаут гашения дисплея
+* **Autorepeat buttons when holding** / **Автоповтор кнопки при удержании** (`Autorepeat`) - перемещаться по меню удерживанием кнопки 
+* **Cursor on both panels** / **Курсор на обеих панелях** (`Secondcursor`) - отображать или нет курсор на неактивной панели
 
 **Есть в конфиге, но нет в меню:**
 * **AppSorting** - опции для сортировки списка приложений
@@ -491,6 +498,7 @@ switch:{SHA}N/omUzCtg+qoee+x4ttjgIls9jk=
 * **Show 'Mods & Cheats' folder** / **Показывать папку 'Mods&Cheats'** (`ShowMACInInstalledGames`) - **false** выключает показ виртуальной директории **Mods & cheats** в пункте Installed games в MTP, перенаправляющей по пути `sdmc:/atmosphere/contents/TITLEID/` на карту памяти
 * **Use TitleID for 'Mods & Cheats'** / **Использовать для неё TitleID** (`MACasTID`) - отображать папку "Mods & Cheats" в режиме MTP в виде TitleID
 * **Turn off screen** / **Выключать экран** (`TurnOffScreen`) - отключать или нет экран консоли при подключении её в режиме MTP
+* **Android extensions** (`ReportAndroidExtension`) - использовать или нет соответствующий набор команд при работе по MTP. Иногда ПК клиенты на базе libmtp (Mac или linux) не корректно распознают девайс в связи с чем может упасть скорость передачи данных. В таких случая рекомендуется попробовать изменить эту настройку. 
 
 **Есть в конфиге, но нет в меню:**
 * **LogAllFiles** — **false** выключает логирование файлов меньше 4Мб при работе с MTP, при **true** логируются все файлы.
@@ -518,6 +526,7 @@ switch:{SHA}N/omUzCtg+qoee+x4ttjgIls9jk=
 
 * **Turn off screen** / **Выключать экран** (`TurnOffScreen`) - выключать экран при входе в режим FTP 
 * **Start local Access point** / **Запускать точку доступа** (`UseAP`) - работа Switch в режиме точки доступа, к которой FTP-клиенты могут подключаться напрямую. Ниже настройки этой точки доступа
+* **Read file date** / **Читать дату файлов** (`ReadMT`) - читать или нет дату изменения файла
 
 #### Access point / Точка доступа (`[Access point]`)
 
@@ -648,6 +657,10 @@ ShowCacheWarmingIndicator=true
 MoveDownAfterX=true
 ; Screen idle timeout in seconds
 ScreenIdleTimeout=0
+; Auto repeat nav. buttons when holding
+Autorepeat=true
+; Show cursors on both panels in two-panel browsinig mode
+Secondcursor=false
 
 ; Visibility of main menu items
 [MainMenu]
@@ -707,6 +720,8 @@ MACasTID=true
 CustomStorages=true
 ; Turn screen off on start MTP mode
 TurnOffScreen=false
+; Report android extension (some initiators thinks that android has bugs)
+ReportAndroidExtension=true
 
 ; FTP options
 [FTP]
@@ -714,6 +729,8 @@ TurnOffScreen=false
 TurnOffScreen=false
 ; Start local access point for FTP server
 UseAP=false
+; Read file modification time (can slow down on large dirs)
+ReadMT=false
 
 ; Access point options
 [Access point]

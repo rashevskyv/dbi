@@ -698,6 +698,8 @@ ScreenIdleTimeout=0
 Autorepeat=true
 ; Show cursors on both panels in two-panel browsinig mode
 Secondcursor=false
+; Backup saves before delete
+FoolproofSaveDelete=true
 
 ; Visibility of main menu items
 [MainMenu]

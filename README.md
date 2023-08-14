@@ -1,4 +1,4 @@
-# DBI by **[duckbill](https://github.com/duckbill007)**
+# DBI
 ![Github latest downloads](https://img.shields.io/github/downloads/rashevskyv/dbi/total.svg)
 
 [ENGLISH GUIDE](README_ENG.md)

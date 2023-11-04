@@ -65,7 +65,7 @@ The ultimate solution to install `NSP`, `NSZ`, `XCI` and `XCZ` and work with Nin
 
 ## Installation 
 
-Copy `dbi.nro` and `dbi.config` to your SD card at `sdmc:/switch/DBI/` DBI can be then be launched in either applet mode (from Album) or application mode (title override), however it is primarily designed to be used in applet mode. 
+Copy `dbi.nro` and `dbi.config` to your SD card at `sdmc:/switch/DBI/` DBI can be then be launched in either applet mode (from Album) or application mode (title override), however it is primarily designed to be used in application mode. 
 
 *If you have successfully launched DBI in applet mode you will see a blue background, launching in application mode will display a black background.*
 

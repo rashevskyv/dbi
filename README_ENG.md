@@ -156,6 +156,16 @@ brew install python-tk
 pip3 install pyusb
 ```
 
+#### Install instructions for Ubuntu 22.04.3
+
+This will install DBI dependencies and create a udev rule to allow a non-root user to access a Switch connected via USB.
+
+```pip3 install pyusb
+sudo apt install python-tk
+echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="3000", MODE="0666"' | sudo tee /etc/udev/rules.d/nintendo-switch.rules
+sudo udevadm control --reload-rules
+```
+
 ### Home server
 
 The **"Home server"** option will appear if the **Network install sources** section has been configured in **[dbi.config](#dbiconfig)**. You can specify the name of the option as required in the configuration file.

@@ -1,7 +1,7 @@
 # DBI
 ![Github latest downloads](https://img.shields.io/github/downloads/rashevskyv/dbi/total.svg)
 
-[ENGLISH GUIDE](README_ENG.md)
+[ENGLISH GUIDE](README.md)
 
 Инструкция базируется на [работе Брикачу](https://4pda.to/forum/index.php?showtopic=939714&st=1100#Spoil-86288632-5)
 

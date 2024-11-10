@@ -1,6 +1,6 @@
 # DBI 
 
-NO ENGLISH VERSION FOR NOW. READ MORE - https://github.com/rashevskyv/dbi/issues/370
+**NO ENGLISH VERSION FOR NOW. READ MORE** - https://github.com/rashevskyv/dbi/issues/370
 
 ![Github latest downloads](https://img.shields.io/github/downloads/rashevskyv/dbi/total.svg)
 

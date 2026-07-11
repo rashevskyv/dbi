@@ -152,6 +152,19 @@ python ~/dbi/dbibackend ~/Switch/File1.nsp ~/Switch/File2.nsp ~/Switch/File3.nsp
 dbibackend.exe "e:\Switch\Games\File1.nsp" "e:\Switch\Games\File2.nsp" "e:\Switch\Games\File3.nsp"
 ```
 
+For automated workflows, the script can also be started without the Tk GUI:
+
+```
+python ~/dbi/dbibackend --no-gui ~/Switch/File1.nsp ~/Switch/File2.nsp
+```
+
+Folders can be scanned recursively, and the optional installer filter keeps only
+`NSP`, `NSZ`, `XCI` and `XCZ` files:
+
+```
+python ~/dbi/dbibackend --no-gui --recursive --filter-installers ~/Switch/Games
+```
+
 #### Dependencies that may be required to run on MacOS or Linux
 
 ```bash

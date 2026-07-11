@@ -2,21 +2,23 @@
 # This script depends on PyUSB. You can get it with pip install pyusb.
 # You will also need libusb installed
 
-import usb.core
-import usb.util
 import struct
 import sys
 import time
 import threading
+import argparse
 
-from binascii import hexlify as hx, unhexlify as uhx
 from pathlib import Path
 
 from tkinter import filedialog
 import tkinter as tk
-from tkinter import *
-
 from tkinter import scrolledtext
+
+try:
+    import usb.core
+    import usb.util
+except ImportError:
+    usb = None
 
 CMD_ID_EXIT = 0
 CMD_ID_LIST_OLD = 1
@@ -31,14 +33,48 @@ BUFFER_SEGMENT_DATA_SIZE = 0x100000
 
 in_ep = None
 out_ep = None
+text1 = None
+root = None
 
 file_list = {}
 
 def LOG(line):
+    if text1 is None:
+        print(line, flush=True)
+        return
     if int(text1.index('end').split('.')[0]) - 1 > 1000: # max 1000 lines of log are shown
             text1.delete('1.0', tk.END)
     text1.insert(tk.END, line+'\n')
     text1.see(tk.END)
+
+def add_path_to_file_list(path, recursive=False, extensions=None):
+    global file_list
+    path = Path(path)
+    if not path.exists():
+        LOG('Path not found: {}'.format(path))
+        return 0
+
+    candidates = []
+    if path.is_file():
+        candidates = [path]
+    elif path.is_dir():
+        iterator = path.rglob('*') if recursive else path.iterdir()
+        candidates = [f for f in iterator if f.is_file()]
+    else:
+        LOG('Unsupported path: {}'.format(path))
+        return 0
+
+    added = 0
+    for file_path in candidates:
+        if extensions and file_path.suffix.lower().lstrip('.') not in extensions:
+            continue
+        if file_path.name in file_list:
+            LOG('Duplicate file name skipped: {}'.format(file_path.name))
+            continue
+        file_list.update({file_path.name: file_path.resolve()})
+        added += 1
+
+    return added
 
 def process_file_range_command(data_size):
     global file_list
@@ -54,6 +90,11 @@ def process_file_range_command(data_size):
     nsp_name = bytes(file_range_header[16:]).decode('utf-8')
 
     LOG('Range Size: {}, Range Offset: {}, Name len: {}, Name: {}'.format(range_size, range_offset, nsp_name_len, nsp_name))
+
+    if nsp_name not in file_list:
+        LOG('Requested file is not in list: {}'.format(nsp_name))
+        out_ep.write(struct.pack('<4sIII', b'DBI0', CMD_TYPE_RESPONSE, CMD_ID_FILE_RANGE, 0))
+        return
 
     response_bytes = struct.pack('<4sIII', b'DBI0', CMD_TYPE_RESPONSE, CMD_ID_FILE_RANGE, range_size)
     out_ep.write(response_bytes)
@@ -73,14 +114,22 @@ def process_file_range_command(data_size):
         curr_off = 0x0
         end_off = range_size
         read_size = BUFFER_SEGMENT_DATA_SIZE
+        started_at = time.monotonic()
 
         while curr_off < end_off:
             if curr_off + read_size >= end_off:
                 read_size = end_off - curr_off
 
             buf = f.read(read_size)
+            if not buf:
+                LOG('Unexpected EOF while reading: {}'.format(nsp_name))
+                break
             out_ep.write(data=buf, timeout=0)
             curr_off += read_size
+
+        elapsed = max(time.monotonic() - started_at, 0.001)
+        speed = curr_off / 1024 / 1024 / elapsed
+        LOG('Sent {} bytes from {} ({:.2f} MiB/s)'.format(curr_off, nsp_name, speed))
 
 def poll_commands():
     LOG('Entering command loop')
@@ -112,12 +161,15 @@ def process_exit_command():
     LOG('Exit')
     out_ep.write(struct.pack('<4sIII', b'DBI0', CMD_TYPE_RESPONSE, CMD_ID_EXIT, 0))
     global root
-    root.quit()
+    if root is not None:
+        root.quit()
+    else:
+        raise SystemExit(0)
 
 
 def process_list_command():
     global file_list
-    LOG('Get list')
+    LOG('Get list ({} file(s))'.format(len(file_list)))
     nsp_path_list = ""
     nsp_path_list_len = 0
 
@@ -145,6 +197,8 @@ def connect_to_switch():
     global in_ep
     global out_ep
     global text1
+    if usb is None:
+        raise SystemExit('PyUSB is required. Install it with: pip install pyusb')
     while True:
         dev = usb.core.find(idVendor=0x057E, idProduct=0x3000)
         if dev is None:
@@ -168,7 +222,7 @@ def connect_to_switch():
         break
 
 def start_server():
-    print(file_list)
+    LOG('Serving {} file(s)'.format(len(file_list)))
     connect_to_switch()
     poll_commands()    
 
@@ -207,9 +261,7 @@ def gui_choose_dir():
     filename = filedialog.askdirectory()
     if filename == () or filename == '':
         return
-    d = Path(filename)
-    for file_path in [f for f in d.iterdir() if f.is_file()]:
-        file_list.update({file_path.name : file_path.resolve()})
+    add_path_to_file_list(filename)
 
     updateFileList()
 
@@ -217,8 +269,7 @@ def gui_choose_files():
     global file_list
     filenames = filedialog.askopenfilenames()
     for file_path in filenames:
-        d = Path(file_path)
-        file_list.update({d.name : d.resolve()})
+        add_path_to_file_list(file_path)
 
     updateFileList()
 
@@ -265,16 +316,37 @@ def start_gui(start):
     root.mainloop()
 
 
-if len(sys.argv) < 2:
-    start_gui(False)
-else:
-    for filename in sys.argv[1:]:
-        d = Path(filename)
-        if d.is_file():
-            file_list.update({d.name: d.resolve()})
-        else:
-            for file_path in [f for f in d.iterdir() if f.is_file()]:
-                file_list.update({file_path.name : file_path.resolve()})
+def parse_args(argv):
+    parser = argparse.ArgumentParser(description='DBI backend USB file server')
+    parser.add_argument('paths', nargs='*', help='Files or folders to serve')
+    parser.add_argument('-r', '--recursive', action='store_true', help='Add files from folders recursively')
+    parser.add_argument(
+        '--filter-installers',
+        action='store_true',
+        help='Only add NSP, NSZ, XCI and XCZ files from folders'
+    )
+    parser.add_argument('--no-gui', action='store_true', help='Run without Tk GUI')
+    return parser.parse_args(argv)
 
-    start_gui(True)
+
+def main(argv=None):
+    args = parse_args(sys.argv[1:] if argv is None else argv)
+    extensions = {'nsp', 'nsz', 'xci', 'xcz'} if args.filter_installers else None
+
+    for path in args.paths:
+        add_path_to_file_list(path, recursive=args.recursive, extensions=extensions)
+
+    if args.no_gui:
+        if len(file_list) == 0:
+            LOG('No files to serve')
+            return 1
+        start_server()
+        return 0
+
+    start_gui(len(file_list) > 0)
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
 

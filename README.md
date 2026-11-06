@@ -707,7 +707,7 @@ DumpsFolder=sdmc:/switch/DBI/dumps/
 AppSorting=LastPlayed,InstallLocation,Size,Name
 ; Sorting options for save list
 SaveSorting=AppLastPlayed,AppName,UserUid,Size,SaveId
-; Highlight files with updates to curently instaled titles in file browsers
+; Highlight files with updates to currently installed titles in file browsers
 HighlightUpdates=true
 ; Rotate screen upside down
 RotateScreen=false
@@ -730,7 +730,7 @@ MoveDownAfterX=true
 ScreenIdleTimeout=0
 ; Auto repeat nav. buttons when holding
 Autorepeat=true
-; Show cursors on both panels in two-panel browsinig mode
+; Show cursors on both panels in two-panel browsing mode
 Secondcursor=false
 ; Backup saves before delete
 FoolproofSaveDelete=true
@@ -797,7 +797,7 @@ ShowCombinedNSP=true
 ShowMAC=true
 ; Use TitleID for "Mods & cheats" folder
 MACasTID=true
-; Show user defined shortcuts to MircoSD folders as separate storages
+; Show user defined shortcuts to MicroSD folders as separate storages
 CustomStorages=true
 ; Turn screen off on start MTP mode
 TurnOffScreen=false
@@ -888,7 +888,7 @@ DBI supports USB 3.0. If you are using kefir, then USB 3.0 is active by default.
 usb30_force_enabled = u8!0x1
 ```
 
-**Important** - activating USB 3.0 can interfere with bluetooth and 2.4GHz wifi connections. If you experience any connection issues with your wireless controllers or 2.4GHz wifi networks then you should not activate USB 3.0. 5GHz wifi connections should be generally unaffacted.
+**Important** - activating USB 3.0 can interfere with bluetooth and 2.4GHz wifi connections. If you experience any connection issues with your wireless controllers or 2.4GHz wifi networks then you should not activate USB 3.0. 5GHz wifi connections should be generally unaffected.
 
 ### Restoring clean user saves from backup
 

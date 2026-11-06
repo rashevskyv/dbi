@@ -8,6 +8,8 @@ This guide is based on [Brikachu's work](https://4pda.to/forum/index.php?showtop
 
 [РУССКИЙ / Russian guide](README_RU.md)
 
+[Community translations / Traducciones comunitarias](TRANSLATIONS.md)
+
 The ultimate solution to install `NSP`, `NSZ`, `XCI` and `XCZ` and work with Nintendo Switch. Supports installation over MTP, USB, http (from your personal server), external USB and more. Support for viewing images in `jpg`, `png` and `psd` formats. Support for working with `zip` and `rar` archives, as well as with `cbr`/`cbz` containers. Support for text files, plain text view and hex view. Can be used as a file manager (copy, move, delete files and folders, create folders). Work with saves (including backup and restore) and much more.
 
 ## Content: 
